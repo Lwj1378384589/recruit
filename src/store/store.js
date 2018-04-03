@@ -4,25 +4,27 @@ Vue.use(Vuex)
 
 // 定义接收变量
 const state={
-    num1:1,
-    num2:2
+    jobfairList:[]
 }
 
 //写方法
 const mutations = {
-    add(state){
-        state.num1+=1,
-        state.num2+=2
+    jobfairListAdd(state,data){
+        state.jobfairList.push(data);
     },
-    reduce(state){
-        state.num1-=1,
-        state.num2-=2
+    jobfairListDelete(state,index){
+        state.jobfairList.splice(index,1);
     },
-    jobfairListChange(state,map){
-        alert(state.jobfairList)
-        this.jobfairList.push(map);
+    jobfairListSearch(state,data){
+        state.jobfairList=data;
+        
+    },
+    jobfairListSearchInJobfair(state,data){
+        state.jobfairList=data;
     }
+
 }
+
 
 //返回
 export default new Vuex.Store({

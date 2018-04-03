@@ -1,17 +1,23 @@
 <template>
-  <div id="main">
-  
-    <router-view class="view"> </router-view>
-  </div>
+    <div id="backIndex" style='background:url("/static/img/bg2.jpg") no-repeat !important'>
+      <my-header></my-header>
+      <router-view class="view"> </router-view>
+      <my-aside></my-aside>
+      <my-footer></my-footer>
+    </div>
 </template>
 
 <script>
+import MyHeader from '@/components/frame/header'
+import MyFooter from '@/components/frame/footer'
+import MyAside from '@/components/frame/aside'
 export default {
-  name: 'main',
+  name: 'backIndex',
   data () {
     return {
     }
   },
+  components:{MyHeader,MyFooter,MyAside}
 }
 </script>
 

@@ -13,6 +13,16 @@ const datas=[
           title:'申请宣讲会',
           path:'/careertalk/into',
           page:'careertalk.careertalkAdd',
+        },
+        {
+          title:'查询宣讲会',
+          path:'/careertalk/careertalkList',
+          page:'careertalk.careertalkList',
+        },
+        {
+          title:'修改宣讲会',
+          path:'/careertalk/careertalkUpdate',
+          page:'careertalk.careertalkUpdate',
         }
       ],
     },
@@ -20,9 +30,19 @@ const datas=[
       title:'招聘会',
       children:[
         {
+          title:'招聘会职位添加',
+          path:'/jobfair/into',
+          page:'jobfair.jobfairAdd'
+        },
+        {
           title:'查看招聘会',
           path:'/jobfair/jobfairList',
           page:'jobfair.jobfairList',
+        },
+        {
+          title:'修改招聘会职位',
+          path:'/jobfair/jobfairUpdate',
+          page:'jobfair.jobfairUpdate',
         }
       ],
     },

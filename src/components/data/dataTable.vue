@@ -1,7 +1,7 @@
 <template>
         <div id="tab">
                 <el-table
-                    :data="$store.state.jobList"
+                    :data="$store.state.jobfairList"
                     style="width: 100%">
                     
                     <el-table-column
@@ -38,7 +38,7 @@ export default{
     store,
     methods:{
         handleDelete(index,row){
-		    		 this.jobList.splice(index,1) ;
+            this.$store.commit("jobfairListDelete",index);
 		    	 }, 
         
     }

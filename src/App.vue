@@ -1,20 +1,26 @@
 <template>
-  <div id="app" style='background:url("/static/img/bg2.jpg") no-repeat !important'>
-      <my-header></my-header>
-          <router-view ></router-view>
-      <my-aside></my-aside>
-      <my-footer></my-footer>
-  </div>
+  <router-view ></router-view>
 </template>
 
 <script>
-import MyHeader from '@/components/frame/header'
-import MyFooter from '@/components/frame/footer'
-import MyAside from '@/components/frame/aside'
 export default {
   name: 'App',
-  components:{MyHeader,MyFooter,MyAside}
+  mounted(){
+			this.getUrl();
+    },
+    methods:{
+      getUrl(){
+        if(top.location.href.indexOf("front")>0){
+          alert(top.location.href.indexOf("front"))
+          this.$router.push({path:'/frontPage'})
+        }else{
+          top.location.href.indexOf("front")
+          this.$router.push({path:'/'})
+        }
+      }
+    }
 }
+
 </script>
 
 <style>

@@ -26,7 +26,7 @@
                         </div>
                       </div>
                       
-                      <div class="renDetail" id="cityBlock" style="display:none;" >
+                      <div class="renDetail" id="cityBlock"  >
                         <div class="xiaoM">宣讲城市：</div>
                         <div class="xiaoT">
                           <el-select class="w500"  v-model="citySelect" placeholder="请选择"  id="city" >
@@ -100,12 +100,35 @@ export default{
             citySelect:'',
             provinceSelect:'',
             provinceList:[],
+            jobfairList:[],
         }
     },
     mounted(){
-			this.getProvinceList();
+      this.getProvinceList();
+      this.getData();
     },
     methods: {
+      getData:function(){
+        var _this=this;
+          this.$http.get('/apis/jobs/campus/fetch?_id=5aacc3632708584ca51f3fd3'
+
+          ).then(function(response){
+              _this.subject=response.data.data.subject;
+              _this.address=response.data.data.address;
+              _this.content=response.data.data.content;
+              _this.school=response.data.data.school;
+              _this.time=response.data.data.time;
+              _this.contact=response.data.data.contact;
+              _this.email=response.data.data.email;
+              _this.provinceSelect=response.data.data.city.name;
+              _this.citySelect=response.data.data.city.name;
+              _this.$store.commit('jobfairListSearch',response.data.data.jobs);
+            })
+          .catch(function(res){
+          })
+
+      },
+     
       getProvinceList: function(){
         var _this=this;
         this.$http.get('/apis/naf/code/xzqh/list?parent=000000&level=1'
@@ -179,8 +202,7 @@ export default{
             alert('请选择省份城市');
           }
           var corpid='5a9e2ed7a44cd66c81cfcf61';
-          var corpname='福瑞科技';
-          this.$http.post("/apis/jobs/campus/create?corp.id="+corpid+"&corp.name="+corpname,
+          this.$http.post("/apis/jobs/campus/update?corp.id="+corpid+"&_id=5aacc3632708584ca51f3fd3",
           {
             "subject":_this.subject,
             "content":_this.content,
@@ -195,6 +217,7 @@ export default{
             "jobs":store.state.jobfairList
           }
           ).then(function(response){
+            alert(response.data.errmsg);
             _this.$router.push({path:'/'})
           })
           .catch(function(res){

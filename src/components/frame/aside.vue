@@ -20,7 +20,7 @@
               <el-menu-item-group>
                 <router-link to="/careertalk/into"><el-menu-item style="text-align:center;" index="2-1" >申请宣讲会</el-menu-item></router-link>
                 <!-- <a href="/careertalk/into"><el-menu-item style="text-align:center;" index="2-1" >申请宣讲会</el-menu-item></a> -->
-                <router-link to="/"><el-menu-item style="text-align:center;" index="2-2">查看宣讲会</el-menu-item></router-link>
+                <router-link to="/careertalk/careertalkList"><el-menu-item style="text-align:center;" index="2-2">查看宣讲会</el-menu-item></router-link>
                 <!-- <a href="/careertalk/allcareertalk"><el-menu-item style="text-align:center;" index="2-2">查看宣讲会</el-menu-item></a> -->
               </el-menu-item-group>
               </el-submenu>
@@ -42,7 +42,7 @@
                 <span class="css-a">招聘会</span>
               </template>
               <el-menu-item-group>
-                <router-link to="/"><el-menu-item style="text-align:center;" index="4-1">申请招聘会</el-menu-item></router-link>
+                <router-link to="/jobfair/into"><el-menu-item style="text-align:center;" index="4-1">申请招聘会</el-menu-item></router-link>
                 <!-- <a href="/jobfair/into"><el-menu-item style="text-align:center;" index="4-1">申请招聘会</el-menu-item></a> -->
                 <router-link to="/jobfair/jobfairList"><el-menu-item style="text-align:center;" index="4-2">查看招聘会</el-menu-item></router-link>
               </el-menu-item-group>

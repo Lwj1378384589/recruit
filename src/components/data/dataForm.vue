@@ -64,8 +64,7 @@ export default{
             }
           map["requirement"]=requirement;
           $("#requirement").val(""); 
-          var test=JSON.stringify(map)   
-          this.$store.commit("jobfairListChange",map)
+          this.$store.commit("jobfairListAdd",map)
         //   this.jobList.push(map);
         //  const num=this.jobList.length;
        }

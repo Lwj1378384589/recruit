@@ -1,9 +1,6 @@
 <template>
     <div id="backIndex">
                 <div class="css-text">
-                        <el-input :value='$store.state.num2' @input='change'></el-input>{{$store.state.num2}}
-                        <el-button size='mini' @click="$store.commit('add')">+</el-button>
-                        <el-button size='mini' @click="$store.commit('reduce')">-</el-button>
                             <p class="css-p1">
                                 慧安&nbsp;(HuiAn)
                             </p>
@@ -22,14 +19,12 @@
                 </div>
     </div>
 </template>
-<link rel="stylesheet" href="../../style/Container.css" />
 </html>
 <script>
 import store from '@/store/store.js'
 export default {
   data () {
     return {
-        input:store.state.num2
     }
   },
   store,
@@ -38,5 +33,6 @@ export default {
 <style>
 #backIndex{
 float: left;
+height:800px;
 }
 </style>
