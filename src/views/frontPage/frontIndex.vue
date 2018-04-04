@@ -10,9 +10,9 @@
 									<div class="box1" id="box1">
 										<div class="list-left">
 											<ul  class="lt-ul">
-												<li><a href="recruitment.html">岗位信息</a></li>
-												<li><a href="campusTalkPage.html">校园宣讲会</a></li>
-												<li><a href="campusRecruitmentPage.html">校园招聘公告</a></li>
+												<li><router-link to="/recruitment">岗位信息</router-link></li>
+												<li><router-link to="/campusTalkPage">校园宣讲会</router-link></li>
+												<li><router-link to="/campusRecruitmentPage">校园招聘公告</router-link></li>
 											</ul>
 										</div>
 										<div class="list-con">

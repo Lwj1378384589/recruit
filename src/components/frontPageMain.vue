@@ -26,7 +26,6 @@ export default{
     methods:{
       getMenuListBoolean(){
         if(top.location.href.indexOf("/frontPage/")){
-          alert("in others")
           this.$store.commit("menuListChange",true);
         }else{
           alert("in index")
