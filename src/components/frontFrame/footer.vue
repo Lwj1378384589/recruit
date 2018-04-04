@@ -23,5 +23,7 @@
 				<p style="color: #ccc;">吉ICP备09006292号-1 Copyright 2013 版权所有 吉林省高等学校毕业生就业指导中心 All Rights Reserved</p>
 
 			</div>
-
 </template>
+<script>
+
+</script>
