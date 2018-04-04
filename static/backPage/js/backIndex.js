@@ -52,4 +52,3 @@ function disnJob(){
     var jobBox=document.getElementById("jobBox");
     jobBox.style.display="none";
 }
-

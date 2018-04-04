@@ -26,11 +26,6 @@ const _routes=[
         component:frontPageMain,
         children:[
             {
-                path:'',
-                component:frontPageMain,
-                name:'frontPageIndex'
-            },
-            {
                 path:'/frontPage/testPage',
                 component:testPage,
                 name:'testPage'

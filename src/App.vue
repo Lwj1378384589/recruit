@@ -11,10 +11,8 @@ export default {
     methods:{
       getUrl(){
         if(top.location.href.indexOf("front")>0){
-          alert(top.location.href.indexOf("front"))
           this.$router.push({path:'/frontPage'})
         }else{
-          top.location.href.indexOf("front")
           this.$router.push({path:'/'})
         }
       }
