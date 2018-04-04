@@ -18,13 +18,21 @@ export default{
   },
   store,
   components:{MyHeader,MyFooter},
+  mounted(){
+            this.getMenuListBoolean();
+  },
+    methods:{
+      getMenuListBoolean(){
+        }
+
+    }
  
 
 }
 $(function(){
-alert(top.location.href)
   if(top.location.href.indexOf("/frontPage/")){
     this.$store.commit("menuListChange",false);
+    alert($)
   }else{
     this.$store.commit("menuListChange",true);
   }

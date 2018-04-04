@@ -1,11 +1,4 @@
 <template>
-<<<<<<< HEAD
-    <div id='frontIndex'>
-        <p>testr</p>
-       
-           
-    </div>
-=======
     <div>
         <div class="css-main-index">
 					<div class="container clearfix">
@@ -194,9 +187,7 @@
 								<ul class="Nul">
 									<div v-for="notice in noticeList">
 										<li><a href="#this" @click="findthe(notice)">{{notice.name}}</a></li>
-										<!-- *5
-										<li><a href="#this">江苏省2018届高校毕业生百校联动计划2017年下半年重点场次安排</a></li>
-										 -->
+										
 									</div>
 								</ul>
 							</div>
@@ -224,66 +215,7 @@
 									<img :src ="advers.img" :title="advers.titles"></a>
 								</li>
 								</div>
-								<!-- <li>
-									<a href="" target="_blank" title="江苏省建筑行业暨江苏建筑职业技术学院2017届毕业生专场招聘会">
-										<img src="imgs/adv1.jpg">
-									</a>
-								</li>
-								<li>
-									<a href="" target="_blank" title="江苏省建筑行业暨江苏建筑职业技术学院2017届毕业生专场招聘会">
-										<img src="imgs/adv2.jpg">
-									</a>
-								</li>
-								<li>
-									<a href="" target="_blank" title="江苏省建筑行业暨江苏建筑职业技术学院2017届毕业生专场招聘会">
-										<img src="imgs/adv3.jpg">
-									</a>
-								</li>
-								<li>
-									<a href="" target="_blank" title="江苏省建筑行业暨江苏建筑职业技术学院2017届毕业生专场招聘会">
-										<img src="imgs/adv4.jpg">
-									</a>
-								</li>
-								<li>
-									<a href="" target="_blank" title="江苏省建筑行业暨江苏建筑职业技术学院2017届毕业生专场招聘会">
-										<img src="imgs/adv1.jpg">
-									</a>
-								</li>
-								<li>
-									<a href="" target="_blank" title="江苏省建筑行业暨江苏建筑职业技术学院2017届毕业生专场招聘会">
-										<img src="imgs/adv2.jpg">
-									</a>
-								</li>
-								<li>
-									<a href="" target="_blank" title="江苏省建筑行业暨江苏建筑职业技术学院2017届毕业生专场招聘会">
-										<img src="imgs/adv3.jpg">
-									</a>
-								</li>
-								<li>
-									<a href="" target="_blank" title="江苏省建筑行业暨江苏建筑职业技术学院2017届毕业生专场招聘会">
-										<img src="imgs/adv4.jpg">
-									</a>
-								</li>
-								<li>
-									<a href="" target="_blank" title="江苏省建筑行业暨江苏建筑职业技术学院2017届毕业生专场招聘会">
-										<img src="imgs/adv1.jpg">
-									</a>
-								</li>
-								<li>
-									<a href="" target="_blank" title="江苏省建筑行业暨江苏建筑职业技术学院2017届毕业生专场招聘会">
-										<img src="imgs/adv3.jpg">
-									</a>
-								</li>
-								<li>
-									<a href="" target="_blank" title="江苏省建筑行业暨江苏建筑职业技术学院2017届毕业生专场招聘会">
-										<img src="imgs/adv1.jpg">
-									</a>
-								</li>
-								<li>
-									<a href="" target="_blank" title="江苏省建筑行业暨江苏建筑职业技术学院2017届毕业生专场招聘会">
-										<img src="imgs/adv3.jpg">
-									</a>
-								</li> -->
+							
 							</ul>
 						</div>
 						<div class="clearfix"></div>
@@ -375,81 +307,7 @@
 										</ul>
 										</div>
 									</div>
-									<!--<ul>
-										<li>南京雷森信息科技有限 公司
-											<img src="imgs/vip.gif" title="VIP">
-										</li>
-										<li>
-											<a href="" class="text-blue">寒假语音数据识别标注</a>
-											<a href="" class="text-blue">语音数据人工标注员</a>
-											<a href="" class="text-blue">语音数据人工转写与标注</a>
-											<a href="" class="text-blue">语音数据人工转写与标注</a>
-											<a href="" class="text-blue">语音数据人工转写与标注</a>
-										</li></ul>
-									 <ul>
-										<li>
-											无锡新致华桑电子有限公司
-											<img src="imgs/vip.gif" title="VIP">
-										</li>
-										<li>
-											<a href="" class="text-blue">FPGA开发设计工程师</a>
-											<a href="" class="text-blue">嵌入式开发设计工程师</a>
-											<a href="" class="text-blue">嵌入式软件开发设计工程师</a>
-											<a href="" class="text-blue">FPGA开发设计工程师</a>
-										</li>
-									</ul>
-									<ul>
-										<li>
-											南京蓝骑士文化发展有限公司
-											<img src="imgs/vip.gif" title="VIP">
-										</li>
-										<li>
-											<a href="" class="text-blue">教务管理</a>
-											<a href="" class="text-blue">大学生志愿者</a>
-											<a href="" class="text-blue">大学生志愿者</a>
-											<a href="" class="text-blue">大学生志愿者</a>
-											<a href="" class="text-blue">渠道专员</a>
-										</li>
-									</ul>
-									<ul>
-										<li>
-											南京蓝骑士文化发展有限公司
-											<img src="imgs/vip.gif" title="VIP">
-										</li>
-										<li>
-											<a href="" class="text-blue">教务管理</a>
-											<a href="" class="text-blue">大学生志愿者</a>
-											<a href="" class="text-blue">大学生志愿者</a>
-											<a href="" class="text-blue">大学生志愿者</a>
-											<a href="" class="text-blue">渠道专员</a>
-										</li>
-									</ul>
-									<ul>
-										<li>
-											南京蓝骑士文化发展有限公司
-											<img src="imgs/vip.gif" title="VIP">
-										</li>
-										<li>
-											<a href="" class="text-blue">教务管理</a>
-											<a href="" class="text-blue">大学生志愿者</a>
-											<a href="" class="text-blue">大学生志愿者</a>
-											<a href="" class="text-blue">大学生志愿者</a>
-											<a href="" class="text-blue">渠道专员</a>
-										</li>
-									</ul>
-									<ul>
-										<li>
-											南京蓝骑士文化发展有限公司
-											<img src="imgs/vip.gif" title="VIP">
-										</li>
-										<li>
-											<a href="" class="text-blue">教务管理</a>
-											<a href="" class="text-blue">大学生志愿者</a>
-											<a href="" class="text-blue">大学生志愿者</a>
-											<a href="" class="text-blue">大学生志愿者</a>
-											<a href="" class="text-blue">渠道专员</a>
-										</li>
-									</ul> -->
+									
 								</div>
 								<div class="css-njobs">
 								<div v-for="jobs in newJobs">
@@ -464,38 +322,7 @@
 									</ul>
 									</div>
 								</div>
-									<!-- <ul>
-										<li>常州思然文化科技有限公司</li>
-										<li>
-											<a href="" class="text-blue">乐高教师</a>
-										</li>
-									</ul>
-									<ul>
-										<li>无锡倍锡管理咨询有限公司</li>
-										<li>
-											<a href="" class="text-blue">销售人员</a>
-										</li>
-									</ul>
-									<ul>
-										<li>浙江省辐射环境监测站</li>
-										<li>
-											<a href="" class="text-blue">专业技术</a>
-										</li>
-									</ul>
-									<ul>
-										<li>北京卓邦电子技术有限公司</li>
-										<li>
-											<a href="" class="text-blue">渠道销售（实习生或应届毕业生）</a>
-											<a href="" class="text-blue">政企项目销售（实习生或应届毕业生）</a>
-										</li>
-									</ul>
-									<ul>
-										<li>昆山百诺信息科技有限公司</li>
-										<li>
-											<a href="" class="text-blue">游戏推广</a>
-											<a href="" class="text-blue">网站编辑</a>
-										</li>
-									</ul> -->
+									
 								</div>
 							</div>
 						</div>
@@ -514,156 +341,7 @@
 												<p>{{senior.name}}</p>
 											</a>
 										</li>
-										<!-- <li>
-											<a href="" target="_blank" title="徐州市英之辅英语培训教育中心">
-												<img src="imgs/adv2.jpg">
-												<p>徐州市英之辅英语培训教育中心</p>
-											</a>
-										</li>
-										<li>
-											<a href="" target="_blank" title="徐州市英之辅英语培训教育中心">
-												<img src="imgs/adv3.jpg">
-												<p>徐州市英之辅英语培训教育中心</p>
-											</a>
-										</li>
-										<li>
-											<a href="" target="_blank" title="徐州市英之辅英语培训教育中心">
-												<img src="imgs/adv3.jpg">
-												<p>徐州市英之辅英语培训教育中心</p>
-											</a>
-										</li>
-										<li>
-											<a href="" target="_blank" title="徐州市英之辅英语培训教育中心">
-												<img src="imgs/adv4.jpg">
-												<p>徐州市英之辅英语培训教育中心</p>
-											</a>
-										</li>
-										<li>
-											<a href="" target="_blank" title="徐州市英之辅英语培训教育中心">
-												<img src="imgs/adv1.jpg">
-												<p>徐州市英之辅英语培训教育中心</p>
-											</a>
-										</li>
-										<li>
-											<a href="" target="_blank" title="徐州市英之辅英语培训教育中心">
-												<img src="imgs/adv1.jpg">
-												<p>徐州市英之辅英语培训教育中心</p>
-											</a>
-										</li>
-										<li>
-											<a href="" target="_blank" title="徐州市英之辅英语培训教育中心">
-												<img src="imgs/adv2.jpg">
-												<p>徐州市英之辅英语培训教育中心</p>
-											</a>
-										</li>
-										<li>
-											<a href="" target="_blank" title="徐州市英之辅英语培训教育中心">
-												<img src="imgs/adv3.jpg">
-												<p>徐州市英之辅英语培训教育中心</p>
-											</a>
-										</li>
-										<li>
-											<a href="" target="_blank" title="徐州市英之辅英语培训教育中心">
-												<img src="imgs/adv4.jpg">
-												<p>徐州市英之辅英语培训教育中心</p>
-											</a>
-										</li>
-										<li>
-											<a href="" target="_blank" title="徐州市英之辅英语培训教育中心">
-												<img src="imgs/adv1.jpg">
-												<p>徐州市英之辅英语培训教育中心</p>
-											</a>
-										</li>
-										<li>
-											<a href="" target="_blank" title="徐州市英之辅英语培训教育中心">
-												<img src="imgs/adv1.jpg">
-												<p>徐州市英之辅英语培训教育中心</p>
-											</a>
-										</li>
-										<li>
-											<a href="" target="_blank" title="徐州市英之辅英语培训教育中心">
-												<img src="imgs/adv2.jpg">
-												<p>徐州市英之辅英语培训教育中心</p>
-											</a>
-										</li>
-										<li>
-											<a href="" target="_blank" title="徐州市英之辅英语培训教育中心">
-												<img src="imgs/adv3.jpg">
-												<p>徐州市英之辅英语培训教育中心</p>
-											</a>
-										</li>
-										<li>
-											<a href="" target="_blank" title="徐州市英之辅英语培训教育中心">
-												<img src="imgs/adv4.jpg">
-												<p>徐州市英之辅英语培训教育中心</p>
-											</a>
-										</li>
-										<li>
-											<a href="" target="_blank" title="徐州市英之辅英语培训教育中心">
-												<img src="imgs/adv1.jpg">
-												<p>徐州市英之辅英语培训教育中心</p>
-											</a>
-										</li>
-										<li>
-											<a href="" target="_blank" title="徐州市英之辅英语培训教育中心">
-												<img src="imgs/adv1.jpg">
-												<p>徐州市英之辅英语培训教育中心</p>
-											</a>
-										</li>
-										<li>
-											<a href="" target="_blank" title="徐州市英之辅英语培训教育中心">
-												<img src="imgs/adv2.jpg">
-												<p>徐州市英之辅英语培训教育中心</p>
-											</a>
-										</li>
-										<li>
-											<a href="" target="_blank" title="徐州市英之辅英语培训教育中心">
-												<img src="imgs/adv3.jpg">
-												<p>徐州市英之辅英语培训教育中心</p>
-											</a>
-										</li>
-										<li>
-											<a href="" target="_blank" title="徐州市英之辅英语培训教育中心">
-												<img src="imgs/adv4.jpg">
-												<p>徐州市英之辅英语培训教育中心</p>
-											</a>
-										</li>
-										<li>
-											<a href="" target="_blank" title="徐州市英之辅英语培训教育中心">
-												<img src="imgs/adv1.jpg">
-												<p>徐州市英之辅英语培训教育中心</p>
-											</a>
-										</li>
-										<li>
-											<a href="" target="_blank" title="徐州市英之辅英语培训教育中心">
-												<img src="imgs/adv1.jpg">
-												<p>徐州市英之辅英语培训教育中心</p>
-											</a>
-										</li>
-										<li>
-											<a href="" target="_blank" title="徐州市英之辅英语培训教育中心">
-												<img src="imgs/adv2.jpg">
-												<p>徐州市英之辅英语培训教育中心</p>
-											</a>
-										</li>
-										<li>
-											<a href="" target="_blank" title="徐州市英之辅英语培训教育中心">
-												<img src="imgs/adv3.jpg">
-												<p>徐州市英之辅英语培训教育中心</p>
-											</a>
-										</li>
-										<li>
-											<a href="" target="_blank" title="徐州市英之辅英语培训教育中心">
-												<img src="imgs/adv4.jpg">
-												<p>徐州市英之辅英语培训教育中心</p>
-											</a>
-										</li>
-										<li>
-											<a href="" target="_blank" title="徐州市英之辅英语培训教育中心">
-												<img src="imgs/adv1.jpg">
-												<p>徐州市英之辅英语培训教育中心</p>
-											</a>
-										</li>-->
+										
 
 									</ul>
 								</div>
@@ -690,42 +368,7 @@
 										</a>
 									</li>
 									
-									<!--<li>
-										<time>2017-12-25</time>
-										<a href="">
-											<span class="css-col470">江苏省沿海开发集团有限公司校招简章</span>
-										</a>
-									</li>
-									<li>
-										<time>2017-12-25</time>
-										<a href="">
-											<span class="css-col470">江苏省沿海开发集团有限公司校招简章</span>
-										</a>
-									</li>
-									<li>
-										<time>2017-12-25</time>
-										<a href="">
-											<span class="css-col470">江苏省沿海开发集团有限公司校招简章</span>
-										</a>
-									</li>
-									<li>
-										<time>2017-12-25</time>
-										<a href="">
-											<span class="css-col470">江苏省沿海开发集团有限公司校招简章</span>
-										</a>
-									</li>
-									<li>
-										<time>2017-12-25</time>
-										<a href="">
-											<span class="css-col470">江苏省沿海开发集团有限公司校招简章</span>
-										</a>
-									</li>
-									<li>
-										<time>2017-12-25</time>
-										<a href="">
-											<span class="css-col470">江苏省沿海开发集团有限公司校招简章</span>
-										</a>
-									</li>-->
+									
 								</ul>
 							</div>
 						</div>
@@ -748,7 +391,6 @@
 				</div>
 	</div>
 
->>>>>>> ce2ae642dbecf996d9401088dc4a71eeb5690919
 </template>
 <script>
 export default{
@@ -995,35 +637,7 @@ export default{
   }
 }
 
-	// var mySchedule = new Schedule({
-	// 	el: '#schedule-box',
-	// 	//date: '2018-9-20',
-	// 	clickCb: function (y,m,d) {
-	// 		document.querySelector('#h3Ele').innerHTML =y+'-'+m+'-'+d
-	// 	},
-	// 	nextMonthCb: function (y,m,d) {
-	// 		document.querySelector('#h3Ele').innerHTML =y+'-'+m+'-'+d
-	// 	},
-	// 	nextYeayCb: function (y,m,d) {
-	// 		document.querySelector('#h3Ele').innerHTML =y+'-'+m+'-'+d
-	// 	},
-	// 	prevMonthCb: function (y,m,d) {
-	// 		document.querySelector('#h3Ele').innerHTML =y+'-'+m+'-'+d
-	// 	},
-	// 	prevYearCb: function (y,m,d) {
-	// 		document.querySelector('#h3Ele').innerHTML =y+'-'+m+'-'+d
-	// 	}
-	// 	});
-
-	// 	function job(day){
-	// 		/*var str = this.formatDate(this.currentYear , this.currentMonth, this.currentDay);*/
-	// 		var cssjob=document.getElementById("css-job");
-	// 		cssjob.style.display="block";
-	// 	}
-	// 	function jobclose(){
-	// 		var cssjob=document.getElementById("css-job");
-	// 		cssjob.style.display="none";
-	// 	}
+	
 
 </script>
 

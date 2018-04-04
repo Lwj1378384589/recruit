@@ -24,10 +24,7 @@ const mutations = {
         state.jobfairList=data;
     },
     menuListChange(state,boo){
-        alert(boo)
-        alert(state.menuList)
         state.menuList=boo;
-        alert(state.menuList)
     }
 
 }
