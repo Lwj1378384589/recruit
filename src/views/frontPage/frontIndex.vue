@@ -5,7 +5,8 @@
 						<div class="css-channel pull-left">
 							<div class="css-menu" id="css-menu">
 								<div onmouseover="lul_list()" onmouseout="lul_out()" class="cr_li">
-									<a href="index.html" class="li_a">平台首页 </a>
+									<router-link to="/frontPage/frontIndex" class="li_a">平台首页</router-link>
+									<!-- <a href="index.html" class="li_a">平台首页 </a> -->
 									<div class="box1" id="box1">
 										<div class="list-left">
 											<ul  class="lt-ul">
@@ -636,7 +637,35 @@ export default{
 		}
   }
 }
+// var mySchedule = new Schedule({
+// 		el: '#schedule-box',
+// 		//date: '2018-9-20',
+// 		clickCb: function (y,m,d) {
+// 			document.querySelector('#h3Ele').innerHTML =y+'-'+m+'-'+d
+// 		},
+// 		nextMonthCb: function (y,m,d) {
+// 			document.querySelector('#h3Ele').innerHTML =y+'-'+m+'-'+d
+// 		},
+// 		nextYeayCb: function (y,m,d) {
+// 			document.querySelector('#h3Ele').innerHTML =y+'-'+m+'-'+d
+// 		},
+// 		prevMonthCb: function (y,m,d) {
+// 			document.querySelector('#h3Ele').innerHTML =y+'-'+m+'-'+d
+// 		},
+// 		prevYearCb: function (y,m,d) {
+// 			document.querySelector('#h3Ele').innerHTML =y+'-'+m+'-'+d
+// 		}
+// 	});
 
+// 	function job(day){
+// 		/*var str = this.formatDate(this.currentYear , this.currentMonth, this.currentDay);*/
+// 		var cssjob=document.getElementById("css-job");
+// 		cssjob.style.display="block";
+// 	}
+// 	function jobclose(){
+// 		var cssjob=document.getElementById("css-job");
+// 		cssjob.style.display="none";
+// 	}
 	
 
 </script>
