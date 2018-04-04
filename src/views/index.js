@@ -23,6 +23,9 @@ const pages = {
     frontPage:{
         frontIndex:()=>import('@/views/frontPage/frontIndex.vue'),
         testPage:()=>import('@/views/frontPage/testPage.vue'),
+        recruitment:()=>import('@/views/frontPage/recruitment.vue'),
+        campusTalkPage:()=>import('@/views/frontPage/campusTalkPage.vue'),
+        campusRecruitmentPage:()=>import('@/views/frontPage/campusRecruitmentPage.vue'),
     },
 }
 export default pages;

@@ -212,7 +212,7 @@
                                         <div class="box1" id="box1">
                                             <div class="list-left">
                                                 <ul  class="lt-ul">
-                                                    <li><router-link to="/frontPage/recruitment">岗位信息</router-link></li>
+                                                    <li><router-link to="/recruitment">岗位信息</router-link></li>
                                                     <li><a href="campusTalkPage.html">校园宣讲会</a></li>
                                                     <li><a href="campusRecruitmentPage.html">校园招聘公告</a></li>
                                                 </ul>
@@ -244,7 +244,7 @@
                                             <div class="css-subMenu">
                                                 <div class="top-M">就业信息</div>
                                                 <ul class="Mul">
-                                                    <li><router-link to="/frontPage/recruitment">岗位信息</router-link></li>
+                                                    <li><router-link to="/recruitment">岗位信息</router-link></li>
                                                     <li><a href="campusTalkPage.html">校园宣讲会</a></li>
                                                     <li><a href="campusRecruitmentPage.html">校园招聘公告</a></li>
                                                 </ul>

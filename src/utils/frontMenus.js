@@ -4,7 +4,21 @@ const datas=[
     title:'前台页面',
     children:[
         {
-            
+          title:'岗位信息',
+          path:'/frontPage/recruitment',
+          page:'frontPage.recruitment',
+
+        },
+        {
+          title:'校园宣讲会',
+          path:'/frontPage/campusTalkPage',
+          page:'frontPage.campusTalkPage',
+
+        },
+        {
+          title:'校园招聘公告',
+          path:'/frontPage/campusRecruitmentPage',
+          page:'frontPage.campusRecruitmentPage',
 
         }
 
