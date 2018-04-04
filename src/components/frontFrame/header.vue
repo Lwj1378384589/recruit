@@ -30,7 +30,7 @@
                     <div class="container">
                         <router-link to="/frontPage/index" title="惠安智慧就业平台"> </router-link>
                         <!-- <a href="index.html" title="惠安智慧就业平台"> -->
-                            <img src="imgs/a.jpg" class="css-logo pull-left" style="width:230px; height:40px;" >
+                            <img src="/static/frontPage/imgs/a.jpg" class="css-logo pull-left" style="width:230px; height:40px;" >
                         </a>
                         <div class="css-subwebsite pull-left"  style="background: url('imgs/enterr.png') no-repeat left 5px;">
                             <router-link to="/frontPage/SchoolList"><b>进入子站</b><span class="text-primary">[切换分站]</span> </router-link>
