@@ -1,8 +1,8 @@
 <template>
     <div id='frontIndex'>
-        <p>test</p>
-        <br/>
-
+        <p>testr</p>
+       
+           
     </div>
 </template>
 <script>
@@ -15,7 +15,6 @@
     background:blueviolet;
     width:800px;
     height:800px;
-
 }
 
 </style>

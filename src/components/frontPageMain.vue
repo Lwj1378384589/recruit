@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import store from '@/store/store.js'
 import MyHeader from '@/components/frontFrame/header'
 import MyFooter from '@/components/frontFrame/footer'
 export default{
@@ -15,7 +16,18 @@ export default{
     return {
     }
   },
-  components:{MyHeader,MyFooter}
+  store,
+  components:{MyHeader,MyFooter},
+ 
 
 }
+$(function(){
+alert(top.location.href)
+  if(top.location.href.indexOf("/frontPage/")){
+    this.$store.commit("menuListChange",false);
+  }else{
+    this.$store.commit("menuListChange",true);
+  }
+
+})
 </script>
