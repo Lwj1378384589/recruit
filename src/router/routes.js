@@ -4,6 +4,8 @@ import frontPageMain from '@/components/frontPageMain.vue'
 import frontIndex from '@/views/frontPage/frontIndex.vue'
 import testPage from '@/views/frontPage/testPage.vue'
 import { routes } from '@/utils/menus';
+import {frontRoutes} from '@/utils/frontMenus'
+import { frontMenus } from '../utils/frontMenus';
 
 const _routes=[
     {
@@ -37,7 +39,7 @@ const _routes=[
                 component:testPage,
                 name:'testPage'
             },
-
+            ...frontMenus,
 
         ]
 
