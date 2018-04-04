@@ -1,8 +1,9 @@
 import main from '@/components/main.vue';
 import backIndex from '@/views/backPage/backIndex.vue';
 import frontPageMain from '@/components/frontPageMain.vue'
-import testPage from '@/views/frontPage/testPage.vue'
+import frontIndex from '@/views/frontPage/frontIndex.vue'
 import { routes } from '@/utils/menus';
+
 const _routes=[
     {
         path: '/',
@@ -26,10 +27,11 @@ const _routes=[
         component:frontPageMain,
         children:[
             {
-                path:'/frontPage/testPage',
-                component:testPage,
+                path:'/frontPage/',
+                component:frontIndex,
                 name:'testPage'
             },
+
         ]
 
     }
