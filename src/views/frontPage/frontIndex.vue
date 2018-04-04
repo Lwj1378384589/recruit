@@ -1005,17 +1005,18 @@ export default{
 	// 	prevYearCb: function (y,m,d) {
 	// 		document.querySelector('#h3Ele').innerHTML =y+'-'+m+'-'+d
 	// 	}
-	// });
+	// 	});
 
-	// function job(day){
-	// 	/*var str = this.formatDate(this.currentYear , this.currentMonth, this.currentDay);*/
-	// 	var cssjob=document.getElementById("css-job");
-	// 	cssjob.style.display="block";
-	// }
-	// function jobclose(){
-	// 	var cssjob=document.getElementById("css-job");
-	// 	cssjob.style.display="none";
-	// }
+	// 	function job(day){
+	// 		/*var str = this.formatDate(this.currentYear , this.currentMonth, this.currentDay);*/
+	// 		var cssjob=document.getElementById("css-job");
+	// 		cssjob.style.display="block";
+	// 	}
+	// 	function jobclose(){
+	// 		var cssjob=document.getElementById("css-job");
+	// 		cssjob.style.display="none";
+	// 	}
+
 </script>
 
 
