@@ -1,6 +1,8 @@
 <template>
   <div id="frontPageMain">
+    <div v-if="$store.state.menuList">
     <my-header></my-header>
+    </div>
     <router-view class="view"> </router-view>
     <my-footer></my-footer>
   </div>
@@ -23,19 +25,19 @@ export default{
   },
     methods:{
       getMenuListBoolean(){
+        if(top.location.href.indexOf("/frontPage/")){
+          alert("in others")
+          this.$store.commit("menuListChange",true);
+        }else{
+          alert("in index")
+          this.$store.commit("menuListChange",false);
         }
+
+      }
 
     }
  
 
 }
-$(function(){
-  if(top.location.href.indexOf("/frontPage/")){
-    this.$store.commit("menuListChange",false);
-    alert($)
-  }else{
-    this.$store.commit("menuListChange",true);
-  }
 
-})
 </script>
