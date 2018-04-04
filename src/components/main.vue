@@ -23,7 +23,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  #backIndex{
+  #mains{
   width: 900px;
   height:800px;
   float: left;
