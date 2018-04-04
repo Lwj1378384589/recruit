@@ -68,9 +68,9 @@
                                     <div class="box1" id="box1">
                                         <div class="list-left">
                                             <ul  class="lt-ul">
-                                                <li><a href="recruitment.html">岗位信息</a></li>
-                                                <li><a href="campusTalkPage.html">校园宣讲会</a></li>
-                                                <li><a href="campusRecruitmentPage.html">校园招聘公告</a></li>
+                                                <li><router-link to="/frontPage/recruitment">岗位信息</router-link></li>
+                                                <li><router-link to="/frontPage/campusTalkPage">校园宣讲会</router-link></li>
+                                                <li><router-link to="/frontPage/campusRecruitmentPage">校园招聘公告</router-link></li>
                                             </ul>
                                         </div>
                                         <div class="list-con">
@@ -100,7 +100,7 @@
                                         <div class="css-subMenu">
                                             <div class="top-M">就业信息</div>
                                             <ul class="Mul">
-                                                <li><a href="recruitment.html">岗位信息</a></li>
+                                                <li><router-link to="/frontPage/recruitment">岗位信息</router-link></li>
                                                 <li><a href="campusTalkPage.html">校园宣讲会</a></li>
                                                 <li><a href="campusRecruitmentPage.html">校园招聘公告</a></li>
                                             </ul>
@@ -212,7 +212,7 @@
                                         <div class="box1" id="box1">
                                             <div class="list-left">
                                                 <ul  class="lt-ul">
-                                                    <li><a href="recruitment.html">岗位信息</a></li>
+                                                    <li><router-link to="/frontPage/recruitment">岗位信息</router-link></li>
                                                     <li><a href="campusTalkPage.html">校园宣讲会</a></li>
                                                     <li><a href="campusRecruitmentPage.html">校园招聘公告</a></li>
                                                 </ul>
@@ -244,7 +244,7 @@
                                             <div class="css-subMenu">
                                                 <div class="top-M">就业信息</div>
                                                 <ul class="Mul">
-                                                    <li><a href="recruitment.html">岗位信息</a></li>
+                                                    <li><router-link to="/frontPage/recruitment">岗位信息</router-link></li>
                                                     <li><a href="campusTalkPage.html">校园宣讲会</a></li>
                                                     <li><a href="campusRecruitmentPage.html">校园招聘公告</a></li>
                                                 </ul>
@@ -358,11 +358,49 @@
 <script>
 import store from '@/store/store.js'
 export default{
+    data() {
+        return {
+			positionIndustry:[],
+			positionType:[],
+        };
+  },
     store,
     mounted(){
-            this.getMenuList();
+        this.getPositionIndustry();
+        this.getPositionType();
+        this.getMenuList();
         },
     methods:{
+        getPositionIndustry: function(){
+				//按行业查看职位
+				var _this = this;
+				_this.$http.get(
+					"/apis/naf/code/items/35/list"
+				).then((response) => {
+					if(response.data.errcode===1){
+						alert(response.data.errmsg);
+					}else{
+						_this.positionIndustry = response.data.data;
+					}
+				}),function(error){
+					$.alert('对不起，你的请求处理失败了!');   //失败处理
+				};
+        },
+        getPositionType: function(){
+				//按类别查看职位
+				var _this = this;
+				_this.$http.get(
+					"/apis/naf/code/items/36/list"
+				).then((response) => {
+					if(response.data.errcode===1){
+						alert(response.data.errmsg);
+					}else{
+						_this.positionType = response.data.data;
+					}
+				}),function(error){
+					$.alert('对不起，你的请求处理失败了!');   //失败处理
+				};
+        },
         getMenuList(){
         if(store.state.menuList){
             var cssbox=document.getElementById("css-box");
