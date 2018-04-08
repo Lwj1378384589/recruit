@@ -26,6 +26,9 @@ const pages = {
         recruitment:()=>import('@/views/frontPage/recruitment.vue'),
         campusTalkPage:()=>import('@/views/frontPage/campusTalkPage.vue'),
         campusRecruitmentPage:()=>import('@/views/frontPage/campusRecruitmentPage.vue'),
+        companyDetailPage:()=>import('@/views/frontPage/companyDetailPage.vue'),
+        companyPage:()=>import('@/views/frontPage/companyPage.vue'),
+        recruitmentDetailPage:()=>import('@/views/frontPage/recruitmentDetailPage.vue'),
     },
 }
 export default pages;

@@ -2,7 +2,7 @@
   <div id="frontPageMain">
     <my-top></my-top>
     <router-view class="view"> </router-view>
-    <my-footer></my-footer>
+    
   </div>
 </template>
 

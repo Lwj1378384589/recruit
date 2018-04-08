@@ -79,7 +79,8 @@
                             v-for="joblist in postInformationList">
                             <div class="gangwei-left">
                                 <p>
-                                    <a :href="['recruitmentDetailPage.html?id='+joblist._id]" target="blank">{{joblist.title}}</a>
+                                    <!-- <router-link to="{path:'frontPage/recruitmentDetailPage',query:{_id: {joblist._id}}">{{joblist.title}}</router-link> -->
+                                    <a  v-on:click="find()" target="blank">{{joblist.title}}</a>
                                 </p>
                                 <ul>
                                     <li>时间：{{joblist.meta.createdAt}}</li>
@@ -138,10 +139,13 @@
 		this.getDwxz();
 		this.getDwgm();
         this.getPositionIndustry();
-			this.getPositionType();
-			this.getSalary();
+        this.getPositionType();
+        this.getSalary();
 	},
       methods: {
+          find: function(){
+        alert(11)
+          },
         getPositionIndustry: function(){
 				//按行业查看职位
 				var _this = this;

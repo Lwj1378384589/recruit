@@ -126,7 +126,13 @@ export default{
     },
     find: function(_id){
         //按行业查看职业
-        location.href="companyDetailPage.html?id="+_id;
+        var _this =this;
+                _this.$router.push({
+                    path:'/frontPage/companyDetailPage',
+                    query: {
+                     "_id": _id
+                        }
+                })
     },
     handleSizeChange(val) {
         var _this = this;

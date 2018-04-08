@@ -20,7 +20,25 @@ const datas=[
           path:'/frontPage/campusRecruitmentPage',
           page:'frontPage.campusRecruitmentPage',
 
+        },
+        {
+          title:'宣讲会详情',
+          path:'/frontPage/companyDetailPage',
+          page:'frontPage.companyDetailPage',
+
         }
+        ,
+        {
+          title:'校园招聘详情',
+          path:'/frontPage/companyPage',
+          page:'frontPage.companyPage',
+        },
+        {
+          title:'招聘信息详情',
+          path:'/frontPage/recruitmentDetailPage',
+          page:'frontPage.recruitmentDetailPage',
+        }
+        
 
     ]
 
