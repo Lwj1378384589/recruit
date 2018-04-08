@@ -10,9 +10,9 @@
 									<div class="box1" id="box1">
 										<div class="list-left">
 											<ul  class="lt-ul">
-												<li><router-link to="/recruitment">岗位信息</router-link></li>
-												<li><router-link to="/campusTalkPage">校园宣讲会</router-link></li>
-												<li><router-link to="/campusRecruitmentPage">校园招聘公告</router-link></li>
+												<li><router-link to="/frontPage/recruitment">岗位信息</router-link></li>
+												<li><router-link to="/frontPage/campusTalkPage">校园宣讲会</router-link></li>
+												<li><router-link to="/frontPage/campusRecruitmentPage">校园招聘公告</router-link></li>
 											</ul>
 										</div>
 										<div class="list-con">
@@ -31,7 +31,7 @@
 												<li><a href="#this" @click="find(ptyim)">{{ptyim.name}}</a></li>
 												</div>
 											</ul>
-										</div>
+										</div> 
 									</div>
 								</div>
 								<div onmouseover="lul_list1()" onmouseout="lul_out1()" class="cr_li stubg">
@@ -40,88 +40,90 @@
 										<div class="css-subMenu">
 											<div class="top-M">就业信息</div>
 											<ul class="Mul">
-												<li><a href="recruitment.html">岗位信息</a></li>
-												<li><a href="campusTalkPage.html">校园宣讲会</a></li>
-												<li><a href="campusRecruitmentPage.html">校园招聘公告</a></li>
+												<li><router-link to="/frontPage/recruitment">岗位信息</router-link></li>
+												<li><router-link to="/frontPage/campusTalkPage">校园宣讲会</router-link></li>
+												<li><router-link to="/frontPage/campusRecruitmentPage">校园招聘公告</router-link></li>
 											</ul>
 										</div>
 
 										<div class="css-subMenu">
 											<div class="top-M">职业辅导</div>
 											<ul class="Mul">
-												<li><a href="guidance.html">政策法规</a></li>
-												<li><a href="guidance.html">就业心得</a></li>
-												<li><a href="guidance.html">辅导活动</a></li>
-												<li><a href="guidance.html">职业课程</a></li>
-												<li><a href="guidance.html">专家咨询</a></li>
+												<li><router-link to="/frontPage/guidance">政策法规</router-link></li>
+												<li><router-link to="/frontPage/guidance">就业心得</router-link></li>
+												<li><router-link to="/frontPage/guidance">辅导活动</router-link></li>
+												<li><router-link to="/frontPage/guidance">职业课程</router-link></li>
+												<li><router-link to="/frontPage/guidance">专家咨询</router-link></li>
 											</ul>
 										</div>
 
 										<div class="css-subMenu">
 											<div class="top-M">就业服务</div>
 											<ul class="Mul">
-												<li><a href="StudentLogin.html">学历学位认证</a></li>
-												<li><a href="StudentLogin.html">电子图像校对</a></li>
-												<li><a href="StudentLogin.html">报到证查询</a></li>
+												<li><router-link to="/frontPage/StudentLogin">学历学位认证</router-link></li>
+												<li><router-link to="/frontPage/StudentLogin">电子图像校对</router-link></li>
+												<li><router-link to="/frontPage/StudentLogin">报到证查询</router-link></li>
 											</ul>
 										</div>
 
 										<div class="css-subMenu">
 											<div class="top-M">用户中心</div>
 											<ul class="Mul">
-												<li><a href="StudentLogin.html">推荐表注册</a></li>
-												<li><a href="StudentLogin.html">简历管理</a></li>
-												<li><a href="StudentLogin.html">职位收藏夹</a></li>
-												<li><a href="StudentLogin.html">职位申请记录</a></li>
-												<li><a href="StudentLogin.html">我的日程表</a></li>
-												<li><a href="StudentLogin.html">账号设置</a></li>
+													<li><router-link to="/frontPage/StudentLogin">推荐表注册</router-link></li>
+													<li><router-link to="/frontPage/StudentLogin">简历管理</router-link></li>
+													<li><router-link to="/frontPage/StudentLogin">职位收藏夹</router-link></li>
+													<li><router-link to="/frontPage/StudentLogin">职位申请记录</router-link></li>
+													<li><router-link to="/frontPage/StudentLogin">我的日程表</router-link></li>
+													<li><router-link to="/frontPage/StudentLogin">账号设置</router-link></li>
 											</ul>
 										</div>
 									</div>
 								</div>
 								<div onmouseover="lul_list2()" onmouseout="lul_out2()" class="cr_li danwbg">
-									<a class="li_a" href="index.html">单位服务</a>
+									<!-- <a class="li_a" href="index.html">单位服务</a> -->
+									<router-link class="li_a" to="/frontPage/index">单位服务</router-link>
 									<div class="box1" id="box3">
 										<div class="css-subMenu">
 											<div class="top-M">基础服务</div>
 											<ul class="Mul">
-												<li><a href="UnitReg.html">单位注册</a></li>
-												<li><a href="unitLogin.html">职位发布</a></li>
+												<li><router-link to="/frontPage/UnitReg">单位注册</router-link></li>
+												<li><router-link to="/frontPage/UnitReg">职位发布</router-link></li>
 											</ul>
 										</div>
 
 										<div class="css-subMenu">
 											<div class="top-M">充值服务</div>
 											<ul class="Mul">
-												<li><a href="unitLogin.html">广告申请</a></li>
-												<li><a href="unitLogin.html">职位置顶</a></li>
-												<li><a href="unitLogin.html">定向发布</a></li>
-												<li><a href="unitLogin.html">下载简历</a></li>
-												<li><a href="unitLogin.html">职位邀请</a></li>
+												<li><router-link to="/frontPage/unitLogin">广告申请</router-link></li>
+												<li><router-link to="/frontPage/unitLogin">职位置顶</router-link></li>
+												<li><router-link to="/frontPage/unitLogin">定向发布</router-link></li>
+												<li><router-link to="/frontPage/unitLogin">下载简历</router-link></li>
+												<li><router-link to="/frontPage/unitLogin">职位邀请</router-link></li>
 											</ul>
 										</div>
 
 										<div class="css-subMenu">
 											<div class="top-M">会员服务</div>
 											<ul class="Mul">
-												<li><a href="unitLogin.html">充值服务所有内容</a></li>
-												<li><a href="unitLogin.html">校园统一认证</a></li>
-												<li><a href="unitLogin.html">生源专业查询</a></li>
-												<li><a href="unitLogin.html">招聘会展位优选</a></li>
-												<li><a href="unitLogin.html">专属在线客服</a></li>
+													<li><router-link to="/frontPage/unitLogin">充值服务所有内容</router-link></li>
+													<li><router-link to="/frontPage/unitLogin">校园统一认证</router-link></li>
+													<li><router-link to="/frontPage/unitLogin">生源专业查询</router-link></li>
+													<li><router-link to="/frontPage/unitLogin">招聘会展位优选</router-link></li>
+													<li><router-link to="/frontPage/unitLogin">专属在线客服</router-link></li>
 											</ul>
 										</div>
 									</div>
 								</div>
 								<div  onmouseover="lul_list3()" onmouseout="lul_out3()" class="cr_li schoolbg">
-									<a class="li_a" href="index.html">学校服务</a>
+									<!-- <a class="li_a" href="index.html">学校服务</a> -->
+									<router-link class="li_a" to="/frontPage/index">学校服务</router-link>
 									<div class="box1" id="box4">
 										<div class="css-subMenu">
 											<div class="top-M">就业管理</div>
 											<ul class="Mul">
-												<li><a href="disLogin.html">推荐表审核</a></li>
-												<li><a href="disLogin.html">协议书审核</a></li>
-												<li><a href="disLogin.html">电子图像校对</a></li>
+												<li><router-link to="/frontPage/disLogin">推荐表审核</router-link></li>
+												<li><router-link to="/frontPage/disLogin">协议书审核</router-link></li>
+												<li><router-link to="/frontPage/disLogin">电子图像校对</router-link></li>
 											</ul>
 										</div>
 
@@ -134,7 +136,8 @@
 									</div>
 								</div>
 								<div class="cr_li schoolLbg">
-									<a href="SchoolList.html" class="li_a">高校分站点</a>
+									<!-- <a href="SchoolList.html" class="li_a">高校分站点</a> -->
+									<router-link class="li_a" to="/frontPage/SchoolList">高校分站点</router-link>
 								</div>
 							</div>
 						</div>
@@ -176,14 +179,14 @@
 									</ul>
 								</div>
 								<ul class="css-btn">
-									<li class="css-btnlogin"><a href="disLogin.html">用户登录</a></li>
-									<li class="css-btnregister"><a href="distRegist.html">免费注册</a></li>
+									<li class="css-btnlogin"><router-link to="/frontPage/disLogin">用户登录</router-link></li>
+									<li class="css-btnregister"><router-link to="/frontPage/distRegist">免费注册</router-link></li>
 								</ul>
 							</div>
 							<div class="css-notice">
 								<div class="css-caption">
 									<div class="Clt">公告</div>
-									<div class="css-more"><a href="notice.html">MORE > </a></div>
+									<div class="css-more"><router-link to="/frontPage/distRegist">MORE > </router-link></div>
 								</div>
 								<ul class="Nul">
 									<div v-for="notice in noticeList">
@@ -205,7 +208,7 @@
 							</ul>
 						</div>
 						<div class="css-imgline" style="background: red;">
-							<a href="noticePage.html" target="_blank"><img src="/static/frontPage/imgs/bigI.jpg" alt="大图片"></a>
+								<router-link to="/frontPage/noticePage"  target="_blank"><img src="/static/frontPage/imgs/bigI.jpg" alt="大图片"></router-link>
 						</div>
 						<div class="clearfix"></div>
 						<div class="css-imggroup">
