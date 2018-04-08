@@ -4,7 +4,7 @@
     <my-header></my-header>
     </div>
     <router-view class="view"> </router-view>
-    <my-footer></my-footer>
+    
   </div>
 </template>
 
