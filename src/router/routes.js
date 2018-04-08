@@ -2,6 +2,7 @@ import main from '@/components/main.vue';
 import backIndex from '@/views/backPage/backIndex.vue';
 import frontPageMain from '@/components/frontPageMain.vue'
 import frontIndex from '@/views/frontPage/frontIndex.vue'
+import frontPageSecond from '@/components/frontPageSecond.vue'
 import testPage from '@/views/frontPage/testPage.vue'
 import { routes } from '@/utils/menus';
 import { frontRoutes } from '@/utils/frontMenus'
@@ -30,15 +31,23 @@ const _routes=[
         children:[
             {
                 path:'/frontPage/',
-                component:frontIndex,
-                name:'frontIndex'
+                component:frontPageSecond,
+                name:'frontPageSecond',
+                children:[
+                    {
+                        path:'',
+                        component:frontIndex,
+                        name:'frontIndex'
+                    },
+                    ...frontRoutes,
+                ]
             },
             {
                 path:'/frontPage/testPage',
                 component:testPage,
                 name:'testPage'
             },
-            ...frontRoutes,
+            
 
         ]
 

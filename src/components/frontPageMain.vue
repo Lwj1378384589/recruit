@@ -1,8 +1,6 @@
 <template>
   <div id="frontPageMain">
-    <div v-if="$store.state.menuList">
-    <my-header></my-header>
-    </div>
+    <my-top></my-top>
     <router-view class="view"> </router-view>
     <my-footer></my-footer>
   </div>
@@ -10,8 +8,8 @@
 
 <script>
 import store from '@/store/store.js'
-import MyHeader from '@/components/frontFrame/header'
 import MyFooter from '@/components/frontFrame/footer'
+import MyTop from '@/components/frontFrame/top'
 export default{
   name:"frontPageMain",
   data () {
@@ -19,7 +17,7 @@ export default{
     }
   },
   store,
-  components:{MyHeader,MyFooter},
+  components:{MyFooter,MyTop},
   mounted(){
             this.getMenuListBoolean();
   },

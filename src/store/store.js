@@ -5,7 +5,7 @@ Vue.use(Vuex)
 // 定义接收变量
 const state={
     jobfairList:[],
-    menuList:false
+    menuList:true
 }
 
 //写方法

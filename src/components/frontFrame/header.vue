@@ -1,30 +1,5 @@
 <template>
     <div>
-        <div id="wrap">
-                <div class="container1">
-                    <ul class="css-left">
-                        <li class="shouye">
-                            <router-link to="/frontPage/index">网站首页</router-link>
-                            <!-- <a href="index.html"></a> -->
-                        </li>
-                    </ul>
-                    <ul class="css-right">
-                        <li>
-                                <router-link to="/frontPage/disLogin"> 登录 </router-link>
-                            <!-- <a href="disLogin.html"  class="log">登录</a> -->
-                        </li>
-                        <li>
-                            <router-link to="/frontPage/testPage">免费注册 </router-link>
-                            <!-- <a href="distRegist.html"  class="regs">免费注册</a> -->
-                        </li>
-                        <li>
-                            <router-link to="/frontPage/help">帮助中心 </router-link>
-                            <!-- <a href="help.html"  class="hlp">帮助中心</a> -->
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
             <div  style="padding-top:40px;"><!-- class="css-out-content" -->
                 <div class="css-header"  style="font-size:16px;">
                     <div class="container">
@@ -228,7 +203,7 @@ export default{
     mounted(){
         this.getPositionIndustry();
         this.getPositionType();
-        this.getMenuList();
+      
         },
     methods:{
         getPositionIndustry: function(){
@@ -260,19 +235,11 @@ export default{
 				}),function(error){
 					$.alert('对不起，你的请求处理失败了!');   //失败处理
 				};
-        },
-        getMenuList(){
-        if(store.state.menuList){
-            var cssbox=document.getElementById("css-box");
-            cssbox.style.display="block";
-            
-        }else{
-            var cssbox=document.getElementById("css-box");
-            cssbox.style.display="none";
         }
+        
         }
 
-    }
+    
 
 
 }

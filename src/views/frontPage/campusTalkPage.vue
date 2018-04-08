@@ -90,7 +90,6 @@ export default{
   mounted(){
 			this.getAreaSelection();
 			this.getPreachingPlace();
-			this.sss();
 		},
   methods:{
     getAreaSelection: function(){
