@@ -5,7 +5,6 @@ Vue.use(Vuex)
 // 定义接收变量
 const state={
     jobfairList:[],
-    menuList:true
 }
 
 //写方法
@@ -23,9 +22,6 @@ const mutations = {
     jobfairListSearchInJobfair(state,data){
         state.jobfairList=data;
     },
-    menuListChange(state,boo){
-        state.menuList=boo;
-    }
 
 }
 

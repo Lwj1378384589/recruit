@@ -1,11 +1,51 @@
 <template>
     <div>
         <div class="css-main-index">
+				<div  style="padding-top:40px;"><!-- class="css-out-content" -->
+					<div class="css-header"  style="font-size:16px;">
+						<div class="container">
+							<router-link to="/frontPage" title="惠安智慧就业平台"> 
+							<!-- <a href="index.html" title="惠安智慧就业平台"> -->
+								<img src="/static/frontPage/imgs/a.jpg" class="css-logo pull-left" style="width:230px; height:40px;" >
+							<!-- </a> --></router-link>
+							<div class="css-subwebsite pull-left"  style="background: url('imgs/enterr.png') no-repeat left 5px;">
+								<router-link to="/frontPage/SchoolList"><b>进入子站</b><span class="text-primary">[切换分站]</span> </router-link>
+								<!-- <a href="SchoolList.html"><b>进入子站</b><span class="text-primary">[切换分站]</span></a> -->
+							</div>
+							<div class="css-right pull-right">
+								<div class="css-search pull-right">
+									<form id="search" action="">
+										<ul class="css-list-inline pull-right css-hot">
+											<li>欢迎您使用本网站</li>
+										</ul>
+										<ul class="css-list-inline pull-right">
+											<li><input class="css-submit" value="" type="button"></li>
+											<li>
+												<input name="keyword"  type="text" placeholder="请输入查询关键词">
+											</li>
+										</ul>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="css-nav">
+						<div class="container">
+							<div class="pull-left css-usernav">
+								<span onmouseover="seen()" onmouseout="disn()">用户功能频道</span>
+							</div>
+							<ul class="pull-left css-navbar">
+								<li><a href="/index.html">平台首页</a></li>
+								<li><a href="StudentLogin.html">学生用户</a></li>
+							</ul>
+						</div>
+				</div>
 					<div class="container clearfix">
 						<div class="css-channel pull-left">
 							<div class="css-menu" id="css-menu">
 								<div onmouseover="lul_list()" onmouseout="lul_out()" class="cr_li">
-									<router-link to="/frontPage/frontIndex" class="li_a">平台首页</router-link>
+									<router-link to="/frontPage" class="li_a">平台首页</router-link>
 									<!-- <a href="index.html" class="li_a">平台首页 </a> -->
 									<div class="box1" id="box1">
 										<div class="list-left">

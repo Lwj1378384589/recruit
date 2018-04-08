@@ -18,23 +18,7 @@ export default{
   },
   store,
   components:{MyFooter,MyTop},
-  mounted(){
-            this.getMenuListBoolean();
-  },
-    methods:{
-      getMenuListBoolean(){
-        if(top.location.href.indexOf("/frontPage/")){
-          this.$store.commit("menuListChange",true);
-        }else{
-          alert("in index")
-          this.$store.commit("menuListChange",false);
-        }
-
-      }
-
-    }
  
-
 }
 
 </script>

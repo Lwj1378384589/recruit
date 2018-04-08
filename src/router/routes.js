@@ -30,17 +30,18 @@ const _routes=[
         component:frontPageMain,
         children:[
             {
+                path:'',
+                component:frontIndex,
+                name:'frontIndex'
+            },
+            {
                 path:'/frontPage/',
                 component:frontPageSecond,
                 name:'frontPageSecond',
                 children:[
-                    {
-                        path:'',
-                        component:frontIndex,
-                        name:'frontIndex'
-                    },
+                    
                     ...frontRoutes,
-                ]
+                ],
             },
             {
                 path:'/frontPage/testPage',
