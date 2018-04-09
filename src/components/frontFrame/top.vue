@@ -13,7 +13,7 @@
                     <!-- <a href="disLogin.html"  class="log">登录</a> -->
                 </li>
                 <li>
-                    <router-link to="/frontPage/testPage">免费注册 </router-link>
+                    <router-link :to='{name:"distRegist",params:{id:"3"}}'>免费注册 </router-link>
                     <!-- <a href="distRegist.html"  class="regs">免费注册</a> -->
                 </li>
                 <li>

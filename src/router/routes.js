@@ -6,6 +6,7 @@ import frontPageSecond from '@/components/frontPageSecond.vue'
 import testPage from '@/views/frontPage/testPage.vue'
 import { routes } from '@/utils/menus';
 import { frontRoutes } from '@/utils/frontMenus'
+import distRegist from '@/views/frontPage/distRegist.vue'
 
 const _routes=[
     {
@@ -39,10 +40,16 @@ const _routes=[
                 component:frontPageSecond,
                 name:'frontPageSecond',
                 children:[
-                    
                     ...frontRoutes,
+                    
                 ],
             },
+            {
+                path:'/frontPage/distRegist/:id',
+                component:distRegist,
+                name:'distRegist',
+            },
+            
             {
                 path:'/frontPage/testPage',
                 component:testPage,

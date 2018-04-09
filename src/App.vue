@@ -5,18 +5,6 @@
 <script>
 export default {
   name: 'App',
-  mounted(){
-			this.getUrl();
-    },
-    methods:{
-      getUrl(){
-        if(top.location.href.indexOf("front")>0){
-          this.$router.push({path:'/frontPage'})
-        }else{
-          this.$router.push({path:'/'})
-        }
-      }
-    }
 }
 
 </script>
