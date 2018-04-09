@@ -4,7 +4,7 @@
         <div class="container1" >
                 <ul class="css-left">
                     <li class="shouye">
-                           <router-link to="/">网站首页</router-link> 
+                           <router-link to="/frontPage">网站首页</router-link> 
                     </li>
                 </ul>
                 <ul class="css-right" ><!--原验证登录为'未登录'位置  原判断th:if="${session.corpcode==null}"-->

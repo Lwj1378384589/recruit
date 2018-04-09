@@ -1,7 +1,5 @@
 <template>
         <div>
-
-
                 <div class="shuru">
                         <form action="" method="post">
                             <input type="text" /> 

@@ -1,6 +1,8 @@
 <template>
     <div>
         <my-header></my-header>
+        <br/><br/>
+        <p>third</p>
         <router-view class="view"> </router-view>
     </div>  
 </template>

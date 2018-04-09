@@ -29,6 +29,11 @@ const pages = {
         companyDetailPage:()=>import('@/views/frontPage/companyDetailPage.vue'),
         companyPage:()=>import('@/views/frontPage/companyPage.vue'),
         recruitmentDetailPage:()=>import('@/views/frontPage/recruitmentDetailPage.vue'),
+        disLogin:()=>import('@/views/frontPage/disLogin.vue'),
+        distRegist:()=>import('@/views/frontPage/distRegist.vue'),
+        unitLogin:()=>import('@/views/frontPage/unitLogin.vue'),
+        UnitReg:()=>import('@/views/frontPage/UnitReg.vue'),
+        UnitReg2:()=>import('@/views/frontPage/UnitReg2.vue'),
     },
 }
 export default pages;
