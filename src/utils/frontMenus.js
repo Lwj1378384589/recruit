@@ -26,8 +26,7 @@ const datas=[
           path:'/frontPage/companyDetailPage',
           page:'frontPage.companyDetailPage',
 
-        }
-        ,
+        } ,
         {
           title:'校园招聘详情',
           path:'/frontPage/companyPage',
@@ -37,6 +36,36 @@ const datas=[
           title:'招聘信息详情',
           path:'/frontPage/recruitmentDetailPage',
           page:'frontPage.recruitmentDetailPage',
+        },
+        {
+          title:'guidanceVocationalPage',
+          path:'/frontPage/guidanceVocationalPage',
+          page:'frontPage.guidanceVocationalPage',
+        } ,
+        {
+          title:'guidancePolicyDetailPage',
+          path:'/frontPage/guidancePolicyDetailPage',
+          page:'frontPage.guidancePolicyDetailPage',
+        },
+        {
+          title:'guidanceExperiencePage',
+          path:'/frontPage/guidanceExperiencePage',
+          page:'frontPage.guidanceExperiencePage',
+        },
+        {
+          title:'guidanceCoachPage',
+          path:'/frontPage/guidanceCoachPage',
+          page:'frontPage.guidanceCoachPage',
+        } ,
+        {
+          title:'guidance',
+          path:'/frontPage/guidance',
+          page:'frontPage.guidance',
+        },
+        {
+          title:'notice',
+          path:'/frontPage/notice',
+          page:'frontPage.notice',
         }
         
 
