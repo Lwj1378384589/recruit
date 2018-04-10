@@ -1,6 +1,7 @@
 <template>
     <div>
         <my-header></my-header>
+        <p>test</p>
         <router-view class="view"> </router-view>
     </div>  
 </template>
