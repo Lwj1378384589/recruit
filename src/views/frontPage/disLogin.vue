@@ -5,7 +5,7 @@
             <div class="css-middle-banner">
                 <div class="css-container">
                     <div class="css-middle-page">
-                        <router-link to="/frontPage/"class="css-link" style="color: #ffffff;">学生登录</router-link>
+                        <router-link to="/frontPage/StudentLogin"class="css-link" style="color: #ffffff;">学生登录</router-link>
                         <router-link to="/frontPage/unitLogin"class="css-link" style="color: #ffffff;">企业登录</router-link>
                     </div>
                 </div>

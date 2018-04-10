@@ -151,7 +151,6 @@ export default{
 							alert("注册成功")
 							
 							if(direction==1){
-								alert("完成完善信息页面后更改push")
 								 _this.$router.push({path:'/frontPage/UnitReg2',query: {id: res.data.data._id}})
 							}else{
 								_this.$router.push({path:'/frontPage'})

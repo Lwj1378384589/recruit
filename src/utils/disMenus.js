@@ -30,6 +30,16 @@ const datas=[
             path:'/frontPage/UnitReg2',
             page:'frontPage.UnitReg2',
         },
+        {
+          title:'学生注册页面',
+          path:'/frontPage/StuReg',
+          page:'frontPage.StuReg',
+        },
+        {
+          title:'学生登录页面',
+          path:'/frontPage/StudentLogin',
+          page:'frontPage.StudentLogin',
+        },
         
 
     ]
