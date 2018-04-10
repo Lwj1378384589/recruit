@@ -38,6 +38,11 @@ const datas=[
           page:'frontPage.recruitmentDetailPage',
         },
         {
+          title:'help',
+          path:'/frontPage/help',
+          page:'frontPage.help',
+        } ,,
+        {
           title:'guidanceVocationalPage',
           path:'/frontPage/guidanceVocationalPage',
           page:'frontPage.guidanceVocationalPage',
