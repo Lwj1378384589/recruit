@@ -1,8 +1,6 @@
 <template>
   <div id="frontPageMain">
     <my-top></my-top>
-    ><br/><br/>
-    <p>sec</p>
     <router-view class="view"> </router-view>
     <my-footer></my-footer>
   </div>

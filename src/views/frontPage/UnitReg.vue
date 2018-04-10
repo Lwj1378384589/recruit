@@ -8,22 +8,22 @@
 								<form action="" class="css-form" id="form">
 									<div class="css-input inPut">
 										<div class="css-tit">登录名称</div>
-										<input v-model="corpname" class="css-group" type="text" name="corpname" v-on:change="checkCorpname" >
+										<input v-model="corpname" class="css-group" type="text" name="corpname" v-on:change="checkCorpname">
 										<div class="jingGao">请输入登录名称</div>
 									</div>
 									<div class="css-input inPut">
 										<div class="css-tit">登录密码</div>
-										<input v-model="password" class="css-group" type="password" name="password" v-on:change='checkPassword'>
+										<input v-model="password" class="css-group" type="password" name="password" >
 										<div class="jingGao">请输入您的密码</div>
 									</div>
 									<div class="css-input inPut">
 										<div class="css-tit">确认密码</div>
-										<input v-model="comfirmPassword" class="css-group" type="password" v-on:change="checkComfirmPassword" >
+										<input v-model="comfirmPassword" class="css-group" type="password" >
 										<div class="jingGao">请确认您的密码</div>
 									</div>
 									<div class="css-input inPut">
 										<div class="css-tit">电子邮箱</div>
-										<input v-model="email" class="css-group" type="text" name="email" v-on:change="checkEmail">
+										<input v-model="email" class="css-group" type="text" name="email" >
 										<div class="jingGao">请确保接受通知和找回密码</div>
 									</div>
 									<!-- <div class="css-input inPut" style="margin-bottom:30px;">
@@ -72,21 +72,22 @@ export default{
 	},
 	methods:{
 		checkCorpname(){
+			//企业名称验证
 			var _this=this;
-			if(this.corpname==''||this.corpname==null){
+			if(_this.corpname===''||_this.corpname===null){
 				alert("请填写企业名称");
-				this.checkCorpnameState="请填写企业名称";
+				_this.checkCorpnameState="请填写企业名称";
 				return false;
 			}else{
-				this.$http.post('/apis/platform/corp/register/check',
+				_this.$http.post('/apis/platform/corp/register/check',
 					{
-						'corpname':this.corpname
+						'corpname':_this.corpname
 
 					}
 					).then(function(res){
 						if(res.data.result!="ok"){
 							alert("用户名已存在");
-							this.checkCorpnameState="用户名已存在"
+							_this.checkCorpnameState="用户名已存在";
 							_this.corpname='';
 							return false;
 						}else{
@@ -96,7 +97,32 @@ export default{
 					})
 			}
 		},
-		checkPassword(){
+		submit(direction){
+			var _this=this;
+			if(_this.corpname===''||_this.corpname===null){
+				alert("请填写企业名称");
+				_this.checkCorpnameState="请填写企业名称";
+				return false;
+			}else{
+				_this.$http.post('/apis/platform/corp/register/check',
+					{
+						'corpname':_this.corpname
+
+					}
+					).then(function(res){
+						if(res.data.result!="ok"){
+							alert("用户名已存在");
+							_this.checkCorpnameState="用户名已存在";
+							_this.corpname='';
+							return false;
+						}else{
+							_this.checkCorpnameState='ok';
+						}
+						
+					})
+			}
+			
+			//密码验证
 			if(this.password==''||this.password==null){
 				alert("请输入密码")
 				this.checkPasswordState="请输入密码";
@@ -104,8 +130,9 @@ export default{
 			}else{
 				this.checkPasswordState='ok';
 			}
-		},
-		checkComfirmPassword(){
+
+
+			//重复密码验证
 			if(this.comfirmPassword==''||this.comfirmPassword==null){
 				alert("请输入确认密码")
 				this.checkComfirmPasswordState="请输入确认密码";
@@ -120,8 +147,8 @@ export default{
 					this.checkComfirmPasswordState='ok';
 				}
 			}
-		},
-		checkEmail(){
+			
+			//邮箱验证
 			var reg=/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$/;
 			if(this.email==''||this.email==null){
 			alert("请输入邮箱")
@@ -137,9 +164,8 @@ export default{
 					return false;
 				}
 			}
-		},
-		submit(direction){
-			var _this=this;
+
+			
 			if(_this.checkCorpnameState=="ok"&&_this.checkPasswordState=="ok"&&_this.checkComfirmPasswordState=="ok"&&_this.checkEmailState=="ok"){
 				this.$http.post('/apis/platform/corp/register/create',
 					{
@@ -163,7 +189,8 @@ export default{
 					})
 			}else{
 				if(_this.checkCorpnameState!='ok'){
-					alert(_this.checkCorpnameState)
+					alert(this.checkCorpnameState+'/'+this.corpname)
+					alert("企业:"+this.checkCorpnameState)
 				}else if(_this.checkPasswordState!="ok"){
 					alert(_this.checkPasswordState)
 				}else if(_this.checkComfirmPasswordState!="ok"){

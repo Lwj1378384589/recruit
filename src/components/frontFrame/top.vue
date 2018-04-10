@@ -20,7 +20,6 @@
                     <router-link to="/frontPage/help">帮助中心 </router-link>
                     <!-- <a href="help.html"  class="hlp">帮助中心</a> -->
                 </li>
-                <li><p>top</p></li>
             </ul>
         </div>
     </div>
