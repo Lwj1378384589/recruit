@@ -1,8 +1,7 @@
 <template>
     <div>
         <my-header></my-header>
-        <br/><br/>
-        <p>third</p>
+        <p>test3l</p>
         <router-view class="view"> </router-view>
     </div>  
 </template>

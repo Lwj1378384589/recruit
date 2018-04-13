@@ -43,6 +43,8 @@ const pages = {
         unitLogin:()=>import('@/views/frontPage/unitLogin.vue'),
         UnitReg:()=>import('@/views/frontPage/UnitReg.vue'),
         UnitReg2:()=>import('@/views/frontPage/UnitReg2.vue'),
+        StuReg:()=>import('@/views/frontPage/StuReg.vue'),
+        StudentLogin:()=>import('@/views/frontPage/StudentLogin.vue'),
     },
 }
 export default pages;

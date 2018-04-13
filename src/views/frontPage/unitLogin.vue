@@ -3,7 +3,7 @@
 				<div class="css-main-u">
 					<div class="css-log-banner">
 						<div class="css-container">
-							<div class="css-text">
+                <div > <!-- class="css-text" -->
 								<p class="css-p1">
 									慧安&nbsp;&nbsp;(HuiAn)
 								</p>
@@ -44,7 +44,7 @@ export default{
     data() {
         return {
             entName: '',
-                entPassword: ''
+              entPassword: ''
         };
     },
     methods: {
@@ -88,10 +88,10 @@ export default{
             // $.hideLoading();
             alert('对不起，你的请求处理失败了!');   //失败处理
           };
-          setTimeout(function() {
-            // $.hideLoading();
-           alert('您和服务器的链接不稳定，请重新进入登录!');   //设置30000毫秒超时认为请求失败。
-          }, 30000);
+          // setTimeout(function() {
+          //   // $.hideLoading();
+          //  alert('您和服务器的链接不稳定，请重新进入登录!');   //设置30000毫秒超时认为请求失败。
+          // }, 30000);
         }
       }
     }

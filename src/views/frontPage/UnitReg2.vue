@@ -112,6 +112,12 @@
                                     <el-input v-model="address" class="css-group" type="text" name="address" id="address"></el-input>
                                     <!-- <div class="jingGao">请输入单位真实地址</div> -->
                                 </div>
+
+                                <div class="css-input inPut">
+                                    <div class="css-tit">邮编</div>
+                                    <el-input v-model="postcode" class="css-group" type="text" name="postcode" id="postcode"></el-input>
+                                    <!-- <div class="jingGao">请输入单位真实地址</div> -->
+                                </div>
                                 
                                 <div class="css-input inPut" style="height:500px;">
                                 <div class="css-tit">公司简介</div>
@@ -188,6 +194,7 @@ export default{
             email:'',
             address:'',
             description:'',
+            postcode:'',
             provinceSelect:'',
             citySelect:'',
             allProvinceList:[],
@@ -322,15 +329,19 @@ export default{
                     alert("请选择企业规模");
                     return false;
                 }
+                var city='';
                 if(this.citySelect==""||this.citySelect==null){
                     if(this.provinceSelect==""||this.provinceSelect==null){
                         alert("请选择企业所在省份");
                         return false;
                     }else if(this.provinceSelect=="110000"||this.provinceSelect=="120000"||this.provinceSelect=="310000"||this.provinceSelect=="500000"||this.provinceSelect=="710000"||this.provinceSelect=="810000"||this.provinceSelect=="820000"){
+                    city=this.provinceSelect;
                     }else{
                         alert("请选择企业所在城市");
                         return false;
                     }
+                }else{
+                    city=this.citySelect;
                 }
                 if(this.person==""||this.person==null){
                     alert("请输入姓名");
@@ -338,31 +349,51 @@ export default{
                 }
                 //手机验证
                 var mobileReg=/^[1][3,4,5,7,8][0-9]{9}$/;  
-                if(!mobileReg.test(this.mobile)){
+                if(this.mobile==""||this.mobile==null){
+                    alert("请输入手机号");
+                    return false;
+                }else if(!mobileReg.test(this.mobile)){
                         alert("请输入正确的手机号");
                         return false;
                 }
                 //验证电话
                 var phoneReg= /^\d{2,4}-[1-9]\d{6,8}$/;
-                if(!phoneReg.test(this.phone)&&!mobileReg.test(this.phone)){
+                if(this.phone==""||this.phone==null){
+                    alert("请输入电话号");
+                    return false;
+                }else if(!phoneReg.test(this.phone)&&!mobileReg.test(this.phone)){
                     alert("输入正确的电话号");
                     return false;
                 } 
                 //验证网址
                 var urlReg=/(((^https?:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)$/g;
-                if(!urlReg.test(this.url)){
+                if(this.url==""||this.url==null){
+                    alert("请输入网址");
+                    return false;
+                }else if(!urlReg.test(this.url)){
                     alert("输入正确的网址");
                     return false;
                 } 
                 //邮箱验证
                 var emailReg=/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$/;
-                if(!emailReg.test(this.email)){
+                if(this.email==""||this.email==null){
+                    alert("请输入邮箱");
+                    return false;
+                }else if(!emailReg.test(this.email)){
                     alert("请输入正确的邮箱");
                     return false;
                 } 
                 
                 if(this.address==""||this.address==null){
                     alert("请输入地址");
+                    return false;
+                }
+                var postcodeReg = /^[0-9]{6}$/;
+                if(this.postcode==""||this.postcode==null){
+                    alert("请输入邮编");
+                    return false;
+                }else if(!postcodeReg.test(this.postcode)){
+                    alert("请输入正确的邮编");
                     return false;
                 }
                 var mid=CKEDITOR.instances.description.getData();
@@ -373,7 +404,43 @@ export default{
                 }
                 var _this=this;
                 _this.$http.get(
-					"/apis/platform/corp/register/complete?_id="+this.id
+					"/apis/platform/corp/register/complete?_id="+this.id,
+                    {
+                        "description":this.description,
+                        "info": {
+                            "scale":{
+                                "code":this.scaleSelect
+                            },
+                            "nature": {
+                                "code": this.natureSelect
+                            }, 
+                            "industry": {
+                                "code": this.industrySelect
+                            }, 
+                            "city": {
+                                "code":this.city
+                            }, 
+                            "legalPerson": this.legalPerson,
+                            "registerTime": this.registerTime,
+                            "registerMoney":this.registerMoney
+                            },
+                        "contact": {
+                            "person": this.person,
+                            "mobile": this.mobile,
+                            "phone": this.phone,
+                            "email": this.email,
+                            "url": this.url,
+                            "postcode": this.postcode,
+                            "address": this.address
+                        },
+                        "credentials": {
+                            "yyzz": "营业执照.jpg",
+                            "zzjgdmz": "组织机构代码证.jpg",
+                            "swdjz": "税务登记证.jpg",
+                            "sbjntz": "社保缴纳通知.jpg"
+                        }
+            
+                    }
 				).then((response) => {
 					if(response.data.errcode===1){
 						alert(response.data.errmsg);
