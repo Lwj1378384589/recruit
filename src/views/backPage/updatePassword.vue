@@ -27,32 +27,37 @@ export default{
   methods:
   {
     up:function(){
-        const _id=$('#_id').val();
-        if(this.oldpass==""||this.oldpass==null){
-            alert("请输入原密码")
-            return false;
-        }
-        if(this.newpass==""||this.newpass==null){
-            alert("请输入新密码")
-            return false;
-        }
-        if(this.comfirmpass!=this.newpass){
-            alert("两次输入的密码不一致,请重新输入")
-            return false;
-        }
-        this.$http.post('/apis/platform/corp/passwd?_id=5a9e2ed7a44cd66c81cfcf61',
-        {
-            'oldpass':this.oldpass,
-            'newpass':this.newpass
+        // const _id=$('#_id').val();
+        // if(this.oldpass==""||this.oldpass==null){
+        //     alert("请输入原密码")
+        //     return false;
+        // }
+        // if(this.newpass==""||this.newpass==null){
+        //     alert("请输入新密码")
+        //     return false;
+        // }
+        // if(this.comfirmpass!=this.newpass){
+        //     alert("两次输入的密码不一致,请重新输入")
+        //     return false;
+        // }
+        // this.$http.post('/apis/platform/corp/passwd?_id=5a9e2ed7a44cd66c81cfcf61',
+        // {
+        //     'oldpass':this.oldpass,
+        //     'newpass':this.newpass
 
-        }
-        ).then(function(res){
-            alert(res.data.errcode)
+        // }
+        // ).then(function(res){
+        //     alert(res.data.errcode)
+        // })
+        // .catch(function(res){
+        //     alert(res.data.errcode)
+        // })
+            var url="test/next"
+        this.$http.post('http://localhost:8005/testpost/post'+url,{
+            "data":"testpost"
+        }).then(function(response){
+            alert(response)
         })
-        .catch(function(res){
-            alert(res.data.errcode)
-        })
-    
     }
 
 
