@@ -56,7 +56,7 @@ export default{
             alert("请输入企业密码！");
         }else{
           _this.$http.post(
-            "/apis/platform/corp/login", 
+            "/apis/api/login/platform/corp/login", 
             {
                 username: _this.entName,
                 password: _this.entPassword
@@ -78,7 +78,7 @@ export default{
                 alert("您的账号未通过审核");
                 /* window.location.href="/ent/login"; */
               }else if(response.data.data.status=="0"){
-                _this.$router.push({path:'/'})
+                _this.$router.push({path:'/backpage'})
               }else{
                 alert("您还没有注册,请注册");
                 location.href="UnitReg.html"

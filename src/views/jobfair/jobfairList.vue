@@ -50,7 +50,7 @@ var test;
         getData(){
             var _this = this;
             _this.$http.get(
-                "/apis/jobs/jobfair/simple?corp.id=5a9e2ed7a44cd66c81cfcf61&skip="+(this.currentPage-1)+"&limit="+this.pageSize
+                "/apis/api/getdata/jobs/jobfair/simple?corp.id=5a9e2ed7a44cd66c81cfcf61&skip="+(this.currentPage-1)+"&limit="+this.pageSize
             ).then((response) => {
                 if(response.data.errcode===1){
                     alert(response.data.errmsg);
@@ -67,7 +67,7 @@ var test;
             var _this = this;
              test=val;
                  _this.$http.get(
-                    "/apis/jobs/jobfair/simple?corp.id=5a9e2ed7a44cd66c81cfcf61&skip="+(this.currentPage-1)+"&limit="+test
+                    "/apis/api/getdata/jobs/jobfair/simple?corp.id=5a9e2ed7a44cd66c81cfcf61&skip="+(this.currentPage-1)+"&limit="+test
                 ).then((response) => {
                     if(response.data.errcode===1){
                         alert(response.data.errmsg);
@@ -83,7 +83,7 @@ var test;
               var _this = this;
                  test=val;
                 _this.$http.get(
-                    "/apis/jobs/jobfair/simple?corp.id=5a9e2ed7a44cd66c81cfcf61&skip="+(val-1)+"&limit="+_this.pageSize
+                    "/apis/api/getdata/jobs/jobfair/simple?corp.id=5a9e2ed7a44cd66c81cfcf61&skip="+(val-1)+"&limit="+_this.pageSize
                 ).then((response) => {
                     if(response.data.errcode===1){
                         alert(response.data.errmsg);

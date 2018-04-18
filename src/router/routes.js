@@ -11,7 +11,7 @@ import distRegist from '@/views/frontPage/distRegist.vue'
 
 const _routes=[
     {
-        path: '/',
+        path: '/backpage',
         component: main,
         name: 'main',
         meta: { requiresAuth: true },
@@ -28,7 +28,7 @@ const _routes=[
         
     },
     {
-        path:'/frontPage',
+        path:'/',
         component:frontPageMain,
         children:[
             {

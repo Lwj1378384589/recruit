@@ -12,6 +12,15 @@
             </table>
             </form>
         </div>
+        <div>
+            <el-steps :space="200" :active=stepActive finish-status="success">
+                <el-step title="已完成"></el-step>
+                <el-step title="进行中"></el-step>
+                <el-step title="步骤 3"></el-step>
+              </el-steps>
+              <el-button style="margin-top: 12px;" @click="next">下一步</el-button>
+        </div>
+        
     </el-main>
 </template>
 
@@ -21,45 +30,50 @@ export default{
         return {
             oldpass:'',
             newpass:'',
-            comfirmpass:''
+            comfirmpass:'',
+            stepActive:0,
+            
         };
   },
   methods:
   {
+    next() {
+        if (this.stepActive++ > 2) this.stepActive = 0;
+        this.dialogVisible=true;
+      },
     up:function(){
-        // const _id=$('#_id').val();
-        // if(this.oldpass==""||this.oldpass==null){
-        //     alert("请输入原密码")
-        //     return false;
-        // }
-        // if(this.newpass==""||this.newpass==null){
-        //     alert("请输入新密码")
-        //     return false;
-        // }
-        // if(this.comfirmpass!=this.newpass){
-        //     alert("两次输入的密码不一致,请重新输入")
-        //     return false;
-        // }
-        // this.$http.post('/apis/platform/corp/passwd?_id=5a9e2ed7a44cd66c81cfcf61',
-        // {
-        //     'oldpass':this.oldpass,
-        //     'newpass':this.newpass
+        var _this=this;
+        const _id=$('#_id').val();
+        if(this.oldpass==""||this.oldpass==null){
+            alert("请输入原密码")
+            return false;
+        }
+        if(this.newpass==""||this.newpass==null){
+            alert("请输入新密码")
+            return false;
+        }
+        if(this.comfirmpass!=this.newpass){
+            alert("两次输入的密码不一致,请重新输入")
+            return false;
+        }
+        this.$http.post('/apis/api/post/platform/corp/passwd?_id=5a9e2ed7a44cd66c81cfcf61',
+        {
+            'oldpass':this.oldpass,
+            'newpass':this.newpass
 
-        // }
-        // ).then(function(res){
-        //     alert(res.data.errcode)
-        // })
-        // .catch(function(res){
-        //     alert(res.data.errcode)
-        // })
-            var url="test/next"
-        this.$http.post('http://localhost:8005/testpost/post'+url,{
-            "data":"testpost"
-        }).then(function(response){
-            alert(response)
+        }
+        ).then(function(res){
+            if(res.data.errcode==0){
+            _this.$router.push({path:'/backpage'})
+            }else{
+                alert(res.data.errmsg)
+            }
         })
+        .catch(function(res){
+            alert(res.data.errmsg)
+          })
+           
     }
-
 
   }
 

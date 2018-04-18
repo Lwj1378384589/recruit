@@ -9,11 +9,11 @@ module.exports = {
 
     // Paths
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: './',
     autoOpenBrowser: true,
     proxyTable: {
       '/apis':{
-        target:'http://oa.chinahuian.cn',
+        target:'http://localhost:8005',
         changeOrigin:true,
         pathRewrite:{
           '^/apis':'/'

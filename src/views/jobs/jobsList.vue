@@ -11,15 +11,15 @@
                   </el-table>
             </div>
             <div class="block">
-                    <el-pagination
-                      v-on:size-change="handleSizeChange"
-                      v-on:current-change="handleCurrentChange"
-                      :current-page="currentPage"
-                      :page-sizes="[1, 2, 3, 4,5,6,7,8,9,10]"
-                      :page-size="pageSize"
-                      layout="total, sizes, prev, pager, next, jumper"
-                      :total="total">
-                    </el-pagination>
+                <el-pagination
+                v-on:size-change="handleSizeChange"
+                v-on:current-change="handleCurrentChange"
+                :current-page="currentPage"
+                :page-sizes="[1, 2, 3, 4,5,6,7,8,9,10]"
+                :page-size="pageSize"
+                layout="total, sizes, prev, pager, next, jumper"
+                :total="total">
+              </el-pagination>
             </div>
         </div>
 </template>
@@ -50,7 +50,7 @@
             getData(){
 				var _this = this;
 				_this.$http.get(
-					"/apis/jobs/jobinfo/simple?corp.id=5a9e2ed7a44cd66c81cfcf61&skip="+(this.currentPage-1)+"&limit="+this.pageSize
+					"/apis/api/getdata/jobs/jobinfo/simple?corp.id=5a9e2ed7a44cd66c81cfcf61&skip="+(this.currentPage-1)+"&limit="+this.pageSize
 				).then((response) => {
 					if(response.data.errcode===1){
 						alert(response.data.errmsg);

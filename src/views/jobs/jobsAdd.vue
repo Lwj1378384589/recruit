@@ -61,7 +61,7 @@ export default{
     getProvinceList: function(){
       var _this = this;
 			_this.$http.get(
-				"/apis/naf/code/xzqh/list?parent=000000&level=1"
+				"/apis/api/getdata/naf/code/xzqh/list?parent=000000&level=1"
 			).then((response) => {
 				if(response.data.errcode===1){
 					alert(response.data.errmsg);
@@ -79,17 +79,13 @@ export default{
 				$("#cityBlock").attr("style","display:none");
 				return false;
 			}
-			$("#cityBlock").attr("style","display:block");
-			$.ajax({  
-			    url: '/apis/naf/code/xzqh/list?parent='+this.provinceSelect+'&level=2',  
-			    type: 'GET',  
-			    dataType: "json",
-			    async: false,  
-			    cache: false,  
-			    success: function (d) { 
-			    	_this.cityList=d.data;
-			    }
-			})	
+      $("#cityBlock").attr("style","display:block");
+      _this.$http.get(
+        '/apis/api/getdata/naf/code/xzqh/list?parent='+this.provinceSelect+'&level=2'
+      ).then((response)=>{
+        _this.cityList=response.data.data;
+      })
+    
 		},
     up:function(){
       var _this = this;
@@ -99,7 +95,7 @@ export default{
         }else{
           cityid =this.citySelect
         }
-        this.$http.post('/apis/jobs/jobinfo/create?corp.id=5a9e2ed7a44cd66c81cfcf61&corp.name=福瑞科技',
+        this.$http.post('/apis/api/post/jobs/jobinfo/create?corp.id=session.userId&corp.name=session.username',
         {
             "title":this.title,
             "content":this.content,

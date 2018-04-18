@@ -52,7 +52,10 @@
                       <div class="renDetail">
                         <div class="xiaoM">宣讲时间：</div>
                         <div class="xiaoT">
-                            <el-date-picker class="w500" name="time" v-model="time" type="datetime" placeholder="选择日期时间"></el-date-picker>
+                            <el-date-picker
+                            format="yyyy 年 MM 月 dd 日"
+                            value-format="yyyy-MM-dd"
+                            class="w500" name="time" v-model="time" type="datetime" placeholder="选择日期时间"></el-date-picker>
                         </div>
                       </div>
                       
@@ -101,6 +104,7 @@ export default{
             provinceSelect:'',
             provinceList:[],
             jobfairList:[],
+            id:this.$route.query._id
         }
     },
     mounted(){
@@ -110,7 +114,7 @@ export default{
     methods: {
       getData:function(){
         var _this=this;
-          this.$http.get('/apis/jobs/campus/fetch?_id=5aacc3632708584ca51f3fd3'
+          this.$http.get('/apis/api/getdata/jobs/campus/fetch?_id=5aacc3632708584ca51f3fd3'
 
           ).then(function(response){
               _this.subject=response.data.data.subject;
@@ -131,7 +135,7 @@ export default{
      
       getProvinceList: function(){
         var _this=this;
-        this.$http.get('/apis/naf/code/xzqh/list?parent=000000&level=1'
+        this.$http.get('/apis/api/getdata/naf/code/xzqh/list?parent=000000&level=1'
         ).then(function(response){
             _this.provinceList=response.data.data;
         })
@@ -148,7 +152,7 @@ export default{
 						return false;
 					}
 					$("#cityBlock").attr("style","display:block");
-          this.$http.get('/apis/naf/code/xzqh/list?parent='+code+'&level=2'
+          this.$http.get('/apis/api/getdata/naf/code/xzqh/list?parent='+code+'&level=2'
           ).then(function(response){
               _this.cityList=response.data.data;
           })
@@ -201,8 +205,8 @@ export default{
           }else{
             alert('请选择省份城市');
           }
-          var corpid='5a9e2ed7a44cd66c81cfcf61';
-          this.$http.post("/apis/jobs/campus/update?corp.id="+corpid+"&_id=5aacc3632708584ca51f3fd3",
+         this.id='5aacc3632708584ca51f3fd3';
+          this.$http.post("/apis/api/post/jobs/campus/update?corp.id=session.userId&_id="+this.id,
           {
             "subject":_this.subject,
             "content":_this.content,
@@ -217,8 +221,11 @@ export default{
             "jobs":store.state.jobfairList
           }
           ).then(function(response){
-            alert(response.data.errmsg);
-            _this.$router.push({path:'/'})
+            if(response.data.errcode==0){
+            _this.$router.push({path:'/careertalk/careertalkList'})
+            }else{
+              alert(response.data.errmsg)
+            }
           })
           .catch(function(res){
             alert(res.data.errmsg)

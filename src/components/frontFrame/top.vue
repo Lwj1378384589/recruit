@@ -3,7 +3,7 @@
         <div class="container1">
             <ul class="css-left">
                 <li class="shouye">
-                    <router-link to="/frontPage">网站首页</router-link>
+                    <router-link to="/">网站首页</router-link>
                     <!-- <a href="index.html"></a> -->
                 </li>
             </ul>
