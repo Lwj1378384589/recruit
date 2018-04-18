@@ -95,13 +95,29 @@
 export default{
     data(){
         return{
-
+            loginBoolean:false
         }
     },
     mounted(){
       this.registLogin();
     },
-    
+    methods:{
+        registLogin(){
+            this.$http.get('/apis/api/registLogin'
+        ).then(function(res){
+            if(!res.data){
+                alert(res.data)
+                alert("请登录")
+            _this.$router.push({path:'/frontPage/disLogin'})
+            }else{
+                this.loginBoolean=true;
+            }
+        })
+        .catch(function(res){
+            alert(res.data.errmsg)
+          })
+        }
+    }
 
 }
 
