@@ -77,8 +77,8 @@
                             v-for="joblist in postInformationList">
                             <div class="gangwei-left">
                                 <p>
-                                    <!-- <router-link to="{path:'frontPage/recruitmentDetailPage',query:{_id: {joblist._id}}">{{joblist.title}}</router-link> -->
-                                    <a  v-on:click="find()" target="blank">{{joblist.title}}</a>
+                                    <router-link to="{path:'/frontPage/recruitmentDetailPage',query:{_id: joblist._id}}">{{joblist.title}}</router-link>
+                                    <!-- <a  v-on:click="find()" target="blank">{{joblist.title}}</a> -->
                                 </p>
                                 <ul>
                                     <li>时间：{{joblist.meta.createdAt}}</li>
