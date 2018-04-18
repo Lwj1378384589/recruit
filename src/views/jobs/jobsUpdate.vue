@@ -3,9 +3,6 @@
             <div class="css-text">
                 <form action="" class="formcss"  style="margin-top:30px;text-align:center;">
                     <p class="pcss">申请招聘信息</p>
-                    
-                    <input v-model="id" name="id" />
-
                     <div class="renZheng mb50" style="padding-left:220px">
                       <div class="renDetail">
                         <div class="xiaoM">招聘名称：</div>
@@ -67,7 +64,7 @@
         getProvinceList: function(){
       var _this = this;
 			_this.$http.get(
-				"/apis/naf/code/xzqh/list?parent=000000&level=1"
+				"/apis/api/getdata/naf/code/xzqh/list?parent=000000&level=1"
 			).then((response) => {
 				if(response.data.errcode===1){
 					alert(response.data.errmsg);
@@ -86,21 +83,17 @@
 				return false;
 			}
 			$("#cityBlock").attr("style","display:block");
-			$.ajax({  
-			    url: '/apis/naf/code/xzqh/list?parent='+this.provinceSelect+'&level=2',  
-			    type: 'GET',  
-			    dataType: "json",
-			    async: false,  
-			    cache: false,  
-			    success: function (d) { 
-			    	_this.cityList=d.data;
-			    }
-			})	
+      $("#cityBlock").attr("style","display:block");
+      _this.$http.get(
+        '/apis/api/getdata/naf/code/xzqh/list?parent='+this.provinceSelect+'&level=2'
+      ).then((response)=>{
+        _this.cityList=response.data.data;
+      })
 		},
         getData: function(){
          var _this =this
 			_this.$http.get(
-				"/apis/jobs/jobinfo/fetch?_id="+_this.id
+				"/apis/api/getdata/jobs/jobinfo/fetch?_id="+_this.id
 			).then((response) => {
 				if(response.data.errcode===1){
 					alert(response.data.errmsg);
@@ -122,7 +115,7 @@
             }else{
               cityid =this.citySelect
             }
-            this.$http.post('/apis/jobs/jobinfo/update?corp.id=5a9e2ed7a44cd66c81cfcf61&_id='+_this.id,
+            this.$http.post('/apis/api/post/jobs/jobinfo/update?corp.id=5a9e2ed7a44cd66c81cfcf61&_id='+_this.id,
             {
                 "title":this.title,
                 "content":this.content,

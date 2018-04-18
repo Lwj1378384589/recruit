@@ -108,7 +108,7 @@ export default{
     methods: {
       getProvinceList: function(){
         var _this=this;
-        this.$http.get('/apis/naf/code/xzqh/list?parent=000000&level=1'
+        this.$http.get('/apis/api/getdata/naf/code/xzqh/list?parent=000000&level=1'
         ).then(function(response){
             _this.provinceList=response.data.data;
         })
@@ -125,7 +125,7 @@ export default{
 						return false;
 					}
 					$("#cityBlock").attr("style","display:block");
-          this.$http.get('/apis/naf/code/xzqh/list?parent='+code+'&level=2'
+          this.$http.get('/apis/api/getdata/naf/code/xzqh/list?parent='+code+'&level=2'
           ).then(function(response){
               _this.cityList=response.data.data;
           })
@@ -178,9 +178,7 @@ export default{
           }else{
             alert('请选择省份城市');
           }
-          var corpid='5a9e2ed7a44cd66c81cfcf61';
-          var corpname='福瑞科技';
-          this.$http.post("/apis/jobs/campus/create?corp.id="+corpid+"&corp.name="+corpname,
+          this.$http.post("/apis/api/post/jobs/campus/create?corp.id=session.userId&corp.name=session.username",
           {
             "subject":_this.subject,
             "content":_this.content,
@@ -195,7 +193,7 @@ export default{
             "jobs":store.state.jobfairList
           }
           ).then(function(response){
-            _this.$router.push({path:'/'})
+            _this.$router.push({path:'/careertalk/careertalkList'})
           })
           .catch(function(res){
             alert(res.data.errmsg)
