@@ -77,8 +77,9 @@
                             v-for="joblist in postInformationList">
                             <div class="gangwei-left">
                                 <p>
-                                    <!-- <router-link to="{path:'frontPage/recruitmentDetailPage',query:{_id: {joblist._id}}">{{joblist.title}}</router-link> -->
-                                    <a  v-on:click="find()" target="blank">{{joblist.title}}</a>
+                                        <router-link :to="{path:'/frontPage/recruitmentDetailPage',query:{_id:joblist._id}}">CCC</router-link>
+                                    <!-- <router-link to="path:/frontPage/recruitmentDetailPage+_id: {joblist._id}">{{joblist.title}}</router-link>  -->
+                                    <!-- <a  v-on:click="find()" target="blank">{{joblist.title}}</a> -->
                                 </p>
                                 <ul>
                                     <li>时间：{{joblist.meta.createdAt}}</li>
@@ -148,7 +149,7 @@
 				//按行业查看职位
 				var _this = this;
 				_this.$http.get(
-					"/apis/naf/code/items/35/list"
+					"/apis/api/getdata/naf/code/items/35/list"
 				).then((response) => {
 					if(response.data.errcode===1){
 						alert(response.data.errmsg);
@@ -163,7 +164,7 @@
 				//获取热招职位列表
 				var _this = this;
 				_this.$http.get(
-					"/apis/naf/code/items/37/list"
+					"/apis/api/getdata/naf/code/items/37/list"
 				).then((response) => {
 					if(response.data.errcode===1){
 						alert(response.data.errmsg);
@@ -193,7 +194,7 @@
 			//获取热招职位列表
 			var _this = this;
 			_this.$http.get(
-				"/apis/naf/code/items/36/list"
+				"/apis/api/getdata/naf/code/items/36/list"
 			).then((response) => {
 				if(response.data.errcode===1){
 					alert(response.data.errmsg);
@@ -208,7 +209,7 @@
 			//获取热招职位列表
 			var _this = this;
 			_this.$http.get(
-				"/apis/naf/code/items/37/list"
+				"/apis/api/getdata/naf/code/items/37/list"
 			).then((response) => {
 				if(response.data.errcode===1){
 					alert(response.data.errmsg);
@@ -223,7 +224,7 @@
 				//岗位信息列表
 				var _this = this;
 				var page = _this.currentPage-1;
-				var url ="/apis/jobs/jobinfo/simple?skip="+page+"&limit="+_this.pageSize
+				var url ="/apis/api/getdata/jobs/jobinfo/simple?skip="+page+"&limit="+_this.pageSize
 					_this.$http.get(
 					url
 				).then((response) => {
@@ -241,7 +242,7 @@
 				var _this = this;
 				 test=val;
 				var page = _this.currentPage-1;
-				var url ="/apis/jobs/jobinfo/simple?skip="+page+"&limit="+test
+				var url ="/apis/api/getdata/jobs/jobinfo/simple?skip="+page+"&limit="+test
 					_this.$http.get(
 					url
 					).then((response) => {
@@ -259,7 +260,7 @@
 		    	  var _this = this;
 					 test=val;
 					 var page = val-1;
-					var url ="/apis/jobs/jobinfo/simple?skip="+page+"&limit="+this.pageSize
+					var url ="/apis/api/getdata/jobs/jobinfo/simple?skip="+page+"&limit="+this.pageSize
 						_this.$http.get(
 						url
 					).then((response) => {

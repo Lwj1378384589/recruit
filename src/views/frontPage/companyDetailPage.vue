@@ -85,7 +85,7 @@ getEnterpriseDetails: function(){
         //获取企业详细信息
         var _this = this;
         
-        var url ="/apis/jobs/campus/fetch?_id="+_this.$route.query._id;
+        var url ="/apis/api/getdata/jobs/campus/fetch?_id="+_this.$route.query._id;
         _this.$http.get(
                 url
             //"json/enterpriseDetails.json"

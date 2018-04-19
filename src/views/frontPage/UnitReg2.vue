@@ -220,7 +220,7 @@ export default{
         getAllProvinceList: function(){
 				var _this = this;
 				_this.$http.get(
-					"/apis/naf/code/xzqh/list?parent=000000&level=1"
+					"/apis/api/getdata/naf/code/xzqh/list?parent=000000&level=1"
 				).then((response) => {
 					if(response.data.errcode===1){
 						alert(response.data.errmsg);
@@ -242,7 +242,7 @@ export default{
 			getScaleList: function(){
 				var _this = this;
 				_this.$http.get(
-					"/apis/naf/code/items/37/list"
+					"/apis/api/getdata/naf/code/items/37/list"
 				).then((response) => {
 					if(response.data.errcode===1){
 						alert(response.data.errmsg);
@@ -257,7 +257,7 @@ export default{
 			getNatureList: function(){
 				var _this = this;
 				_this.$http.get(
-					"/apis/naf/code/items/36/list"
+					"/apis/api/getdata/naf/code/items/36/list"
 				).then((response) => {
 					if(response.data.errcode===1){
 						alert(response.data.errmsg);
@@ -272,7 +272,7 @@ export default{
 			getIndustryList: function(){
 				var _this = this;
 				_this.$http.get(
-					"/apis/naf/code/items/35/list"
+					"/apis/api/getdata/naf/code/items/35/list"
 				).then((response) => {
 					if(response.data.errcode===1){
 						alert(response.data.errmsg);
@@ -291,7 +291,7 @@ export default{
                     return false;
                 }
                 $("#cityBlock").attr("style","display:block");
-                this.$http.get('/apis/naf/code/xzqh/list?parent='+code+'&level=2'
+                this.$http.get('/apis/api/getdata/naf/code/xzqh/list?parent='+code+'&level=2'
                 ).then(function(response){
                     _this.cityList=response.data.data;
                 })
@@ -404,7 +404,7 @@ export default{
                 }
                 var _this=this;
                 _this.$http.get(
-					"/apis/platform/corp/register/complete?_id="+this.id,
+					"/apis/api/getdata/platform/corp/register/complete?_id="+this.id,
                     {
                         "description":this.description,
                         "info": {

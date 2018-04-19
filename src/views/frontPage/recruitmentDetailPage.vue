@@ -106,7 +106,7 @@
         getJobDetails: function(){
 				//岗位信息详情
 				var _this = this;
-				var url ="/apis/jobs/jobinfo/fetch?_id="+_this.$route.query._id;
+				var url ="/apis/api/getdata/jobs/jobinfo/fetch?_id="+_this.$route.query._id;
 				_this.$http.get(
 					url
 				).then((response) => {

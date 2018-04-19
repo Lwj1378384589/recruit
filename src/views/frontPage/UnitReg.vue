@@ -79,7 +79,7 @@ export default{
 				_this.checkCorpnameState="请填写企业名称";
 				return false;
 			}else{
-				_this.$http.post('/apis/platform/corp/register/check',
+				_this.$http.post('/apis/api/post/platform/corp/register/check',
 					{
 						'corpname':_this.corpname
 
@@ -104,7 +104,7 @@ export default{
 				_this.checkCorpnameState="请填写企业名称";
 				return false;
 			}else{
-				_this.$http.post('/apis/platform/corp/register/check',
+				_this.$http.post('/apis/api/post/platform/corp/register/check',
 					{
 						'corpname':_this.corpname
 
@@ -167,7 +167,7 @@ export default{
 
 			
 			if(_this.checkCorpnameState=="ok"&&_this.checkPasswordState=="ok"&&_this.checkComfirmPasswordState=="ok"&&_this.checkEmailState=="ok"){
-				this.$http.post('/apis/platform/corp/register/create',
+				this.$http.post('/apis/api/post/platform/corp/register/create',
 					{
 						'corpname':_this.corpname,
 						"email": _this.email,

@@ -61,7 +61,7 @@ export default{
                 return false;
             }else{
                 var id="5a741e52ddccf17e5562d188"
-                this.$http.post('/apis/platform/user/member/passwd?_id='+id,
+                this.$http.post('/apis/api/getdata/platform/user/member/passwd?_id='+id,
                 {
                     "username": this.username,
                     "password": this.password

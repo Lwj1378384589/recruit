@@ -7,7 +7,8 @@
                            <router-link to="/">网站首页</router-link> 
                     </li>
                 </ul>
-                <ul class="css-right" ><!--原验证登录为'未登录'位置  原判断th:if="${session.corpcode==null}"-->
+                
+                <ul class="css-right"  v-if="loginBoolean==false"><!--原验证登录为'未登录'位置  原判断th:if="${session.corpcode==null}"-->
             
                     <li>
                         <a href=""  class="log">登录</a>
@@ -20,20 +21,17 @@
                     </li>
                 </ul>
             <!--原验证登录为'已登录'位置-->
-            <!-- <ul class="css-right" th:if="${session.corpcode!=null}">
+           <ul class="css-right" v-else>
                 <li >
-                    欢迎<i th:text="${session.corpname}"></i>
+                    欢迎{{username}}
                 </li>
                 <li class="indexbg">
-                    <a href="/ent/backtobackstage">后台首页</a>
-                </li>
-                <li class="indexbg">
-                    <a href="/frontPage/index.html">网站首页</a>
+                    <router-link to="/backpage">后台首页</router-link> 
                 </li>
                 <li class="regbg">
-                    <a href="/ent/cancel">注销</a>
+                    <a @click="logout">注销</a>
                 </li>
-            </ul> -->
+            </ul> 
             
         </div>	<!-- container1 -->
         </div><!-- wrap  -->
@@ -95,7 +93,8 @@
 export default{
     data(){
         return{
-            loginBoolean:false
+            loginBoolean:false,
+            username:''
         }
     },
     mounted(){
@@ -103,19 +102,29 @@ export default{
     },
     methods:{
         registLogin(){
-            this.$http.get('/apis/api/registLogin'
-        ).then(function(res){
-            if(!res.data){
-                alert(res.data)
-                alert("请登录")
-            _this.$router.push({path:'/frontPage/disLogin'})
+            var _this=this;
+            _this.$http.get('/apis/api/registLogin'
+        ).then(function(response){
+            if(response.data.msg=="OK"){
+                _this.username=response.data.corpname;
+                _this.loginBoolean=true;
             }else{
-                this.loginBoolean=true;
+                alert("请登录")
+                _this.$router.push({path:'/frontPage/disLogin'})
             }
         })
-        .catch(function(res){
-            alert(res.data.errmsg)
-          })
+        },
+        logout(){
+            var _this=this;
+            _this.$http.get('/apis/api/logout'
+            ).then((response)=>{
+                if(response.data.msg=="已注销"){
+                    alert("退出成功")
+                    _this.$router.push({path:'/'})
+                }else{
+                    alert("退出失败,请尝试重新退出");
+                }
+            })
         }
     }
 

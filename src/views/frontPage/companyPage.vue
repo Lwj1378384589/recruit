@@ -82,7 +82,7 @@
             getEnterpriseDetails: function(){
 				//获取企业详细信息
 				var _this = this;
-				var url ="/apis/jobs/jobfair/fetch?_id="+_this.$route.query._id;
+				var url ="/apis/api/getdata/jobs/jobfair/fetch?_id="+_this.$route.query._id;
 				_this.$http.get(
 						url
 				).then((response) => {

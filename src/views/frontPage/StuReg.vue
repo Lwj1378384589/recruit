@@ -146,7 +146,7 @@ export default{
 				alert("地址不能为空，请输入")
 				return false;
             }
-            this.$http.post('/apis/platform/user/member/create',
+            this.$http.post('/apis/api/getdata/platform/user/member/create',
             {
                 "xm": this.xm,
                 "xb":this.xb,

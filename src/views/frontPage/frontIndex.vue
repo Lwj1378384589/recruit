@@ -481,11 +481,12 @@ export default{
 				//按行业查看职位
 				var _this = this;
 				_this.$http.get(
-					"/apis/naf/code/items/35/list"
+					"/apis/api/getdata/naf/code/items/35/list"
 				).then((response) => {
 					if(response.data.errcode===1){
 						alert(response.data.errmsg);
 					}else{
+						alert(response.data.data)
 						_this.positionIndustry = response.data.data;
 					}
 				}),function(error){
@@ -496,7 +497,7 @@ export default{
 				//按类别查看职位
 				var _this = this;
 				_this.$http.get(
-					"/apis/naf/code/items/36/list"
+					"/apis/api/getdata/naf/code/items/36/list"
 				).then((response) => {
 					if(response.data.errcode===1){
 						alert(response.data.errmsg);
@@ -511,7 +512,7 @@ export default{
 				//校园宣讲会
 				var _this = this;
 				_this.$http.get(
-					"/apis/jobs/campus/simple?skip=0&limit=10"
+					"/apis/api/getdata/jobs/campus/simple?skip=0&limit=10"
 				).then((response) => {
 					if(response.data.errcode===1){
 						alert(response.data.errmsg);
@@ -526,7 +527,7 @@ export default{
             //校园招聘公告
             var _this = this;
             _this.$http.get(
-                "/apis/jobs/jobfair/simple?skip=0&limit=10"
+                "/apis/api/getdata/jobs/jobfair/simple?skip=0&limit=10"
             ).then((response) => {
                 if(response.data.errcode===1){
                     alert(response.data.errmsg);
