@@ -1,5 +1,6 @@
 <template>
-        <div >            
+        <center>
+        <div id="cen" style="min-height:500px;">            
             <div class="weui-tab" style="margin-top:10px;">
                 <div class="weui-navbar" style="background: #FFFFFF;">
                     <a class="weui-navbar__item nav-font" href="recruitment.html">
@@ -38,8 +39,8 @@
                         <el-button  v-on:click.native.prevent="find(scope.row._id)" size="small"> 详情 </el-button>
                         </template> </el-table-column>
                     </el-table>
-                             <div class="block">
-                            <el-pagination
+                             <div class="block" >
+                            <el-pagination 
                               v-on:size-change="handleSizeChange"
                               v-on:current-change="handleCurrentChange"
                               :current-page="currentPage"
@@ -55,6 +56,7 @@
                 </div>
             </div>
         </div>
+        </center>
 </template>
         
     <script>
@@ -84,7 +86,7 @@
 				//校园招聘公告列表
 				var _this = this;
 				var page = _this.currentPage-1;
-				var url ="/apis/api/getdata/jobs/jobfair/simple?skip="+page+"&limit="+_this.pageSize
+				var url ="/apis/jobs/jobfair/simple?skip="+page+"&limit="+_this.pageSize
 					_this.$http.get(
 					url
 				).then((response) => {
@@ -102,7 +104,7 @@
 				var _this = this;
 				 test=val;
 				var page = _this.currentPage-1;
-				var url ="/apis/api/getdata/jobs/jobfair/simple?skip="+page+"&limit="+test
+				var url ="/apis/jobs/jobfair/simple?skip="+page+"&limit="+test
 					_this.$http.get(
 					url
 					).then((response) => {
@@ -120,7 +122,7 @@
 		    	  var _this = this;
 					 test=val;
 					 var page = val-1;
-						var url ="/apis/api/getdata/jobs/jobfair/simple?skip="+page+"&limit="+this.pageSize
+						var url ="/apis/jobs/jobfair/simple?skip="+page+"&limit="+this.pageSize
 							_this.$http.get(
 							url
 						).then((response) => {
@@ -147,4 +149,13 @@
         }
     }
     </script>
+    <style>
+    #cen {
+    width: 1200px;
+    margin: 0 auto;
+}
+body {
+    font-size:16px;
+}
+    </style>
     

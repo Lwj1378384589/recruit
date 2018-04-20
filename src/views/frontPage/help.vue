@@ -1,6 +1,6 @@
 <template>
         <div>
-        <div class="container">
+        <div class="container" style="padding-bottom:270px;">
                 <ul class="css-subnav">
                     <li class="active"><a href="help.html">帮助中心</a></li>
                 </ul>
@@ -11,19 +11,19 @@
                     <li>&gt;</li>
                 <li><a>详情</a></li>
             </ol>
-            <div class="css-content">
+            <div class="css-content" style="padding-bottom:0px; margin-top:20px;">
                 <div class="css-main">
                     <div class="css-article-content">
                         <div class="css-heading">
                             正文介绍
                         </div>
-                        <div class="css-content">
-                            <h2 class="css-title text-center">
+                        <div class="css-content" style="width:auto;">
+                            <h2 class="text-center" style="border-bottom:none; padding:0;">
                                 {{helpDetail.name}}
                             </h2>
                             <!-- <p>{{helpDetail.time}}</p> -->
                             <div class="css-tit">详情</div>
-                            <div class="css-content">
+                            <div class="css-content" style="width:auto;">
                                      <p>帮助中心</p> 
                                         {{helpDetail.content}}
                             </div>

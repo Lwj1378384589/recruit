@@ -1,7 +1,6 @@
 <template>
     <div>
         <my-header></my-header>
-        <p>test3</p>
         <router-view class="view"> </router-view>
     </div>  
 </template>

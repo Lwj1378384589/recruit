@@ -1,29 +1,29 @@
 <template>
-        <div class="reg" style="padding: 40px 0 180px 0">
+        <div class="reg" style="padding-top:40px;">
 				<div class="css-main-u">
 					<div class="css-reg-banner">
 						<div class="css-container">
-							<div class="css-conbox w1000">
-								<div class="stu w980">单位注册</div>
-								<form action="" class="css-form" id="form">
-									<div class="css-input inPut">
+							<div class="css-conbox" style="margin-top:100px;">
+								<div class="stu">单位注册</div>
+								<form action="" class="css-form" style="height:400px;" id="form">
+									<div class="css-input inPut" style="margin-bottom:20px;">
 										<div class="css-tit">登录名称</div>
-										<input v-model="corpname" class="css-group" type="text" name="corpname" v-on:change="checkCorpname">
+										<el-input v-model="corpname" class="css-group" type="text" name="corpname" v-on:change="checkCorpname"></el-input>
 										<div class="jingGao">请输入登录名称</div>
 									</div>
-									<div class="css-input inPut">
+									<div class="css-input inPut" style="margin-bottom:20px;">
 										<div class="css-tit">登录密码</div>
-										<input v-model="password" class="css-group" type="password" name="password" >
+										<el-input v-model="password" class="css-group" type="password" name="password" ></el-input>
 										<div class="jingGao">请输入您的密码</div>
 									</div>
-									<div class="css-input inPut">
+									<div class="css-input inPut" style="margin-bottom:20px;">
 										<div class="css-tit">确认密码</div>
-										<input v-model="comfirmPassword" class="css-group" type="password" >
+										<el-input v-model="comfirmPassword" class="css-group" type="password" ></el-input>
 										<div class="jingGao">请确认您的密码</div>
 									</div>
-									<div class="css-input inPut">
+									<div class="css-input inPut" style="margin-bottom:40px;">
 										<div class="css-tit">电子邮箱</div>
-										<input v-model="email" class="css-group" type="text" name="email" >
+										<el-input v-model="email" class="css-group" type="text" name="email" ></el-input>
 										<div class="jingGao">请确保接受通知和找回密码</div>
 									</div>
 									<!-- <div class="css-input inPut" style="margin-bottom:30px;">
@@ -35,9 +35,9 @@
 									<div id="v_container" style="width: 170px;height: 50px;"></div>
 										<input type="text" id="code_input" value="" placeholder="请输入验证码"/>
 									</div> -->
-									<a @click="submit(0)" style="color: #ffffff;margin-left:345px;margin-bottom:30px;" class="css-btn">注册</a>
+									<a @click="submit(0)" style="color: #ffffff;margin-bottom:30px;" class="css-btn">注册</a>
 
-									<a @click="submit(1)" style="color: #ffffff;margin-left:345px;margin-bottom:30px;" class="css-btn">完善信息</a>
+									<a @click="submit(1)" style="color: #ffffff;margin-bottom:30px;" class="css-btn">完善信息</a>
 								</form>
 							</div>
 						</div>
@@ -79,7 +79,7 @@ export default{
 				_this.checkCorpnameState="请填写企业名称";
 				return false;
 			}else{
-				_this.$http.post('/apis/api/post/platform/corp/register/check',
+				_this.$http.post('/apis/platform/corp/register/check',
 					{
 						'corpname':_this.corpname
 
@@ -104,7 +104,7 @@ export default{
 				_this.checkCorpnameState="请填写企业名称";
 				return false;
 			}else{
-				_this.$http.post('/apis/api/post/platform/corp/register/check',
+				_this.$http.post('/apis/platform/corp/register/check',
 					{
 						'corpname':_this.corpname
 
@@ -167,7 +167,7 @@ export default{
 
 			
 			if(_this.checkCorpnameState=="ok"&&_this.checkPasswordState=="ok"&&_this.checkComfirmPasswordState=="ok"&&_this.checkEmailState=="ok"){
-				this.$http.post('/apis/api/post/platform/corp/register/create',
+				this.$http.post('/apis/platform/corp/register/create',
 					{
 						'corpname':_this.corpname,
 						"email": _this.email,
@@ -206,3 +206,8 @@ export default{
 }
 
 </script>
+<style>
+.el-input__inner{
+    height:35px;
+}
+</style>

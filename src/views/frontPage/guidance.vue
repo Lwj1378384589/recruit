@@ -24,32 +24,32 @@
                             <div class="notes-list"  style="display:block">
                             <ul >
                                 <li v-for="policy in guidancePolicy" >
-                                    <a :href="['guidancePolicyDetailPage.html?id='+policy.id]" target="_blank">{{policy.title}}</a >
-                                    <span>{{policy.time}}</span>
+                                    <a :href="['guidancePolicyDetailPage.html?id='+policy.id]" target="_blank"  style=" width:1000px; overflow:hidden;">{{policy.title}}</a >
+                                    <span style="padding:0;">{{policy.time}}</span>
                                 </li>
                             </ul>
                             </div> 
                             <div class="notes-list">
                                 <ul>
                                     <li v-for="experience in guidanceExperience" >
-                                        <a :href="['guidanceExperiencePage.html?id='+experience.id]">{{experience.title}}</a >
-                                        <span>{{experience.time}}</span>
+                                        <a :href="['guidanceExperiencePage.html?id='+experience.id]"  style=" width:1000px; overflow:hidden;">{{experience.title}}</a >
+                                        <span style="padding:0;">{{experience.time}}</span>
                                     </li> 
                                 </ul>
                             </div>
                             <div class="notes-list">
                                 <ul>
                                     <li v-for="coach in guidanceCoach" >
-                                        <a :href="['guidanceCoachPage.html?id='+coach.id]">{{coach.title}}</a >
-                                        <span>{{coach.time}}</span>
+                                        <a :href="['guidanceCoachPage.html?id='+coach.id]"  style=" width:1000px; overflow:hidden;">{{coach.title}}</a >
+                                        <span style="padding:0;">{{coach.time}}</span>
                                     </li>    
                                 </ul>
                             </div>
                             <div class="notes-list">
                                 <ul>
                                      <li v-for="voca in guidanceVocational" >
-                                        <a :href="['guidanceVocationalPage.html?id='+voca.id]">{{voca.title}}</a >
-                                        <span>{{voca.time}}</span>
+                                        <a :href="['guidanceVocationalPage.html?id='+voca.id]"  style=" width:1000px; overflow:hidden;">{{voca.title}}</a >
+                                        <span style="padding:0;">{{voca.time}}</span>
                                     </li>  
                                 </ul>
                             </div>
@@ -76,7 +76,7 @@
                 </div>           
             </div>
         </div>
-        </div>
+        
 </template>
     
     <script>
@@ -159,4 +159,44 @@
       }
     
     }
+
+
+    window.onload=function()
+        {
+            var oTab=document.getElementById("cen_right_top");
+            var aH3=oTab.getElementsByTagName("h3");
+            var aDiv=oTab.getElementsByClassName("notes-list");
+            var oSele1=oTab.getElementsByClassName("selet");
+            for(var i=0;i<aH3.length;i++)
+            {
+                aH3[i].index=i;
+                aH3[i].onclick=function()
+                {
+                    for(var i=0;i<aH3.length;i++)
+                    {
+                        aH3[i].className="";
+                        aDiv[i].style.display="none";
+                        oSele1[i].style.backgroundColor = "#f5f5f5";
+                    }
+                    this.className="active";
+                    aDiv[this.index].style.display="block";
+                    oSele1[this.index].style.backgroundColor = "#95d8ea";
+                }
+            }
+        }
     </script>   
+    <style>
+    .notes-list{display:none;}
+    .selet{
+    display: inline-block;
+    width: 100px;
+    height:40px;
+    background-color:#f5f5f5;
+    text-align:center;
+    line-height: 40px;    
+}
+.selet a{
+    color:#555;
+}
+
+</style>

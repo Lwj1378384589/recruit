@@ -1,5 +1,5 @@
 <template>
-    <div class="reg" style="padding: 40px 0 180px 0">
+    <div class="reg" style="padding-top: 40px;">
         <div class="css-main-u">
             <div class="css-reg-banner">
                 <div class="css-container">
@@ -8,11 +8,11 @@
                         <form id="form" class="css-form">
                             <div class="css-input">
                                 <div class="css-tit">姓名</div>
-                                <el-input v-model='xm' name="xm" class="css-group"></el-input>
+                                <el-input v-model='xm' name="xm"  class="css-group" ></el-input>
                             </div>
                             <div class="css-input">
                                 <div class="css-tit">性别</div>
-                                <el-select v-model="xb" class="css-group" name="xb">
+                                <el-select v-model="xb"  class="css-group" style="width:222px;" name="xb">
                                     <el-option value="男">男</el-option>
                                     <el-option value="女">女</el-option>
                                 </el-select>
@@ -23,7 +23,7 @@
                             </div>
                             <div class="css-input">
                                 <div class="css-tit">登录密码</div>
-                                <el-input v-model="password"  name="password" class="css-group" type="password"></el-input>
+                                <el-input v-model="password"  name="password" class="css-group"></el-input>
                             </div>
                             <div class="css-input">
                                 <div class="css-tit">手机号</div>
@@ -146,7 +146,7 @@ export default{
 				alert("地址不能为空，请输入")
 				return false;
             }
-            this.$http.post('/apis/api/getdata/platform/user/member/create',
+            this.$http.post('/apis/platform/user/member/create',
             {
                 "xm": this.xm,
                 "xb":this.xb,
@@ -168,3 +168,8 @@ export default{
     }
 }
 </script>
+<style>
+.el-input__inner{
+    height:35px;
+}
+</style>

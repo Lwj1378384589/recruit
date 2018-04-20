@@ -7,11 +7,16 @@
 </template>
 <style>
 #footer{
-background-color:blueviolet;
-width:1350px;
-height:50px;
-clear: both;
-margin: 0;
+    float:left;
+min-width: 1200px;
+width: 100%;
+color: #fff;
+font-size:16px;
+height: 50px;
+padding: 20px 0;
+margin: 20px auto 0;
+background: #333;
+text-align: center;
 }
         
 </style>

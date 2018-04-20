@@ -1,6 +1,7 @@
 <template>
+<center>
    <div>
-    <div class="weui-tab" style="margin-top:10px;">
+    <div class="weui-tab" style="margin-top:10px; width:1200px; margin:0 auto;">
         <div class="weui-navbar" style="background: #FFFFFF;">
             
             <a class="weui-navbar__item nav-font" href="recruitment.html">
@@ -66,6 +67,7 @@
     </div>
 
    </div>
+   </center>
 </template>
 
 <script>
@@ -112,7 +114,7 @@ export default{
         var _this = this;
         var page = _this.currentPage-1;
         _this.$http.get(
-            "/apis/api/getdata/jobs/campus/simple?skip="+page+"&limit="+_this.pageSize
+            "/apis/jobs/campus/simple?skip="+page+"&limit="+_this.pageSize
         ).then((response) => {
             if(response.data.errcode===1){
                 alert(response.data.errmsg);
@@ -138,7 +140,7 @@ export default{
         var _this = this;
             test=val;
         var page = _this.currentPage-1;
-        var url ="/apis/api/getdata/jobs/campus/simple?skip="+page+"&limit="+test
+        var url ="/apis/jobs/campus/simple?skip="+page+"&limit="+test
             _this.$http.get(
             url
             ).then((response) => {
@@ -157,7 +159,7 @@ export default{
             var _this = this;
                 test=val;
                 var page = val-1;
-            var url ="/apis/api/getdata/jobs/campus/simple?skip="+page+"&limit="+this.pageSize
+            var url ="/apis/jobs/campus/simple?skip="+page+"&limit="+this.pageSize
                 _this.$http.get(
                 url
             ).then((response) => {
@@ -176,3 +178,6 @@ export default{
 
 }
 </script>
+  <style>
+    body {font-size:16px;}
+    </style>

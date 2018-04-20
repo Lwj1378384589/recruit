@@ -205,7 +205,7 @@ export default{
 				//按行业查看职位
 				var _this = this;
 				_this.$http.get(
-					"/apis/api/getdata/naf/code/items/35/list"
+					"/apis/naf/code/items/35/list"
 				).then((response) => {
 					if(response.data.errcode===1){
 						alert(response.data.errmsg);
@@ -220,7 +220,7 @@ export default{
 				//按类别查看职位
 				var _this = this;
 				_this.$http.get(
-					"/apis/api/getdata/naf/code/items/36/list"
+					"/apis/naf/code/items/36/list"
 				).then((response) => {
 					if(response.data.errcode===1){
 						alert(response.data.errmsg);

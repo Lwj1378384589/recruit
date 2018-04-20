@@ -1,7 +1,7 @@
 <template>
         <div>
-            <div id="detail" class="css-out-content"  style="padding:0px 0 180px 0;">
-                <div class="container">
+            <div id="detail" class="css-out-content" style="padding:0;">
+                <div class="container" style="padding-bottom:0;">
                         <ol class="css-breadcrumb">
                             <li><a href="index.html">首页</a></li>
                             <li> > </li>
@@ -9,7 +9,7 @@
                             <li> > </li>
                             <li><a href="#this">详情</a></li>
                         </ol>
-                        <div class="css-content">
+                        <div class="css-content" style="padding-bottom:0;">
                             <div class="css-article-content">
                                 <div class="tpp">
                                     <div class="top">
@@ -17,8 +17,8 @@
                                                {{jobDetails.name}}
                                         </div>
                                         <div class="ct">{{jobDetails.salary}}</div>
-                                        <a class="rt" href="disLogin.html" id="example" style=" margin-right: 15px; " >申请职位</a>
-                                        <a class="rt bg2" href="disLogin.html" id="example1" >收藏职位</a>
+                                        <a class="rt" href="disLogin.html" id="example" style=" margin-right: 15px; font-size:16px; " >申请职位</a>
+                                        <a class="rt bg2" href="disLogin.html" id="example1" style=" font-size:16px; " >收藏职位</a>
                                     </div>
                                 </div>
                                 <div class="css-con">
@@ -35,7 +35,7 @@
                                                 <div class="dian"></div>
                                                 <div class="dian1">职位信息</div>
                                             </div>
-                                            <ul class="css-text">
+                                            <ul class="css-text" style="padding-top:0;">
                                                 <li>单位性质：<span>{{jobDetails.title}}</span></li>
                                                 <li>单位行业：<span>{{jobDetails.title}}</span></li>
                                                 <li>单位规模：<span>{{jobDetails.title}}</span></li>
@@ -52,7 +52,7 @@
                                                 <div class="dian"></div>
                                                 <div class="dian1">职位描述</div>
                                             </div>
-                                            <ul class="css-text">
+                                            <ul class="css-text" style="padding-top:0;">
                                                 <li>{{jobDetails._id}}</li>
                                             </ul>
                                             <div style="color: #ffffff">1234</div>
@@ -62,7 +62,7 @@
                                                 <div class="dian"></div>
                                                 <div class="dian1">公司简介</div>
                                             </div>
-                                            <p style="width:1100px; line-height: 30px; padding-left: 20px;">
+                                            <p style="width:1100px; line-height: 30px; padding-top:10px; padding-left: 20px;">
                                                 {{jobDetails.content}}
                                             </p>
             
@@ -106,7 +106,7 @@
         getJobDetails: function(){
 				//岗位信息详情
 				var _this = this;
-				var url ="/apis/api/getdata/jobs/jobinfo/fetch?_id="+_this.$route.query._id;
+				var url ="/apis/jobs/jobinfo/fetch?_id="+_this.$route.query._id;
 				_this.$http.get(
 					url
 				).then((response) => {
@@ -123,3 +123,7 @@
     
     }
     </script>   
+
+    <style>
+    body{font-size:16px;}
+    </style>

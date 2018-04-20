@@ -13,7 +13,7 @@
     -moz-transition-duration: 1s;
     /* Firefox 4 */
     -webkit-transition-duration: 1s;
-    /* Safari ºÍ Chrome */
+    /* Safari ï¿½ï¿½ Chrome */
     -o-transition-duration: 1s;
     /* Opera */
     *zoom: 1;
@@ -228,19 +228,19 @@
 .css-list-inline li {
     display: inline;
 }
-.css-main-content .css-content .css-main .css-article-content {
+ .css-content .css-main .css-article-content {
     margin-top: 20px;
 }
-.css-main-content .css-content .css-main .css-article-content .css-content {
+ .css-content .css-main .css-article-content .css-content {
     margin: 0;
     border: none;
     padding: 15px 30px;
     background-color: #fff;
 }
-.css-main-content .css-content .css-main .css-article-content .css-content p {
+ .css-content .css-main .css-article-content .css-content p {
     margin-bottom: 10px;
 }
-.css-main-content .css-content .css-main .css-article-content .css-heading {
+ .css-content .css-main .css-article-content .css-heading {
     background: #fff;
     border-bottom: 1px solid #ddd;
     border-top-left-radius: 3px;
@@ -249,21 +249,21 @@
     line-height: 50px;
     padding: 0 0 0 20px;
 }
-.css-main-content .css-content .css-main .css-article-content .css-content .css-title {
+ .css-content .css-main .css-article-content .css-content .css-title {
     margin-bottom: 10px;
     font-size: 24px;
 }
 .text-center {
     text-align: center;
 }
-.css-main-content .css-content .css-main .css-article-content .css-content .css-tit {
+ .css-content .css-main .css-article-content .css-content .css-tit {
     background-color: #efefef;
     height: 35px;
     line-height: 35px;
     padding: 0 15px;
     margin: 15px 0;
 }
-.css-main-content .css-content .css-main .css-article-content .css-content {
+ .css-content .css-main .css-article-content .css-content {
     margin: 0;
     border: none;
     padding: 15px 30px;

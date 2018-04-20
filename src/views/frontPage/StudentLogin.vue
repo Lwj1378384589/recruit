@@ -1,9 +1,9 @@
 <template>
-    <div class="reg" style="padding: 40px 0 180px 0">
+    <div class="reg" style="padding-top: 40px;">
         <div class="css-main-u">
             <div class="css-log-banner">
                 <div class="css-container">
-                        <div > <!-- class="css-text" -->
+                        <div class="css-text"> <!-- class="css-text" -->
                         <p class="css-p1">
                             慧安&nbsp;&nbsp;(HuiAn)
                         </p>
@@ -20,22 +20,22 @@
                             职场精英
                         </p>
                     </div>
-                    <div class="css-conbox">
+                    <div class="logConbox">
                         
-                        <div >学生登录</div>
-                        <form action="" id="loginForm"  class="css-form">
-                            <div class="css-input">
-                                <div class="css-tit">学号</div>
-                                <input v-model="username"  placeholder="请输入学号" class="css-group" type="text">
+                        <div class="logTitle">学生登录</div>
+                        <form action="" id="loginForm"  class="logForm">
+                            <div class="logInput">
+                                <div class="logTit">学号</div>
+                                <el-input v-model="username"  placeholder="请输入学号" class="logGroup" type="text"></el-input>
                             </div>
-                            <div class="css-input">
-                                <div class="css-tit">密码</div>
-                                <input v-model="password"  placeholder="请输入密码" class="css-group" type="password">
+                            <div class="logInput">
+                                <div class="logTit">密码</div>
+                                <el-input v-model="password"  placeholder="请输入密码" class="logGroup" type="password"></el-input>
                             </div>
-                            <div class="css-input"  >
-                            <a href="ForgetPassword.html" > 忘记密码？</a>
+                            <a class="logBtn"  id="showTooltips" @click="login">登录</a>
+                             <div class="logInput" style="margin-top:10px; text-align:center;" >
+                            <a href="ForgetPassword.html"  > 密码忘记了？<span style="color:#00abd8;">立即找回</span></a>
                             </div>
-                            <a class="css-btn"  id="showTooltips" @click="login">登录</a>
                         </form>
                     </div>
                 </div>
@@ -61,7 +61,7 @@ export default{
                 return false;
             }else{
                 var id="5a741e52ddccf17e5562d188"
-                this.$http.post('/apis/api/getdata/platform/user/member/passwd?_id='+id,
+                this.$http.post('/apis/platform/user/member/passwd?_id='+id,
                 {
                     "username": this.username,
                     "password": this.password
@@ -74,3 +74,8 @@ export default{
     }
 }
 </script>
+<style>
+.el-input__inner{
+    height:35px;
+}
+</style>

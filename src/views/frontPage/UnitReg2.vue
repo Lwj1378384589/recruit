@@ -1,75 +1,86 @@
 <template>
-        <div class="reg" style="padding: 40px 0 180px 0">
+        <div class="reg" style="padding-top: 40px;">
                 <div class="css-main-u">
                     <div class="css-reg-banner bg2">
                         <div class="css-container">
-                            <div class="css-conbox w1000">
-                                <div class="stu w980">单位注册-完善信息</div>
-                                <form action="" style="width: 800px; margin-top: 30px;" id="form">
+                            <div class="css-conbox" style="width:1000px;">
+                                <div class="stu" style="width:980px;">单位注册-完善信息</div>
+                                <form action="" style="width:1000px;  height:720px; margin-top: 30px;" id="form">
                                <input  name="_id" id="_id" type="hidden">
-                                 <div class="css-input inPut">
-                                        <div class="css-tit">企业法人</div>
-                                        <el-input v-model="legalPerson" class="css-group" type="text" name="legalPerson" id="legalPerson"></el-input>
+                                 <!-- <div class="wanS">
+                                     <div class="wanTit">企业法人</div>
+                                     <el-input v-model="legalPerson" style="width:220px; float:left;" type="text" name="legalPerson" id="legalPerson"></el-input>
+
+                                 </div>
+                                 <div style="width:400px; float:left; height:35px; margin-bottom:10px; background:red;">
+                                     <div style="width: 135px;height: 35px;line-height: 35px;text-align: right;margin-right: 30px;float: left;" class="css-tit">企业法人</div>
+                                     <el-input v-model="legalPerson" style="width:220px; float:left;" type="text" name="legalPerson" id="legalPerson"></el-input>
+
+                                 </div> -->
+                                 
+                                 <div class="wanS">
+                                        <div class="wanTit">企业法人</div>
+                                        <el-input v-model="legalPerson" style="width:260px; float:left;" type="text" name="legalPerson" id="legalPerson"></el-input>
                                        <!--  <div class="jingGao">请输入法人真实姓名</div> -->
                                  </div>
                                  
-                                 <div class="css-input inPut">
+                                 <div class="wanS">
                                         <!-- <div class="css-tit">注册时间</div>
                                          <el-input v-model='registerTime' name="registerTime" class="css-group" type="text" id="registerTime" onClick="WdatePicker()" /></el-input><br/>
                                         <div class="jingGao">请输入营业执照上注册时间</div> -->
-                                                <span class="css-tit">默认</span>
+                                                <span class="wanTit">默认</span>
                                                 <el-date-picker
-                                                class="css-group"
+                                                 style="width:260px; float:left;"
                                                   v-model="registerTime"
                                                   type="date"
                                                   placeholder="选择日期">
                                                 </el-date-picker>
                                  </div>
                                  
-                                 <div class="css-input inPut">
-                                        <div class="css-tit">注册资金</div>
-                                        <el-input v-model='registerMoney' class="css-group" type="text" name="registerMoney" id="registerMoney"></el-input>
+                                 <div class="wanS">
+                                        <div class="wanTit">注册资金</div>
+                                        <el-input v-model='registerMoney'  style="width:260px; float:left;" type="text" name="registerMoney" id="registerMoney"></el-input>
                                         <!-- <div class="jingGao">请输入营业执照上注册资金</div> -->
                                  </div>
                                  
-                                 <div class="css-input inPut">
-                                        <div class="css-tit">企业性质</div>
-                                        <el-select v-model='natureSelect' class="css-group" name="code" id="ent_nature">
+                                 <div class="wanS">
+                                        <div class="wanTit">企业性质</div>
+                                        <el-select v-model='natureSelect' style="width:260px; float:left;" class="css-group" name="code" id="ent_nature">
                                         <el-option value="" selected="true" disabled="disabled">请选择企业性质</el-option>
                                         <el-option v-for="item in natureList" :key="item.code" :value="item.code" :label="item.name"></el-option>
                                         </el-select>
                                          <!-- <div class="jingGao">请选择企业性质</div> -->
                                     </div>
                                  
-                                  <div class="css-input inPut">
-                                        <div class="css-tit">企业行业</div>
-                                        <el-select v-model="industrySelect" class="css-group" name="code" id="ent_industry">
+                                  <div class="wanS">
+                                        <div class="wanTit">企业行业</div>
+                                        <el-select v-model="industrySelect" style="width:260px; float:left;" class="css-group" name="code" id="ent_industry">
                                         <el-option value="" selected="true" disabled="disabled">请选择企业行业</el-option>
                                         <el-option v-for="item in industryList" :key="item.code" :value="item.code" :label="item.name"></el-option>
                                         </el-select>
                                          <!-- <div class="jingGao">请选择企业行业</div> -->
                                     </div>
-                                   <div class="css-input inPut">
-                                        <div class="css-tit">企业规模</div>
-                                        <el-select v-model="scaleSelect" class="css-group" name="code" id="ent_scale">
+                                   <div class="wanS">
+                                        <div class="wanTit">企业规模</div>
+                                        <el-select v-model="scaleSelect" style="width:260px; float:left;" class="css-group" name="code" id="ent_scale">
                                         <el-option value="" selected="true" disabled="disabled">请选择企业规模</el-option>
                                         <el-option v-for="item in scaleList" :key="item.code" :value="item._id" :label="item.name"></el-option>
                                         </el-select>
                                          <!-- <div class="jingGao">请选择企业规模</div> -->
                                     </div>
                                     
-                                 <div class="css-input inPut">
-                                        <div class="css-tit">所在省</div>
-                                        <el-select v-model="provinceSelect" class="css-group" name="code"  v-on:change="changeCity" id="province">
+                                 <div class="wanS">
+                                        <div class="wanTit">所在省</div>
+                                        <el-select v-model="provinceSelect" style="width:260px; float:left;" class="css-group" name="code"  v-on:change="changeCity" id="province">
                                         <el-option value="" selected="true" disabled="disabled">请选择省份</el-option>
                                         <el-option v-for="item in provinceList" :key="item.code" :value="item.code" :label="item.name"></el-option>
                                         </el-select>
                                         <!-- <div class="jingGao">请选择企业所在城市</div> -->
                                     </div>
                                     
-                                    <div class="css-input inPut" id="cityBlock" style="display:none;">
-                                        <div class="css-tit">所在市</div>
-                                        <el-select v-model="citySelect" class="css-group" name="code" id="city" >
+                                    <div class="wanS" id="cityBlock" style="display:none;">
+                                        <div class="wanTit">所在市</div>
+                                        <el-select v-model="citySelect" style="width:260px; float:left;" class="css-group" name="code" id="city" >
                                         <el-option value="" selected="true" disabled="disabled" >请选择市</el-option>
                                         <el-option v-for="item in cityList" :key="item.code" :value="item.code" :label="item.name"></el-option>
                                         </el-select>
@@ -77,51 +88,51 @@
                                     
                                 
                                  
-                                 <div class="css-input inPut">
-                                        <div class="css-tit">姓名</div>
-                                        <el-input v-model="person" class="css-group" type="text" name="person" id="person"></el-input>
+                                 <div class="wanS">
+                                        <div class="wanTit">姓名</div>
+                                        <el-input v-model="person"  style="width:260px; float:left;" type="text" name="person" id="person"></el-input>
                                         <!-- <div class="jingGao">请输入真实姓名</div> -->
                                  </div>
                                 
-                                <div class="css-input inPut">
-                                        <div class="css-tit">手机</div>
-                                        <el-input v-model="mobile" class="css-group" type="text" name="mobile" id="mobile" ></el-input>
+                                <div class="wanS">
+                                        <div class="wanTit">手机</div>
+                                        <el-input v-model="mobile"  style="width:260px; float:left;" type="text" name="mobile" id="mobile" ></el-input>
                                        <!--  <div class="jingGao">请输入真实的手机号</div> -->
                                 </div>
                                 
-                                <div class="css-input inPut">
-                                        <div class="css-tit">电话</div>
-                                        <el-input v-model="phone" class="css-group" type="text" name="phone" id="phone" placeholder="请输入(区号-电话号码)格式"></el-input>
+                                <div class="wanS">
+                                        <div class="wanTit">电话</div>
+                                        <el-input v-model="phone"  style="width:260px; float:left;" type="text" name="phone" id="phone" placeholder="请输入(区号-电话号码)格式"></el-input>
                                        <!--  <div class="jingGao">请输入真实的电话号</div> -->
                                 </div>
                                 
-                                <div class="css-input inPut">
-                                        <div class="css-tit">企业网址</div>
-                                    <el-input v-model="url" class="css-group" type="text" name="url" id="url"></el-input>
+                                <div class="wanS">
+                                        <div class="wanTit">企业网址</div>
+                                    <el-input v-model="url"  style="width:260px; float:left;" type="text" name="url" id="url"></el-input>
                                     <!-- <div class="jingGao">请确保网址可以访问</div> -->
                                 </div>
                                 
-                                <div class="css-input inPut">
-                                    <div class="css-tit">企业邮箱</div>
-                                    <el-input v-model="email" class="css-group" type="text" name="c" id="email"></el-input>
+                                <div class="wanS">
+                                    <div class="wanTit">企业邮箱</div>
+                                    <el-input v-model="email"  style="width:260px; float:left;" type="text" name="c" id="email"></el-input>
                                     <!-- <div class="jingGao">请确保接受通知和找回密码</div> -->
                                 </div>
                                 
-                                <div class="css-input inPut">
-                                    <div class="css-tit">单位地址</div>
-                                    <el-input v-model="address" class="css-group" type="text" name="address" id="address"></el-input>
+                                <div class="wanS">
+                                    <div class="wanTit">单位地址</div>
+                                    <el-input v-model="address"  style="width:260px; float:left;" type="text" name="address" id="address"></el-input>
                                     <!-- <div class="jingGao">请输入单位真实地址</div> -->
                                 </div>
 
-                                <div class="css-input inPut">
-                                    <div class="css-tit">邮编</div>
-                                    <el-input v-model="postcode" class="css-group" type="text" name="postcode" id="postcode"></el-input>
+                                <div class="wanS">
+                                    <div class="wanTit">邮编</div>
+                                    <el-input v-model="postcode"  style="width:260px; float:left;" type="text" name="postcode" id="postcode"></el-input>
                                     <!-- <div class="jingGao">请输入单位真实地址</div> -->
                                 </div>
                                 
-                                <div class="css-input inPut" style="height:500px;">
+                                <div class="css-input inPut" style="height:400px; float:left;">
                                 <div class="css-tit">公司简介</div>
-                                <textarea style="height:230px; width:322px; border: 1px solid #CCCCCC;"  name="description" id="description"></textarea>
+                                <textarea style="height:230px;  width:322px; border: 1px solid #CCCCCC;"  name="description" id="description"></textarea>
                                     
                                 </div>
                                  
@@ -165,7 +176,7 @@
                                      <input  class="css-group" name="file" type="file" style="border: none; height:35px;">
                                      <div class="jingGao">请确保图片清晰</div>
                                  </div> -->
-                                <a @click="submit" style="color: #ffffff; width:550px; margin-bottom:30px; " class="css-btn">确认注册</a>
+                                <a @click="submit" style="color: #ffffff; width:550px; float:left; margin-bottom:30px; " class="css-btn">确认注册</a>
                                  
                                
                                  
@@ -220,7 +231,7 @@ export default{
         getAllProvinceList: function(){
 				var _this = this;
 				_this.$http.get(
-					"/apis/api/getdata/naf/code/xzqh/list?parent=000000&level=1"
+					"/apis/naf/code/xzqh/list?parent=000000&level=1"
 				).then((response) => {
 					if(response.data.errcode===1){
 						alert(response.data.errmsg);
@@ -242,7 +253,7 @@ export default{
 			getScaleList: function(){
 				var _this = this;
 				_this.$http.get(
-					"/apis/api/getdata/naf/code/items/37/list"
+					"/apis/naf/code/items/37/list"
 				).then((response) => {
 					if(response.data.errcode===1){
 						alert(response.data.errmsg);
@@ -257,7 +268,7 @@ export default{
 			getNatureList: function(){
 				var _this = this;
 				_this.$http.get(
-					"/apis/api/getdata/naf/code/items/36/list"
+					"/apis/naf/code/items/36/list"
 				).then((response) => {
 					if(response.data.errcode===1){
 						alert(response.data.errmsg);
@@ -272,7 +283,7 @@ export default{
 			getIndustryList: function(){
 				var _this = this;
 				_this.$http.get(
-					"/apis/api/getdata/naf/code/items/35/list"
+					"/apis/naf/code/items/35/list"
 				).then((response) => {
 					if(response.data.errcode===1){
 						alert(response.data.errmsg);
@@ -291,7 +302,7 @@ export default{
                     return false;
                 }
                 $("#cityBlock").attr("style","display:block");
-                this.$http.get('/apis/api/getdata/naf/code/xzqh/list?parent='+code+'&level=2'
+                this.$http.get('/apis/naf/code/xzqh/list?parent='+code+'&level=2'
                 ).then(function(response){
                     _this.cityList=response.data.data;
                 })
@@ -404,7 +415,7 @@ export default{
                 }
                 var _this=this;
                 _this.$http.get(
-					"/apis/api/getdata/platform/corp/register/complete?_id="+this.id,
+					"/apis/platform/corp/register/complete?_id="+this.id,
                     {
                         "description":this.description,
                         "info": {
@@ -457,6 +468,9 @@ export default{
 
 </script>
 <style>
+.el-input__inner{
+    height:35px;
+}
   .avatar-uploader .el-upload {
     border: 1px dashed #d9d9d9;
     border-radius: 6px;

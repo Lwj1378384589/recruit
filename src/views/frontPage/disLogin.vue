@@ -1,6 +1,6 @@
 <template>
     <div>
-    <div class="reg" style=" padding: 40px 0 180px 0;min-width: 1200px;" >
+    <div class="reg" style=" padding: 40px 0 0 0;min-width: 1200px;" >
         <div class="css-main-u">
             <div class="css-middle-banner">
                 <div class="css-container">

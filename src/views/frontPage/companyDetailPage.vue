@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="css-content" style="padding-bottom:180px;">
+        <div class="css-content" style="padding-bottom:20px;">
                 <!-- <div class="weizhi">
                     <p><a href="index.html">首页</a>&nbsp;>&nbsp;<a href="#">单位信息</a>&nbsp;>&nbsp;<a href="#">详情</a></a></p>
                 </div> -->
@@ -17,7 +17,7 @@
                                     <div class="dian"></div>
                                     <div class="dian1">单位信息</div>
                                 </div>
-                                <ul class="css-text">
+                                <ul class="css-text" style="padding-top:0;">
                                     <li>所在城市：<span>{{enterpriseDetails.city.name}}</span></li>
                                       <li>单位地址：<span>{{enterpriseDetails.address}}</span></li>
                                        <li>邮编：<span>{{enterpriseDetails.email}}</span></li>
@@ -85,7 +85,7 @@ getEnterpriseDetails: function(){
         //获取企业详细信息
         var _this = this;
         
-        var url ="/apis/api/getdata/jobs/campus/fetch?_id="+_this.$route.query._id;
+        var url ="/apis/jobs/campus/fetch?_id="+_this.$route.query._id;
         _this.$http.get(
                 url
             //"json/enterpriseDetails.json"
