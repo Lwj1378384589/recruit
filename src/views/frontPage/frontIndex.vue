@@ -3,7 +3,7 @@
         <div class="css-main-index">
 				<div  style="padding-top:40px;"><!-- class="css-out-content" -->
 					<div class="css-header"  style="font-size:16px;">
-						<div class="container">
+						<div class="container" style="padding-bottom:0;">
 							<router-link to="/frontPage" title="惠安智慧就业平台"> 
 							<!-- <a href="index.html" title="惠安智慧就业平台"> -->
 								<img src="static/frontPage/imgs/a.jpg" class="css-logo pull-left" style="width:230px; height:40px;" >
@@ -218,7 +218,7 @@
 										<li>找工作，招人才...</li>
 									</ul>
 								</div>
-								<ul class="css-btn">
+								<ul>
 									<li class="css-btnlogin"><router-link to="/frontPage/disLogin">用户登录</router-link></li>
 									<li class="css-btnregister"><router-link to="/frontPage/distRegist">免费注册</router-link></li>
 								</ul>
@@ -680,45 +680,101 @@ export default{
 		}
   }
 }
-// var mySchedule = new Schedule({
-// 		el: '#schedule-box',
-// 		//date: '2018-9-20',
-// 		clickCb: function (y,m,d) {
+//   var mySchedule = new Schedule({
+  		// el: '#schedule-box',
+//  		//date: '2018-9-20',
+//  		clickCb: function (y,m,d) {
 // 			document.querySelector('#h3Ele').innerHTML =y+'-'+m+'-'+d
 // 		},
 // 		nextMonthCb: function (y,m,d) {
-// 			document.querySelector('#h3Ele').innerHTML =y+'-'+m+'-'+d
-// 		},
-// 		nextYeayCb: function (y,m,d) {
-// 			document.querySelector('#h3Ele').innerHTML =y+'-'+m+'-'+d
-// 		},
-// 		prevMonthCb: function (y,m,d) {
-// 			document.querySelector('#h3Ele').innerHTML =y+'-'+m+'-'+d
-// 		},
-// 		prevYearCb: function (y,m,d) {
-// 			document.querySelector('#h3Ele').innerHTML =y+'-'+m+'-'+d
-// 		}
-// 	});
+//  			document.querySelector('#h3Ele').innerHTML =y+'-'+m+'-'+d
+//  		},
+//  		nextYeayCb: function (y,m,d) {
+//  			document.querySelector('#h3Ele').innerHTML =y+'-'+m+'-'+d
+//  		},
+//  		prevMonthCb: function (y,m,d) {
+//  			document.querySelector('#h3Ele').innerHTML =y+'-'+m+'-'+d
+//  		},
+//  		prevYearCb: function (y,m,d) {
+//  			document.querySelector('#h3Ele').innerHTML =y+'-'+m+'-'+d
+//  		}
+  	// });
 
-// 	function job(day){
-// 		/*var str = this.formatDate(this.currentYear , this.currentMonth, this.currentDay);*/
-// 		var cssjob=document.getElementById("css-job");
-// 		cssjob.style.display="block";
-// 	}
-// 	function jobclose(){
-// 		var cssjob=document.getElementById("css-job");
-// 		cssjob.style.display="none";
-// 	}
+ 	function job(day){
+ 		/*var str = this.formatDate(this.currentYear , this.currentMonth, this.currentDay);*/
+ 		var cssjob=document.getElementById("css-job");
+ 		cssjob.style.display="block";
+ 	}
+ 	function jobclose(){
+ 		var cssjob=document.getElementById("css-job");
+ 		cssjob.style.display="none";
+ 	}
 	
 
 </script>
 
 
 <style>
+	body {font-size: 16px;}
+
 #frontIndex{
     background:blueviolet;
     width:800px;
     height:800px;
 }
 
-</style>
+
+			/*校园宣讲会*/
+
+			.box {
+				/* width: 800px;*/
+				height: 403px;
+				background: #ffffff;
+				/* margin: 0 auto;*/
+				/*border: 1px solid #000;*/
+			}
+
+			.tabs li {
+				float: left;
+				margin-right: 8px;
+				list-style: none;
+			}
+
+			.tabs .tab-link {
+				display: block;
+				width: 250px;
+				height: 49px;
+				text-align: center;
+				line-height: 49px;
+				background-color: #00B8EC;
+				color: #fff;
+				text-decoration: none;
+			}
+
+			.tabs .tab-link.active {
+				height: 47px;
+				border-bottom: 2px solid #E35885;
+				transition: .3s;
+			}
+
+			.cards {
+				float: left;
+			}
+
+			.cards .tab-card {
+				display: none;
+			}
+
+			.clearfix:after {
+				content: "";
+				display: block;
+				height: 0;
+				clear: both;
+			}
+
+			.clearfix {
+				zoom: 1;
+			}
+		</style>
+
+	

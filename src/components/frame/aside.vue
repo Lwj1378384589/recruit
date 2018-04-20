@@ -1,6 +1,6 @@
 <template>
     <div id="aside">
-        <el-menu default-active="2" class="el-menu-vertical-demo" :unique-opened=true>
+        <el-menu default-active="2" class="el-menu-vertical-demo" theme="dark" :default-openeds="openeds">
             <el-submenu index="1" class="libg" style="border-bottom:2px solid #ffffff;"> 
             <template slot="title">
                 <i class="el-icon-location"></i>
@@ -56,6 +56,8 @@ export default {
   data () {
     return {
       menus,
+      openeds: ['1','2','3','4'],
+      uniqueOpened: false
     }
   }
 }

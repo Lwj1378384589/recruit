@@ -1,24 +1,49 @@
 <template>
-        <div>
-                <div class="shuru">
-                        <form action="" method="post">
-                            <input type="text" /> 
-                            <div id="shuru" style="display:inline-block;">
-                                <select class="select">
-                                    <option value="请选择">请选择</option>
-                                    <option v-for="pitem in positionIndustry" :key="pitem._id"
-                                        :value="pitem.code">{{pitem.name}}</option>
-                                </select> 
-                                <select class="select">
-                                    <option value="请选择">请选择</option>
-                                    <option v-for="posiem in positionType" :key="posiem.name"
-                                        :value="posiem.name">{{posiem.name}}</option>
-                                </select>  
-                            </div>
-                            <input type="text" id="city" class="cittty" value="请选择" /> 
-                            <input class="shuru-s" type="submit" value="搜索">
-                        </form>
+<center>
+        <div id="cen">
+            <div class="weui-tab" style="margin-top: 10px;">
+					<div class="weui-navbar" style="background: #FFFFFF;">
+						<a class="weui-navbar__item nav-font weui-bar__item--on"
+							href="recruitment.html"> 岗位信息 </a> <a
+							class="weui-navbar__item nav-font" href="campusTalkPage.html">
+							校园宣讲会 </a> <a class="weui-navbar__item nav-font"
+							href="campusRecruitmentPage.html"> 校园招聘公告 </a>
+					</div>
+                    <div class="weui-tab__bd">
+                        <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active">
+                                <div class="chazhao">
+                                    <div class="chazhao-t">
+                                        <ul>
+                                            <li>关键词</li>
+                                            <li>行业类别</li>
+                                            <li>职能类别</li>
+                                            <li>工作地区</li>
+                                        </ul>
+                                    </div>
+                                    <div class="shuru">
+                                        <form action="" method="post">
+                                            <input type="text" /> 
+                                            <div id="shuru" style="display:inline-block;">
+                                                <select class="select">
+                                                    <option value="请选择">请选择</option>
+                                                    <option v-for="pitem in positionIndustry" :key="pitem._id"
+                                                        :value="pitem.code">{{pitem.name}}</option>
+                                                </select> 
+                                                <select class="select">
+                                                    <option value="请选择">请选择</option>
+                                                    <option v-for="posiem in positionType" :key="posiem.name"
+                                                        :value="posiem.name">{{posiem.name}}</option>
+                                                </select>  
+                                            </div>
+                                            <input type="text" id="city" class="cittty" value="请选择" /> 
+                                            <input class="shuru-s" type="submit" value="搜索">
+                                        </form>
+                                    </div>
+                                </div>
+                        </div>
                     </div>
+            </div>
+                
         <div class="demo">
 											
                 <ul class="select">
@@ -103,7 +128,7 @@
                                 </p>
                             </div>
                         </div>
-                         <div class="block">
+                         <div class="block" style="margin:0 auto;">
                             <el-pagination
                               v-on:size-change="handleSizeChange"
                               v-on:current-change="handleCurrentChange"
@@ -116,6 +141,7 @@
                           </div>
                     </div>
         </div>
+        </center>
     </template>
     
     <script>
@@ -278,3 +304,88 @@
     
     }
     </script>
+    <style>
+#cen {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+._citys {
+	background-color: #fff;
+	width: 450px;
+	display: inline-block;
+	border: 2px solid #eee;
+	padding: 5px;
+	position: relative;
+}
+
+._citys span {
+	color: #56b4f8;
+	height: 15px;
+	width: 15px;
+	line-height: 15px;
+	text-align: center;
+	border-radius: 3px;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	border: 1px solid #56b4f8;
+	cursor: pointer;
+}
+
+._citys0 {
+	width: 100%;
+	height: 34px;
+	display: inline-block;
+	border-bottom: 2px solid #56b4f8;
+	padding: 0;
+	margin: 0;
+}
+
+._citys0 li {
+	display: inline-block;
+	line-height: 34px;
+	font-size: 15px;
+	color: #888;
+	width: 80px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.citySel {
+	background-color: #56b4f8;
+	color: #fff !important;
+}
+
+._citys1 {
+	background-color: #fff;
+	width: 100%;
+	display: inline-block;
+	padding: 10px 0;
+}
+
+._citys1 a {
+	width: 83px;
+	height: 35px;
+	display: inline-block;
+	background-color: #f5f5f5;
+	color: #666;
+	margin-left: 6px;
+	margin-top: 3px;
+	line-height: 35px;
+	text-align: center;
+	cursor: pointer;
+	font-size: 13px;
+	overflow: hidden;
+}
+
+._citys1 a:hover {
+	color: #fff;
+	background-color: #56b4f8;
+}
+
+.AreaS {
+	background-color: #56b4f8 !important;
+	color: #fff !important;
+}
+</style>

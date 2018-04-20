@@ -1,6 +1,7 @@
 <template>
+<center>
    <div>
-    <div class="weui-tab" style="margin-top:10px;">
+    <div class="weui-tab" style="margin-top:10px; width:1200px; margin:0 auto;">
         <div class="weui-navbar" style="background: #FFFFFF;">
             
             <a class="weui-navbar__item nav-font" href="recruitment.html">
@@ -66,6 +67,7 @@
     </div>
 
    </div>
+   </center>
 </template>
 
 <script>
@@ -176,3 +178,6 @@ export default{
 
 }
 </script>
+  <style>
+    body {font-size:16px;}
+    </style>
