@@ -84,9 +84,20 @@
 
          </div>
 </template>
-
 <script>
-import { menus } from '@/utils/menus';
+    import { menus } from '@/utils/menus';
+    export default {
+      data () {
+        return {
+          menus,
+          openeds: ['1','2','3','4'],
+          uniqueOpened: false
+        }
+      }
+    }
+    
+    </script>
+<script>
 import store from '@/store/store.js'
 export default{
     data(){
@@ -95,9 +106,6 @@ export default{
             currentPage: 1,
             pageSize:10,
             total:400,
-            menus,
-            openeds: ['1','2','3','4'],
-            uniqueOpened: false,
             test:''
             
         }

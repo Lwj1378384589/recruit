@@ -89,18 +89,26 @@
         </div>
     </el-main> -->
 </template>
-
 <script>
-import { menus } from '@/utils/menus';
+    import { menus } from '@/utils/menus';
+    export default {
+      data () {
+        return {
+          menus,
+          openeds: ['1','2','3','4'],
+          uniqueOpened: false
+        }
+      }
+    }
+    
+    </script>
+<script>
 export default{
     data() {
         return {
             oldpass:'',
             newpass:'',
             comfirmpass:'',
-            menus,
-            openeds: ['1','2','3','4'],
-            uniqueOpened: false
         };
   },
   methods:

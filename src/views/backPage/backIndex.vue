@@ -79,6 +79,20 @@
     </div>
 </template>
 </html>
+
+<script>
+    import { menus } from '@/utils/menus';
+    export default {
+      data () {
+        return {
+          menus,
+          openeds: ['1','2','3','4'],
+          uniqueOpened: false
+        }
+      }
+    }
+    
+    </script>
 <script>
 import store from '@/store/store.js'
 export default {
@@ -89,19 +103,7 @@ export default {
   store,
 }
 </script>
-<script>
-import { menus } from '@/utils/menus';
-export default {
-  data () {
-    return {
-      menus,
-      openeds: ['1','2','3','4'],
-      uniqueOpened: false
-    }
-  }
-}
 
-</script>
 <style>
 body{
  background: #f5f5f5;

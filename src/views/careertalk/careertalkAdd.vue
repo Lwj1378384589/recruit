@@ -138,10 +138,21 @@
          </div>
      </div>
 </template>       
-
+<script>
+  import { menus } from '@/utils/menus';
+  export default {
+    data () {
+      return {
+        menus,
+        openeds: ['1','2','3','4'],
+        uniqueOpened: false
+      }
+    }
+  }
+  
+  </script>
 
 <script>
-import { menus } from '@/utils/menus';
 import store from '@/store/store.js'
 import DataForm from "@/components/data/dataForm"
 import DataTable from "@/components/data/dataTable"
@@ -159,9 +170,6 @@ export default{
             citySelect:'',
             provinceSelect:'',
             provinceList:[],
-            menus,
-      openeds: ['1','2','3','4'],
-      uniqueOpened: false,
             
     
         }
