@@ -1,7 +1,7 @@
 <template>
-    <div id="backIndex" style="width:1200px; margin:0 auto; margin-top:95px; background:red; height:1500px; clear:both;">
+    <div id="backIndex" style="width:1200px; margin:0 auto;  margin-top:65px; min-height:750px; clear:both;">
         <!-- 固定导航栏 -->
-        <div style="width:210px; height:1000px; background:#fff; float:left;">
+        <div style="margin-right:10px; background:#fff; float:left;">
             <div id="aside" style="width:200px; position:static;">
                 <el-menu default-active="2" class="el-menu-vertical-demo" theme="dark" :default-openeds="openeds">
                     <el-submenu index="1" class="libg" style="border-bottom:2px solid #ffffff;"> 
@@ -54,8 +54,24 @@
             </div>
         </div>
          <!-- // 固定导航栏 -->
-        <div style="width:990px; height:1000px; background:green; float:left;">
-
+        <div style="width:988px; height:640px; border: 1px solid #ccc; background:#fff; float:left;">
+            <div class="css-text" style="margin-left: 220px; padding-top: 110px;">
+                            <p class="css-p1">
+                                慧安&nbsp;(HuiAn)
+                            </p>
+                            <p class="css-p1" style="padding-top: 0;">
+                                    智慧就业云平台
+                            </p>
+                            <p class="css-p2">
+                                在这里
+                            </p>
+                            <p class="css-p2">
+                                连接
+                            </p>
+                            <p class="css-p2">
+                                职场精英
+                            </p>
+                </div>
 
         </div>
 
@@ -109,6 +125,8 @@ body{
 .el-menu{
     border: 1px solid #ccc;
 }
+
+
 
 </style>
 

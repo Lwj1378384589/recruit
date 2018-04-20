@@ -3,7 +3,7 @@
              <!-- 固定导航栏 -->
         <div style=" margin-right:10px; background:#fff; float:left;">
             <div id="aside" style="width:200px; position:static;">
-                <el-menu default-active="2" class="el-menu-vertical-demo" theme="dark" :default-openeds="openeds">
+                <el-menu default-active="2" class="el-menu-vertical-demo" theme="dark" :default-openeds="['1','2','3','4']">
                     <el-submenu index="1" class="libg" style="border-bottom:2px solid #ffffff;"> 
                     <template slot="title">
                         <i class="el-icon-location"></i>
@@ -60,7 +60,7 @@
              </div>
                 <div style=" margin-bottom:50px; background:#fff;width:988px; ">
                      <el-table :data="tableData" style="width:988px; ">
-                          <el-table-column  prop="subject"  label="宣讲会标题" min-width="180"> </el-table-column>
+                          <el-table-column style=" border-bottom:1px solid red;" prop="subject"  label="宣讲会标题" min-width="180"> </el-table-column>
                           <el-table-column  prop="meta.createdAt"   label="开始时间"     min-width="180"> </el-table-column>
                           <el-table-column  prop="corp.name"   label="发布公司" min-width="180"> </el-table-column>
                           <el-table-column  fixed="right"  label="操作"  min-width="120"> <template slot-scope="scope">
@@ -71,6 +71,7 @@
 
                 <div class="block">
                     <el-pagination
+                     style="text-align:center;"
                       v-on:size-change="handleSizeChange"
                       v-on:current-change="handleCurrentChange"
                       :current-page="currentPage"
@@ -195,6 +196,9 @@ body{
 }
 .xiaoM{
   line-height: 40px;
+}
+.el-table td, .el-table th.is-leaf {
+    padding-left:50px;
 }
 
 </style>
