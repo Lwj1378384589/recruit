@@ -6,7 +6,7 @@
 						<div class="container">
 							<router-link to="/frontPage" title="惠安智慧就业平台"> 
 							<!-- <a href="index.html" title="惠安智慧就业平台"> -->
-								<img src="/static/frontPage/imgs/a.jpg" class="css-logo pull-left" style="width:230px; height:40px;" >
+								<img src="static/frontPage/imgs/a.jpg" class="css-logo pull-left" style="width:230px; height:40px;" >
 							<!-- </a> --></router-link>
 							<div class="css-subwebsite pull-left"  style="background: url('imgs/enterr.png') no-repeat left 5px;">
 								<router-link to="/frontPage/SchoolList"><b>进入子站</b><span class="text-primary">[切换分站]</span> </router-link>
@@ -212,7 +212,7 @@
 						<div class="css-login-notice">
 							<div class="css-login">
 								<div class="css-welcome">
-									<img src="/static/frontPage/imgs/vv.jpg">
+									<img src="static/frontPage/imgs/vv.jpg">
 									<ul class="Wul">
 										<li>Hi,你好...</li>
 										<li>找工作，招人才...</li>
@@ -248,7 +248,7 @@
 							</ul>
 						</div>
 						<div class="css-imgline" style="background: red;">
-								<router-link to="/frontPage/noticePage"  target="_blank"><img src="/static/frontPage/imgs/bigI.jpg" alt="大图片"></router-link>
+								<router-link to="/frontPage/noticePage"  target="_blank"><img src="static/frontPage/imgs/bigI.jpg" alt="大图片"></router-link>
 						</div>
 						<div class="clearfix"></div>
 						<div class="css-imggroup">
@@ -326,12 +326,12 @@
 						<div class="clearfix"></div>
 						<!-- 拒绝诈骗-->
 						<div class="css-imgline" style="margin-top: 0;">
-							<img src="/static/frontPage/imgs/refuse.jpg" alt="拒绝诈骗图片" style="margin-top: 0;">
+							<img src="static/frontPage/imgs/refuse.jpg" alt="拒绝诈骗图片" style="margin-top: 0;">
 						</div>
 						<div class="clearfix"></div>
 						<div class="css-hotjob">
 							<div class="css-caption">
-								<div><img src="/static/frontPage/imgs/jobList.png">最新职位</div>
+								<div><img src="static/frontPage/imgs/jobList.png">最新职位</div>
 								<span><a href="recruitment.html" target="_blank" class="css-more">MORE&nbsp;&gt;&gt;</a></span>
 							</div>
 							<div class="css-content">
@@ -341,7 +341,7 @@
 										<ul>
 											<li>
 												{{jobs.company}}
-												<img src="/static/frontPage/imgs/vip.gif" title="VIP">
+												<img src="static/frontPage/imgs/vip.gif" title="VIP">
 											</li>
 											<li>
 												<a href="recruitmentDetailPage.html"  target="_blank" class="text-blue">{{jobs.position}}</a>
@@ -373,7 +373,7 @@
 						<div class="clearfix"></div>
 						<div class="css-corphire">
 							<div class="css-caption">
-								<div><img src="/static/frontPage/imgs/vvip.png">高级会员</div>
+								<div><img src="static/frontPage/imgs/vvip.png">高级会员</div>
 								<span><a href="seniorMemberPage.html" class="css-more">MORE&nbsp;&gt;&gt;</a></span>
 							</div>
 							<div id="marquee5">
@@ -395,7 +395,7 @@
 						<div class="css-talentmarket">
 							<div class="css-caption">
 								<div>
-									<img src="/static/frontPage/imgs/jz.png">
+									<img src="static/frontPage/imgs/jz.png">
 									招聘简章
 								</div>
 								<span>
@@ -420,7 +420,7 @@
 						<div class="css-friendlink" style="margin-top: 20px;">
 							<div class="css-caption">
 								<div>
-									<img src="/static/frontPage/imgs/link.png"> 
+									<img src="static/frontPage/imgs/link.png"> 
 									友情链接
 								</div>
 							</div>
