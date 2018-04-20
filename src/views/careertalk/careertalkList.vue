@@ -96,8 +96,9 @@ export default{
             pageSize:10,
             total:400,
             menus,
-      openeds: ['1','2','3','4'],
-      uniqueOpened: false
+            openeds: ['1','2','3','4'],
+            uniqueOpened: false,
+            test:''
             
         }
     },
@@ -117,7 +118,7 @@ export default{
           },
         getData(){
             var _this = this;
-            this.$http.get('/apis/jobs/campus/simple?skip='+(this.currentPage-1)+'&limit='+this.pageSize
+            this.$http.get('/apis/api/getdata/jobs/campus/simple?skip='+(this.currentPage-1)+'&limit='+this.pageSize
             ).then(function(response){
                 _this.tableData = response.data.data;
                 _this.allSize = response.data
@@ -130,15 +131,15 @@ export default{
             },
         handleSizeChange(val) {
             var _this = this;
-            test=val;
+            _this.test=val;
                 _this.$http.get(
-                "/apis/jobs/jobfair/simple?corp.id=5a9e2ed7a44cd66c81cfcf61&skip="+(this.currentPage-1)+"&limit="+test
+                "/apis/api/getdata/jobs/jobfair/simple?corp.id=5a9e2ed7a44cd66c81cfcf61&skip="+(this.currentPage-1)+"&limit="+_this.test
             ).then((response) => {
                 if(response.data.errcode===1){
                     alert(response.data.errmsg);
                 }else{
                      _this.tableData = response.data.data;
-                    _this.pageSize=test;
+                    _this.pageSize=_this.test;
                 }
             }),function(error){
                 $.alert('对不起，你的请求处理失败了!');   //失败处理
@@ -146,15 +147,15 @@ export default{
             },
         handleCurrentChange(val) {
             var _this = this;
-                test=val;
+                _this.test=val;
             _this.$http.get(
-                "/apis/jobs/jobfair/simple?corp.id=5a9e2ed7a44cd66c81cfcf61&skip="+(val-1)+"&limit="+_this.pageSize
+                "/apis/api/getdata/jobs/jobfair/simple?corp.id=5a9e2ed7a44cd66c81cfcf61&skip="+(val-1)+"&limit="+_this.pageSize
             ).then((response) => {
                 if(response.data.errcode===1){
                     alert(response.data.errmsg);
                 }else{
                      _this.tableData = response.data.data;
-                    _this.currentPage=test
+                    _this.currentPage=_this.test
                 }	
             }),function(error){
                 $.alert('对不起，你的请求处理失败了!');   //失败处理

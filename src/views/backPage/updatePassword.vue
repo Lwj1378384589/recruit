@@ -105,7 +105,12 @@ export default{
   },
   methods:
   {
+    next() {
+        if (this.stepActive++ > 2) this.stepActive = 0;
+        this.dialogVisible=true;
+      },
     up:function(){
+        var _this=this;
         const _id=$('#_id').val();
         if(this.oldpass==""||this.oldpass==null){
             alert("请输入原密码")
@@ -119,21 +124,24 @@ export default{
             alert("两次输入的密码不一致,请重新输入")
             return false;
         }
-        this.$http.post('/apis/platform/corp/passwd?_id=5a9e2ed7a44cd66c81cfcf61',
+        this.$http.post('/apis/api/post/platform/corp/passwd?_id=5a9e2ed7a44cd66c81cfcf61',
         {
             'oldpass':this.oldpass,
             'newpass':this.newpass
 
         }
         ).then(function(res){
-            alert(res.data.errcode)
+            if(res.data.errcode==0){
+            _this.$router.push({path:'/backpage'})
+            }else{
+                alert(res.data.errmsg)
+            }
         })
         .catch(function(res){
-            alert(res.data.errcode)
-        })
-    
+            alert(res.data.errmsg)
+          })
+           
     }
-
 
   }
 

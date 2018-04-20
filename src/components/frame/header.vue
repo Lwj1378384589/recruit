@@ -6,9 +6,10 @@
         <div class="container1" >
                 <ul class="css-left">
                      <router-link class="logo" style="margin-top:10px;" to="/" title="惠安智慧就业平台"></router-link>
-                    <!-- <li class="shouye">
-                           <router-link to="/frontPage">网站首页</router-link> 
-                    </li> -->
+                   
+                    <li class="shouye">
+                           <router-link to="/">网站首页</router-link> 
+                    </li>
                 </ul>
                 <ul class="css-right" style="height:80px; line-height:80px;" ><!--原验证登录为'未登录'位置  原判断th:if="${session.corpcode==null}"-->
             
@@ -108,6 +109,39 @@
     
 
 </template>
+<script>
+export default{
+    data(){
+        return{
+            loginBoolean:false
+        }
+    },
+    mounted(){
+      this.registLogin();
+    },
+    methods:{
+        registLogin(){
+            this.$http.get('/apis/api/registLogin'
+        ).then(function(res){
+            if(!res.data){
+                alert(res.data)
+                alert("请登录")
+            _this.$router.push({path:'/frontPage/disLogin'})
+            }else{
+                this.loginBoolean=true;
+            }
+        })
+        .catch(function(res){
+            alert(res.data.errmsg)
+          })
+        }
+    }
+
+}
+
+
+
+</script>
 <style>
 #header{
 width:1350px;

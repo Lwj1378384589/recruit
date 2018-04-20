@@ -56,7 +56,7 @@ export default{
             alert("请输入企业密码！");
         }else{
           _this.$http.post(
-            "/apis/platform/corp/login", 
+            "/apis/api/login/platform/corp/login", 
             {
                 username: _this.entName,
                 password: _this.entPassword
@@ -70,15 +70,15 @@ export default{
             //   $.hideLoading();
                if(response.data.data.status=="1"){
                 alert("请完善您的信息");
-                location.href="UnitReg2.html?_id="+response.data.data._id;
+                _this.$router.push({path:'/frontPage/UnitReg2',query: {id: response.data.data._id}})
               }else if(response.data.data.status=="2"){
                 alert("审核中,请您耐心等待");
-                location.href="index.html"
+                _this.$router.push({path:'/'})
               }else if(response.data.data.status=="3"){
                 alert("您的账号未通过审核");
                 /* window.location.href="/ent/login"; */
               }else if(response.data.data.status=="0"){
-                _this.$router.push({path:'/'})
+                _this.$router.push({path:'/backpage'})
               }else{
                 alert("您还没有注册,请注册");
                 location.href="UnitReg.html"

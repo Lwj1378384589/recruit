@@ -13,7 +13,7 @@ module.exports = {
     autoOpenBrowser: true,
     proxyTable: {
       '/apis':{
-        target:'http://oa.chinahuian.cn',
+        target:'http://localhost:8005',
         changeOrigin:true,
         pathRewrite:{
           '^/apis':'/'
@@ -43,7 +43,7 @@ module.exports = {
      */
 
     // https://webpack.js.org/configuration/devtool/#development
-    devtool: 'cheap-module-eval-source-map',
+    devtool: 'source-map',
 
     // If you have problems debugging vue-files in devtools,
     // set this to false - it *may* help

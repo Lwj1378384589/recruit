@@ -71,10 +71,20 @@ const datas=[
           title:'notice',
           path:'/frontPage/notice',
           page:'frontPage.notice',
+        },
+        {
+          title:'recruitmentBrochureDetailPage',
+          path:'/frontPage/recruitmentBrochureDetailPage',
+          page:'frontPage.recruitmentBrochureDetailPage',
+        },
+        {
+          title:'recruitmentBrochurePage',
+          path:'/frontPage/recruitmentBrochurePage',
+          page:'frontPage.recruitmentBrochurePage',
         }
         
 
-    ]
+    ] 
 
 }
 
