@@ -1,12 +1,11 @@
 <template>
      <div id="backIndex" style="float:left; min-height:750px;">
-        <Aside></Aside>
          <div style="width:988px; height:640px; border: 1px solid #ccc; background:#fff; float:left;">
              <div style="width:968px; padding-left:20px; font-size:16px; border-bottom:1px solid #ccc; height:56px; line-height:56px;">
                 申请宣讲会
              </div>
             <form   style="margin:10px auto;text-align:center; ">
-                <div class="renZheng" style="margin-left:200px;">
+                <div class="renZheng">
                     <div class="renDetail">
                         <div class="xiaoM">宣讲会标题：</div>
                         <div class="xiaoT">
@@ -75,7 +74,7 @@
                       </div>
                 
                   
-                  <div class="renDetail" style="width:300px;margin-left:144px;">
+                  <div class="renDetail" style="width:300px;margin-left:350px;">
                       <el-button type="primary" style="width:300px; " class="btncss" id="sub" @click="submit">提交</el-button>
                   </div>
             </div>
@@ -234,6 +233,7 @@ body{
     border: 1px solid #ccc;
 }
 .renDetail{
+  margin-left:250px;
   margin-bottom:15px;
 }
 .xiaoM{

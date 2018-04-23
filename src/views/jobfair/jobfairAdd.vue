@@ -5,7 +5,7 @@
              <div style="width:968px; padding-left:20px; font-size:16px; border-bottom:1px solid #ccc; height:56px; line-height:56px;">
                 申请招聘会
              </div>
-            <form   style="margin:10px auto;text-align:center; ">
+            <form   style="margin:10px auto; margin-top:60px; text-align:center; ">
                 
                 <DataForm></DataForm>
                 <!-- <DataTable></DataTable> -->
@@ -59,6 +59,10 @@ export default{
 <style>
 .jMb30{
   margin-bottom:30px !important;
+}
+.renDetail{
+  margin-left:250px;
+  margin-bottom:15px;
 }
 #aside{
     width: 200px;

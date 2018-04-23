@@ -1,9 +1,12 @@
 <template>
-        <el-main  style="width:1000px;height:800px; background:none;">
-            <div class="css-text">
-                <form action="" class="formcss"  style="margin-top:30px;text-align:center;">
-                    <p class="pcss">申请招聘信息</p>
-                    <div class="renZheng mb50" style="padding-left:220px">
+        <div id="backIndex" style="float:left; min-height:750px;">
+         <div style="width:988px; height:640px; border: 1px solid #ccc; background:#fff; float:left;">
+             <div style="width:968px; padding-left:20px; font-size:16px; border-bottom:1px solid #ccc; height:56px; line-height:56px;">
+                申请招聘信息
+             </div>
+            
+                <form action=""   style="margin-top:60px;text-align:center;">
+                    <div class="renZheng mb50">
                       <div class="renDetail">
                         <div class="xiaoM">招聘名称：</div>
                         <div class="xiaoT">
@@ -34,13 +37,14 @@
                           </el-select>
                         </div>
                       </div>  
-                      <div class="renDetail">                
-                              <el-button type="primary" id="sub" v-on:click="up()">提交</el-button>
+                      <div class="renDetail" style="width:300px;margin-left:350px; margin-top:30px;">                
+                              <el-button type="primary" style="width:300px;" id="sub" v-on:click="up()">提交</el-button>
                         </div>
                     </div>
                 </form>
-            </div>
-        </el-main>
+            
+         </div>
+        </div>
     </template>
     <script>
     export default{
@@ -134,3 +138,31 @@
       }
     }
     </script>
+    <style>
+body{
+ background: #f5f5f5;
+ font-size:16px;
+}
+.el-menu{
+    border: 1px solid #ccc;
+}
+.renDetail{
+  margin-left:250px;
+  margin-bottom:15px;
+}
+.xiaoM{
+  line-height: 40px;
+}
+#aside{
+    width: 200px;
+height: auto;
+margin: 0;
+margin-right:10px;
+float: left;
+    position: static;
+}
+.el-table td, .el-table th.is-leaf {
+    padding-left:50px;
+}
+
+</style>

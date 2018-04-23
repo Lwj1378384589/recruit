@@ -9,7 +9,7 @@
        
             <form action=""   style="margin-top:60px;text-align:center;">
                 
-                <div class="renZheng mb50" style="padding-left:220px">
+                <div class="renZheng mb50">
                   <div class="renDetail jMb30">
                     <div class="xiaoM">招聘名称：</div>
                     <div class="xiaoT">
@@ -40,7 +40,7 @@
                       </el-select>
                     </div>
                   </div>  
-                  <div class="renDetail"  style="width:300px;margin-left:134px;">                
+                  <div class="renDetail"  style="width:300px;margin-left:350px;">                
                           <el-button type="primary" style="width:300px; " id="sub" v-on:click="up()">提交</el-button>
                   </div>
                 </div>
@@ -127,6 +127,10 @@ export default{
 }
 body {
   font-size:16px;
+}
+.renDetail{
+  margin-left:250px;
+  margin-bottom:15px;
 }
 #aside{
     width: 200px;
