@@ -3,11 +3,11 @@
         <div id="cen">
             <div class="weui-tab" style="margin-top: 10px;">
 					<div class="weui-navbar" style="background: #FFFFFF;">
-						<a class="weui-navbar__item nav-font weui-bar__item--on"
-							href="recruitment.html"> 岗位信息 </a> <a
-							class="weui-navbar__item nav-font" href="campusTalkPage.html">
-							校园宣讲会 </a> <a class="weui-navbar__item nav-font"
-							href="campusRecruitmentPage.html"> 校园招聘公告 </a>
+						<router-link class="weui-navbar__item nav-font weui-bar__item--on"
+							to="/frontPage/recruitment"> 岗位信息 </router-link> <router-link
+							class="weui-navbar__item nav-font" to="/frontPage/campusTalkPage">
+							校园宣讲会 </router-link> <router-link class="weui-navbar__item nav-font"
+							to="/frontPage/campusRecruitmentPage"> 校园招聘公告 </router-link>
 					</div>
                     <div class="weui-tab__bd">
                         <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active">

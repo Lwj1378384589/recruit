@@ -13,7 +13,7 @@ module.exports = {
     autoOpenBrowser: true,
     proxyTable: {
       '/apis':{
-        target:'http://localhost:8005',
+        target:'http://oa.chinahuian.cn',
         changeOrigin:true,
         pathRewrite:{
           '^/apis':'/'

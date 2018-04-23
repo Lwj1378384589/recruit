@@ -3,15 +3,15 @@
         <div id="cen" style="min-height:500px;">            
             <div class="weui-tab" style="margin-top:10px;">
                 <div class="weui-navbar" style="background: #FFFFFF;">
-                    <a class="weui-navbar__item nav-font" href="recruitment.html">
+                    <router-link class="weui-navbar__item nav-font" to="/frontPage/recruitment">
                         岗位信息
-                    </a>
-                    <a class="weui-navbar__item nav-font" href="campusTalkPage.html">
+                    </router-link>
+                    <router-link class="weui-navbar__item nav-font" to="/frontPage/campusTalkPage">
                         校园宣讲会
-                    </a>
-                    <a class="weui-navbar__item nav-font weui-bar__item--on" href="campusRecruitmentPage.html">
+                    </router-link>
+                    <router-link class="weui-navbar__item nav-font weui-bar__item--on" to="/frontPage/campusRecruitmentPage">
                         校园招聘会
-                    </a>
+                    </router-link>
                 </div>
                    <div class="weui-tab__bd">
                     <div id="tab4" class="weui-tab__bd-item weui-tab__bd-item--active "><!--weui-tab__bd-item--active显示-->
