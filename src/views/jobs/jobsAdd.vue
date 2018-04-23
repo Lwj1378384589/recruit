@@ -1,22 +1,81 @@
 <template>
-    <el-main  style="width:1000px;height:800px; background:none;">
-        <div class="css-text">
-            <form action="" class="formcss"  style="margin-top:30px;text-align:center;">
-                <p class="pcss">申请招聘信息</p>
+    <div id="backIndex" style="width:1200px; margin:0 auto; margin-top:65px; min-height:750px;  clear:both;">
+      <!-- 固定导航栏 -->
+        <div style=" margin-right:10px; background:#fff; float:left;">
+            <div id="aside" style="width:200px; position:static;">
+                <el-menu default-active="2" class="el-menu-vertical-demo" theme="dark" :default-openeds="['1','2','3','4']">
+                    <el-submenu index="1" class="libg" style="border-bottom:2px solid #ffffff;"> 
+                    <template slot="title">
+                        <i class="el-icon-location"></i>
+                        <span class="css-a">企业信息</span>
+                    </template>
+                    <el-menu-item-group>
+                        <router-link to="/ent/intoupdatepassword"><el-menu-item style="text-align:center;" index="1-1" >修改密码</el-menu-item></router-link>
+                        <!-- <a href="/ent/intoupdatepassword"><el-menu-item style="text-align:center;" index="1-1" >修改密码</el-menu-item></a> -->
+                    </el-menu-item-group>
+                    </el-submenu>
+                    
+                    <el-submenu index="2" class="libg" style="border-bottom:2px solid #ffffff;"> 
+                    <template slot="title">
+                        <i class="el-icon-location"></i>
+                        <span class="css-a">宣讲会</span>
+                    </template>
+                    <el-menu-item-group>
+                        <router-link to="/careertalk/into"><el-menu-item style="text-align:center;" index="2-1" >申请宣讲会</el-menu-item></router-link>
+                        <!-- <a href="/careertalk/into"><el-menu-item style="text-align:center;" index="2-1" >申请宣讲会</el-menu-item></a> -->
+                        <router-link to="/careertalk/careertalkList"><el-menu-item style="text-align:center;" index="2-2">查看宣讲会</el-menu-item></router-link>
+                        <!-- <a href="/careertalk/allcareertalk"><el-menu-item style="text-align:center;" index="2-2">查看宣讲会</el-menu-item></a> -->
+                    </el-menu-item-group>
+                    </el-submenu>
+                    
+                    <el-submenu index="3" class="libg" style="border-bottom:2px solid #ffffff;"> 
+                    <template slot="title">
+                        <i class="el-icon-location"></i>
+                        <span class="css-a">招聘信息</span>
+                    </template>
+                    <el-menu-item-group >
+                        <router-link to="/jobs/jobsAdd"><el-menu-item style="text-align:center;" index="3-1">发布招聘信息</el-menu-item></router-link>
+                        <router-link to="/jobs/jobsList"><el-menu-item  style="text-align:center;" index="3-2">查看招聘信息</el-menu-item></router-link>
+                    </el-menu-item-group>
+                    </el-submenu>
+                    
+                    <el-submenu index="4" class="libg" style="border-bottom:2px solid #ffffff;"> 
+                    <template slot="title">
+                        <i class="el-icon-location"></i>
+                        <span class="css-a">招聘会</span>
+                    </template>
+                    <el-menu-item-group>
+                        <router-link to="/jobfair/into"><el-menu-item style="text-align:center;" index="4-1">申请招聘会</el-menu-item></router-link>
+                        <!-- <a href="/jobfair/into"><el-menu-item style="text-align:center;" index="4-1">申请招聘会</el-menu-item></a> -->
+                        <router-link to="/jobfair/jobfairList"><el-menu-item style="text-align:center;" index="4-2">查看招聘会</el-menu-item></router-link>
+                    </el-menu-item-group>
+                    </el-submenu>
+                </el-menu>
+            </div>
+        </div>
+         <!-- // 固定导航栏 -->
+
+         <div style="width:988px; height:640px; border: 1px solid #ccc; background:#fff; float:left;">
+             <div style="width:968px; padding-left:20px; font-size:16px; border-bottom:1px solid #ccc; height:56px; line-height:56px;">
+                发布招聘信息
+             </div>
+       
+            <form action=""   style="margin-top:60px;text-align:center;">
+                
                 <div class="renZheng mb50" style="padding-left:220px">
-                  <div class="renDetail">
+                  <div class="renDetail jMb30">
                     <div class="xiaoM">招聘名称：</div>
                     <div class="xiaoT">
                       <el-input v-model= "title" name="title"></el-input>
                     </div>
                   </div>
-                  <div class="renDetail">
+                  <div class="renDetail jMb30">
                     <div class="xiaoM">招聘内容：</div>
                     <div class="xiaoT">
                       <el-input  v-model="content" name="content"></el-input>
                     </div>
                   </div>
-                <div class="renDetail">
+                <div class="renDetail jMb30">
                     <div class="xiaoM">省份：</div>
                     <div class="xiaoT">
                       <input v-model="provinceSelect" name="code" id="provinceCode" type="hidden"/>
@@ -25,7 +84,7 @@
                       </el-select>
                     </div>
                   </div>
-                    <div class="renDetail" id="cityBlock" style="display:none;" >
+                    <div class="renDetail jMb30" id="cityBlock" style="display:none;" >
                     <div class="xiaoM">城市：</div>
                     <div class="xiaoT">
                       <input v-model="citySelect" name="code" id="cityCode" type="hidden"/>
@@ -34,13 +93,14 @@
                       </el-select>
                     </div>
                   </div>  
-                  <div class="renDetail">                
-                          <el-button type="primary" id="sub" v-on:click="up()">提交</el-button>
-                    </div>
+                  <div class="renDetail"  style="width:300px;margin-left:134px;">                
+                          <el-button type="primary" style="width:300px; " id="sub" v-on:click="up()">提交</el-button>
+                  </div>
                 </div>
             </form>
         </div>
-    </el-main>
+         </div>
+    
 </template>
 <script>
 export default{
@@ -114,3 +174,11 @@ export default{
   }
 }
 </script>
+<style>
+.jMb30{
+  margin-bottom:30px !important;
+}
+body {
+  font-size:16px;
+}
+</style>

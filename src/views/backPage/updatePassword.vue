@@ -66,7 +66,7 @@
                        <div style="margin-bottom:15px !important;"> <tr><td style="padding-right: 10px; ">原&nbsp;&nbsp;&nbsp;&nbsp;密&nbsp;&nbsp;&nbsp;码&nbsp;&nbsp;:</td>	<td><el-input name="oldpass" id="oldpass" v-model='oldpass'></el-input> </td></tr></div>
                        <div style="margin-bottom:15px !important;"><tr><td style="padding-right: 10px; ">新&nbsp;&nbsp;&nbsp;&nbsp;密&nbsp;&nbsp;&nbsp;码&nbsp;&nbsp;:</td>	<td><el-input name="newpass" id="newpass" v-model='newpass'></el-input> </td></tr></div>
                         <div style="margin-bottom:15px !important;"><tr><td style="padding-right: 10px; ">确认新密码&nbsp;&nbsp;:</td>	<td><el-input name="comfirmpass" id="comfirmpass" v-model='comfirmpass'></el-input> </td></tr></div>
-                        <div style="margin-left:105px !important;"><tr><td colspan="2"><el-button type="primary" id="sub" v-on:click="up()">提交</el-button> </td></tr></div>
+                        <div style="margin-left:105px !important;"><tr><td colspan="2"><el-button type="primary" style="width:214px;" id="sub" v-on:click="up()">提交</el-button> </td></tr></div>
                     </table>
                 </form>
             </div>

@@ -3,7 +3,7 @@
        <!-- 固定导航栏 -->
         <div style=" margin-right:10px; background:#fff; float:left;">
             <div id="aside" style="width:200px; position:static;">
-                <el-menu default-active="2" class="el-menu-vertical-demo" theme="dark" :default-openeds="openeds">
+                <el-menu default-active="2" class="el-menu-vertical-demo" theme="dark" :default-openeds="['1','2','3','4']">
                     <el-submenu index="1" class="libg" style="border-bottom:2px solid #ffffff;"> 
                     <template slot="title">
                         <i class="el-icon-location"></i>
@@ -128,8 +128,8 @@
                       </div>
                 
                   
-                  <div class="renDetail" style="width:400px;margin-left:50px;">
-                      <el-button type="primary" style="width:400px; " class="btncss" id="sub" @click="submit">提交</el-button>
+                  <div class="renDetail" style="width:300px;margin-left:144px;">
+                      <el-button type="primary" style="width:300px; " class="btncss" id="sub" @click="submit">提交</el-button>
                   </div>
             </div>
         </form>
