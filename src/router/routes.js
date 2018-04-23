@@ -47,12 +47,6 @@ const _routes=[
             },
            ...disRoutes,
             
-            {
-                path:'/frontPage/testPage',
-                component:testPage,
-                name:'testPage'
-            },
-            
 
         ]
 
