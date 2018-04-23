@@ -1,4 +1,5 @@
 import main from '@/components/main.vue';
+import mainSecond from '@/components/mainSecond.vue'
 import backIndex from '@/views/backPage/backIndex.vue';
 import frontPageMain from '@/components/frontPageMain.vue'
 import frontIndex from '@/views/frontPage/frontIndex.vue'
@@ -11,21 +12,26 @@ import distRegist from '@/views/frontPage/distRegist.vue'
 
 const _routes=[
     {
-        path: '/backpage',
-        component: main,
-        name: 'main',
-        meta: { requiresAuth: true },
+        path:'/backpage',
+        component:main,
         children:[
+           
             {
-                path: '',
-                component: backIndex,
-                name: 'home',
-                hidden: true,
-                meta: { requiresAuth: true },
+                path:'/backpage/',
+                component:mainSecond,
+                name:'mainSecond',
+                children:[
+                    {
+                        path:"/backpage/",
+                        component:backIndex,
+                    },
+                    ...routes,
+                    
+                ],
             },
-            ...routes,
-        ],
-        
+
+        ]
+
     },
     {
         path:'/',
