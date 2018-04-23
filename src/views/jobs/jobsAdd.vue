@@ -1,5 +1,5 @@
 <template>
-    <div id="backIndex" style="width:1200px; margin:0 auto; margin-top:65px; min-height:750px;  clear:both;">
+    <div id="backIndex" style="float:left; min-height:750px;">
      
 
          <div style="width:988px; height:640px; border: 1px solid #ccc; background:#fff; float:left;">
@@ -127,5 +127,13 @@ export default{
 }
 body {
   font-size:16px;
+}
+#aside{
+    width: 200px;
+height: auto;
+margin: 0;
+margin-right:10px;
+float: left;
+    position: static;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div id="backIndex" style="width:1200px; margin:0 auto; margin-top:65px; min-height:750px;  clear:both;">
+    <div id="backIndex" style="float:left; min-height:750px;">
        
          <div style="width:988px; height:640px; border: 1px solid #ccc; background:#fff; float:left;">
              <div style="width:968px; padding-left:20px; font-size:16px; border-bottom:1px solid #ccc; height:56px; line-height:56px;">
@@ -123,5 +123,13 @@ var test;
 <style>
 .el-table td, .el-table th.is-leaf {
     padding-left:50px;
+}
+#aside{
+    width: 200px;
+height: auto;
+margin: 0;
+margin-right:10px;
+float: left;
+    position: static;
 }
 </style>
