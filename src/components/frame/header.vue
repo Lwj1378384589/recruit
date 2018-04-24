@@ -55,7 +55,6 @@ export default{
                 alert("请登录")
             _this.$router.push({path:'/frontPage/disLogin'})
             }else{
-                alert("suc")
                 _this.$store.commit("loginBooleanChange","true");
                 _this.username=res.data.corpname;
             }
