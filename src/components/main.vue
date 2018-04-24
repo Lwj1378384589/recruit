@@ -1,7 +1,7 @@
 <template>
     <div id="backIndex">
       <my-header></my-header>
-      <router-view class="view"> </router-view>
+      <router-view class="view" style=" width:1200px; margin:0 auto;  margin-top:65px; min-height:750px; clear:both; "> </router-view>
       <!-- <my-aside></my-aside> -->
       <my-footer></my-footer>
     </div>

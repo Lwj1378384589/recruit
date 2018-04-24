@@ -1,5 +1,5 @@
 <template>
-        <div id="tab">
+        <div id="tab" style="width:988px;">
                 <el-table
                     :data="$store.state.jobfairList"
                     style="width: 100%">
@@ -47,3 +47,8 @@ export default{
 
 
 </script>
+<style>
+.el-table td, .el-table th.is-leaf {
+    padding-left:50px;
+}
+</style>

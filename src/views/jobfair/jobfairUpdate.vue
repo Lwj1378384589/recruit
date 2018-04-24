@@ -1,17 +1,19 @@
 <template>
-    <el-main  style="width:1150px;height:800px; background:none;overflow-y:auto ">
-        <div style="margin-left:200px;">
-            <form class="formcss"  style="margin:10px auto;text-align:center; ">
-                <p class="pcss">修改招聘会职位</p>
+   <div id="backIndex" style="float:left; min-height:750px;">
+         <div style="width:988px; height:640px; border: 1px solid #ccc; background:#fff; float:left;">
+             <div style="width:968px; padding-left:20px; font-size:16px; border-bottom:1px solid #ccc; height:56px; line-height:56px;">
+                修改招聘会职位
+             </div>
+            <form style="margin:10px auto; margin-top:60px;text-align:center; ">
                 <!-- <DataForm></DataForm>
                 <DataTable></DataTable> -->
                 <digTable></digTable>
-                <div class="renDetail">
+                <div class="renDetail"  style="margin-bottom:30px; margin-top:30px; margin-left:135px;">
                     <el-button type="primary" class="btncss" id="sub" @click="submit">提交</el-button>
                 </div>
             </form>
         </div>
-    </el-main>
+   </div>
 </template>
 
 <script>
@@ -69,3 +71,31 @@ export default{
 }
 
 </script>
+<style>
+body{
+ background: #f5f5f5;
+ font-size:16px;
+}
+.el-menu{
+    border: 1px solid #ccc;
+}
+.renDetail{
+  margin-left:250px;
+  margin-bottom:15px;
+}
+.xiaoM{
+  line-height: 40px;
+}
+#aside{
+    width: 200px;
+height: auto;
+margin: 0;
+margin-right:10px;
+float: left;
+    position: static;
+}
+.el-table td, .el-table th.is-leaf {
+    padding-left:50px;
+}
+
+</style>

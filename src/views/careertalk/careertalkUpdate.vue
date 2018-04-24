@@ -1,8 +1,12 @@
 <template>
-    <el-main  style="width:1150px;height:800px; background:none;overflow-y:auto ">
-            <form class="formcss"  style="margin:10px auto;text-align:center; ">
-                <p class="pcss">申请宣讲会</p>
-                <div class="renZheng mb50">
+    <div id="backIndex" style="float:left; min-height:750px;">
+      <div style="width:988px;  border: 1px solid #ccc; background:#fff; float:left;">
+             <div style="width:968px; padding-left:20px; font-size:16px; border-bottom:1px solid #ccc; height:56px; line-height:56px;">
+                申请宣讲会
+             </div>
+            <form  style="margin:10px auto;text-align:center; ">
+                
+                <div class="renZheng" >
                     <div class="renDetail">
                         <div class="xiaoM">宣讲会标题：</div>
                         <div class="xiaoT">
@@ -76,12 +80,13 @@
                   <DataForm></DataForm>
                   <dataTable></dataTable>
                   
-                  <div class="renDetail">
+                  <div class="renDetail" style="margin-bottom:30px; margin-top:30px; margin-left:135px;">
                       <el-button type="primary" class="btncss" id="sub" @click="submit">提交</el-button>
                   </div>
             </div>
         </form>
-    </el-main>
+      </div>
+    </div>
 </template>       
 
 
@@ -240,3 +245,28 @@ export default{
 }
 
 </script>
+<style>
+body{
+ background: #f5f5f5;
+ font-size:16px;
+}
+.el-menu{
+    border: 1px solid #ccc;
+}
+.renDetail{
+  margin-left:250px;
+  margin-bottom:15px;
+}
+.xiaoM{
+  line-height: 40px;
+}
+#aside{
+    width: 200px;
+height: auto;
+margin: 0;
+margin-right:10px;
+float: left;
+    position: static;
+}
+
+</style>
