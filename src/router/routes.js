@@ -15,7 +15,6 @@ const _routes=[
         path:'/backpage',
         component:main,
         children:[
-           
             {
                 path:'/backpage/',
                 component:mainSecond,
@@ -52,6 +51,7 @@ const _routes=[
                 ],
             },
            ...disRoutes,
+            
 
         ]
 

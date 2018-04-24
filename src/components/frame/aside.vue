@@ -70,7 +70,7 @@ height:510px;
 margin: 0;
 float:left;
 position: fixed;
-top:250px;
+top:150px;
 }
 
 </style>
