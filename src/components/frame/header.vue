@@ -29,11 +29,12 @@
 </template>
 <script>
 import store from '@/store/store.js'
+import { routes } from '@/utils/menus';
 export default{
     store,
     data(){
         return{
-            username:''
+            username:'',
         }
     },
     mounted(){
@@ -44,7 +45,7 @@ export default{
             var _this=this;
             _this.$http.get('/apis/api/registLogin'
         ).then(function(res){
-            if(res.data.msg=="请登录"){
+            if(res.data.errmsg=="请登录"){
                 alert("请登录")
             _this.$router.push({path:'/frontPage/disLogin'})
             }else{
@@ -57,8 +58,8 @@ export default{
             var _this=this;
             _this.$http.get("/apis/api/logout"
             ).then(function(res){
-                if(res.data.msg=="已注销"){
-                alert(res.data.msg);
+                if(res.data.errmsg==="已注销"){
+                alert(res.data.errmsg);
                 _this.$store.commit("loginBooleanChange","logout")
                 _this.$router.push({path:'/'})
                 }else{

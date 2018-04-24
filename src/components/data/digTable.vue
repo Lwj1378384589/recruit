@@ -55,6 +55,11 @@
             style="width: 100%">
             
             <el-table-column
+            v-for="(data,key) in tableTitle"
+            :label="data.title"
+            :prop="data.display">
+            </el-table-column>
+            <!-- <el-table-column
             prop="name"
             label="职位">
             </el-table-column>
@@ -68,7 +73,7 @@
             prop="requirement"
             label="需求">
             </el-table-column>
-            
+             -->
             <el-table-column
             label="操作">
             <template slot-scope="scope">
@@ -86,6 +91,7 @@
 <script>
 import store from '@/store/store.js'
 export default{
+  props:["tableTitle"],
     data(){
         return{
             testForm:{

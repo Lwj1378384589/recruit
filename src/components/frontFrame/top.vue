@@ -18,7 +18,7 @@
                             <router-link to="/">网站首页</router-link>
                         </li>
                         <li class="regbg" @click="logout">
-                            <touter-link to="/" >注销</touter-link>
+                            <router-link to="/" >注销</router-link>
                         </li>
             </ul>
 
@@ -49,7 +49,7 @@ methods:{
             var _this=this;
             _this.$http.get('/apis/api/registLogin'
         ).then(function(res){
-            if(res.data.msg=="请登录"){
+            if(res.data.errmsg=="请登录"){
            
             }else{
                 _this.$store.commit("loginBooleanChange",res.data);
@@ -60,8 +60,8 @@ methods:{
         var _this=this;
         _this.$http.get("/apis/api/logout"
         ).then(function(res){
-            if(res.data.msg=="已注销"){
-            alert(res.data.msg);
+            if(res.data.errmsg==="已注销"){
+            alert(res.data.errmsg);
             _this.$store.commit("loginBooleanChange","logout")
             _this.$router.push({path:'/'})
             }else{

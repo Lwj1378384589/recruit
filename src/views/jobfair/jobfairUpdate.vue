@@ -7,7 +7,7 @@
             <form style="margin:10px auto; margin-top:60px;text-align:center; ">
                 <!-- <DataForm></DataForm>
                 <DataTable></DataTable> -->
-                <digTable></digTable>
+                <digTable v-bind:tableTitle="tableTitle"></digTable>
                 <div class="renDetail"  style="margin-bottom:30px; margin-top:30px; margin-left:135px;">
                     <el-button type="primary" class="btncss" id="sub" @click="submit">提交</el-button>
                 </div>
@@ -24,7 +24,11 @@ import digTable from "@/components/data/digTable"
 export default{
     data(){
         return{
-            id:this.$route.query._id
+            id:this.$route.query._id,
+            tableTitle:[
+                {title:"职位",display:"name"},
+                {title:"人数",display:"count"},
+                {title:"需求",display:"requirement"}],
         }
     },
     store,

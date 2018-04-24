@@ -29,9 +29,9 @@
 									</div>
 									<div class="logInput">
 										<div class="logTit">登录密码</div>
-										<el-input v-model="entPassword" placeholder="登录密码" class="logGroup" type="password" @keyup.enter="login"></el-input>
+										<el-input v-model="entPassword" placeholder="登录密码" class="logGroup" type="password" @keyup.enter.native="login"></el-input>
 									</div>
-									<a class="logBtn" href="javascript:" id="showTooltips" @click.keyup.enter="login">登录</a>
+									<a class="logBtn" href="javascript:" id="showTooltips" @click.keyup.13="login">登录</a>
 								</form>
 							</div>
 						</div>
@@ -65,9 +65,8 @@ export default{
               emulateJSON: true
             }
           ).then((response) => {
-            if(response.data.errcode!=0){
-            }else{
-            //   $.hideLoading();
+            if(response.data.errcode==0){
+               //   $.hideLoading();
                if(response.data.data.status=="1"){
                 alert("请完善您的信息");
                 _this.$router.push({path:'/frontPage/UnitReg2',query: {id: response.data.data._id}})
@@ -81,8 +80,10 @@ export default{
                 _this.$router.push({path:'/backpage'})
               }else{
                 alert("您还没有注册,请注册");
-                location.href="UnitReg.html"
-              } 
+                _this.$router.push({path:'/frontPage/distRegist'})
+              }
+            }else{
+              alert(response.data.errmsg)
             }
           }),function(error){
             // $.hideLoading();
