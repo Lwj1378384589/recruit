@@ -114,17 +114,17 @@
                             <div class="gangwei-middle">
                                 <p>
                                     <a :href="['companyDetailPage.html?id='+joblist._id]">{{joblist.corp.name}}</a><img
-                                        src="/static/frontPage/imgs/vip.gif">
+                                        src="static/frontPage/imgs/vip.gif">
                                 </p>
                                 <!-- <p>行业：{{joblist.hy}}</p>
                                 <p>性质：{{joblist.dwxz}}</p> -->
                             </div>
                             <div class="gangwei-right">
                                 <div class="gangwei-sq">
-                                    <a href="disLogin.html">申请职位</a>
+                                    <router-link to="/frontPage/disLogin">申请职位</router-link>
                                 </div>
                                 <p>
-                                    <a href="disLogin.html">置顶</a><a href="disLogin.html">收藏</a>
+										<router-link to="/frontPage/disLogin">置顶</router-link><router-link to="/frontPage/disLogin">收藏</router-link>
                                 </p>
                             </div>
                         </div>
@@ -185,37 +185,37 @@
 				}),function(error){
 					$.alert('对不起，你的请求处理失败了!');   //失败处理
 				};
-			},
-			getSalary: function(){
-				//获取热招职位列表
-				var _this = this;
-				_this.$http.get(
-					"/apis/naf/code/items/37/list"
-				).then((response) => {
-					if(response.data.errcode===1){
-						alert(response.data.errmsg);
-					}else{
-						_this.salarylist = response.data.data;
-					}
-				}),function(error){
-					$.alert('对不起，你的请求处理失败了!');   //失败处理
+		},
+		getSalary: function(){
+			//获取热招职位列表
+			var _this = this;
+			_this.$http.get(
+				"/apis/naf/code/items/37/list"
+			).then((response) => {
+				if(response.data.errcode===1){
+					alert(response.data.errmsg);
+				}else{
+					_this.salarylist = response.data.data;
 				}
-			},
-			getPositionType: function(){
-				//按类别查看职位
-				var _this = this;
-				_this.$http.get(
-					"static/frontPage/json/positionType.json"
-				).then((response) => {
-					if(response.data.errcode===1){
-						alert(response.data.errmsg);
-					}else{
-						_this.positionType = response.data.list;
-					}
-				}),function(error){
-					$.alert('对不起，你的请求处理失败了!');   //失败处理
-				};
-			},
+			}),function(error){
+				$.alert('对不起，你的请求处理失败了!');   //失败处理
+			}
+		},
+		getPositionType: function(){
+			//按类别查看职位
+			var _this = this;
+			_this.$http.get(
+				"static/frontPage/json/positionType.json"
+			).then((response) => {
+				if(response.data.errcode===1){
+					alert(response.data.errmsg);
+				}else{
+					_this.positionType = response.data.list;
+				}
+			}),function(error){
+				$.alert('对不起，你的请求处理失败了!');   //失败处理
+			};
+		},
         getDwxz: function(){
 			//获取热招职位列表
 			var _this = this;
@@ -247,59 +247,63 @@
 			}
 		},
         getPostInformationList: function(){
-				//岗位信息列表
-				var _this = this;
-				var page = _this.currentPage-1;
-				var url ="/apis/jobs/jobinfo/simple?skip="+page+"&limit="+_this.pageSize
-					_this.$http.get(
-					url
+			//岗位信息列表
+			var _this = this;
+			var page = _this.currentPage-1;
+			var url ="/apis/jobs/jobinfo/simple?skip="+page+"&limit="+_this.pageSize
+				_this.$http.get(
+				url
+			).then((response) => {
+				if(response.data.errcode===1){
+					alert(response.data.errmsg);
+				}else{
+					_this.postInformationList = response.data.data;
+					_this.total = response.data.total
+				}
+			}),function(error){
+				$.alert('对不起，你的请求处理失败了!');   //失败处理
+			};
+		},
+		handleSizeChange(val) {
+			alert(11)
+			var _this = this;
+				test=val;
+			var page = _this.currentPage-1;
+			var url ="/apis/jobs/jobinfo/simple?skip="+page+"&limit="+test
+				_this.$http.get(
+				url
 				).then((response) => {
 					if(response.data.errcode===1){
 						alert(response.data.errmsg);
 					}else{
-						_this.postInformationList = response.data.data;
-						_this.total = response.data.total
+						 _this.postInformationList = response.data.data;
+						_this.pageSize=test;
 					}
 				}),function(error){
 					$.alert('对不起，你的请求处理失败了!');   //失败处理
-				};
+				} 
 			},
-            handleSizeChange(val) {
-				var _this = this;
-				 test=val;
-				var page = _this.currentPage-1;
-				var url ="/apis/jobs/jobinfo/simple?skip="+page+"&limit="+test
-					_this.$http.get(
-					url
-					).then((response) => {
-						if(response.data.errcode===1){
-							alert(response.data.errmsg);
-						}else{
-							 _this.postInformationList = response.data.data;
-							_this.pageSize=test;
-						}
-					}),function(error){
-						$.alert('对不起，你的请求处理失败了!');   //失败处理
-					} 
-		      },
-		      handleCurrentChange(val) {
-		    	  var _this = this;
-					 test=val;
-					 var page = val-1;
-					var url ="/apis/jobs/jobinfo/simple?skip="+page+"&limit="+this.pageSize
-						_this.$http.get(
-						url
-					).then((response) => {
-						if(response.data.errcode===1){
-							alert(response.data.errmsg);
-						}else{
-							 _this.postInformationList = response.data.data;
-							_this.currentPage=test
-						}	
-					}),function(error){
-						$.alert('对不起，你的请求处理失败了!');   //失败处理
-					} 
-		      }
+		handleCurrentChange(val) {
+			alert(22)
+			var _this = this;
+				test=val;
+				var page = val-1;
+				alert(page)
+			alert(test)
+			var url ="/apis/jobs/jobinfo/simple?skip="+page+"&limit="+this.pageSize
+				_this.$http.get(
+				url
+			).then((response) => {
+				if(response.data.errcode===1){
+					alert(response.data.errmsg);
+				}else{
+					 _this.postInformationList = response.data.data;
+					_this.currentPage=test
+				}	
+			}),function(error){
+				$.alert('对不起，你的请求处理失败了!');   //失败处理
+			} 
+		}
       }
     
     }

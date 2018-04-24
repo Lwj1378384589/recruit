@@ -35,10 +35,10 @@
 							<div class="pull-left css-usernav">
 								<span onmouseover="seen()" onmouseout="disn()">用户功能频道</span>
 							</div>
-							<!-- <ul class="pull-left css-navbar">
+							<ul class="pull-left css-navbar">
 								<li><router-link to="/frontPage/frontIndex">平台首页</router-link></li>
 								<li><router-link to="/frontPage/StudentLogin">学生用户</router-link></li>
-							</ul> -->
+							</ul>
 						</div>  
 				</div>
 					<div class="container clearfix">

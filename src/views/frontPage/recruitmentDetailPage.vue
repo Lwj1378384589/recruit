@@ -17,8 +17,8 @@
                                                {{jobDetails.name}}
                                         </div>
                                         <div class="ct">{{jobDetails.salary}}</div>
-                                        <a class="rt" href="disLogin.html" id="example" style=" margin-right: 15px; font-size:16px; " >申请职位</a>
-                                        <a class="rt bg2" href="disLogin.html" id="example1" style=" font-size:16px; " >收藏职位</a>
+                                        <router-link class="rt" to="/frontPage/disLogin" id="example" style=" margin-right: 15px; font-size:16px; " >申请职位</router-link>
+                                        <router-link class="rt bg2" to="/frontPage/disLogin" id="example1" style=" font-size:16px; " >收藏职位</router-link>
                                     </div>
                                 </div>
                                 <div class="css-con">

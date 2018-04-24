@@ -56,7 +56,7 @@ export default{
             alert("请输入企业密码！");
         }else{
           _this.$http.post(
-            "/apis/api/login/platform/corp/login", 
+            "/apis/platform/corp/login", 
             {
                 username: _this.entName,
                 password: _this.entPassword
