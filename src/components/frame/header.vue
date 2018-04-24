@@ -8,7 +8,7 @@
                 </ul>
                 <ul class="css-right" style="height:80px; line-height:80px;" v-if="$store.state.loginBoolean">
                         <li >
-                            欢迎<i>{{username}}</i>
+                            欢迎<i>{{$store.state.username}}</i>
                         </li>
                         <li class="indexbg">
                             <router-link to="/backpage">后台首页</router-link>
@@ -16,21 +16,14 @@
                         <li class="indexbg">
                             <router-link to="/">网站首页</router-link>
                         </li>
-                        <li class="regbg">
-                            <a @click="logout">注销</a>
-                            <!-- <router-link to="/api/logout">注销</router-link> -->
+                        <li class="regbg" @click="logout">
+                            <router-link to="/backpage">注销</router-link>
                         </li>
                 </ul>
-            
-            <ul class="css-right" style="height:80px; line-height:80px;" v-else>
-               
-            </ul>
-            
-        </div>	<!-- container1 -->
-        </div><!-- wrap  -->
+        </div>	
+        </div>
 
-       
-    </div><!--header-->
+    </div>
     
 
 </template>
@@ -55,8 +48,7 @@ export default{
                 alert("请登录")
             _this.$router.push({path:'/frontPage/disLogin'})
             }else{
-                _this.$store.commit("loginBooleanChange","true");
-                _this.username=res.data.corpname;
+                _this.$store.commit("loginBooleanChange",res.data);
             }
         })
         
@@ -65,8 +57,13 @@ export default{
             var _this=this;
             _this.$http.get("/apis/api/logout"
             ).then(function(res){
+                if(res.data.msg=="已注销"){
                 alert(res.data.msg);
+                _this.$store.commit("loginBooleanChange","logout")
                 _this.$router.push({path:'/'})
+                }else{
+                    alert("注销失败请重新尝试")
+                }
             })
         }
     }
@@ -77,11 +74,6 @@ export default{
 
 </script>
 <style>
-#header{
-width:1350px;
-height:170px;
-float:right;
 
-}
 
 </style>

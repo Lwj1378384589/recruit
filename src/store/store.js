@@ -6,6 +6,9 @@ Vue.use(Vuex)
 const state={
     jobfairList:[],
     loginBoolean:false,
+    username:'',
+    userid:'',
+    state:'',
 }
 
 //写方法
@@ -23,13 +26,21 @@ const mutations = {
     jobfairListSearchInJobfair(state,data){
         state.jobfairList=data;
     },
-    loginBooleanChange(state,boo){
-        if(boo=="true"){
-        state.loginBoolean=true;
+    loginBooleanChange(state,data){
+        if(data=="logout"){
+            state.loginBoolean=false;
+            state.username='';
+            state.userid='';
+            state.state='';
         }else{
-        state.loginBoolean=false;
+            state.loginBoolean=true;
+            state.username=data.corpname;
+            state.userid=data.corpid;
+            state.state=data.states;
         }
-    }
+        
+    },
+       
 
 }
 
