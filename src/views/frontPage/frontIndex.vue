@@ -36,7 +36,7 @@
 								<span onmouseover="seen()" onmouseout="disn()">用户功能频道</span>
 							</div>
 							<ul class="pull-left css-navbar">
-								<li><a href="/index.html">平台首页</a></li>
+								<li><router-link to="/">平台首页</router-link></li>
 								<li><a href="StudentLogin.html">学生用户</a></li>
 							</ul>
 						</div>

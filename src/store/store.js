@@ -5,6 +5,7 @@ Vue.use(Vuex)
 // 定义接收变量
 const state={
     jobfairList:[],
+    loginBoolean:false,
 }
 
 //写方法
@@ -22,6 +23,13 @@ const mutations = {
     jobfairListSearchInJobfair(state,data){
         state.jobfairList=data;
     },
+    loginBooleanChange(state,boo){
+        if(boo=="true"){
+        state.loginBoolean=true;
+        }else{
+        state.loginBoolean=false;
+        }
+    }
 
 }
 

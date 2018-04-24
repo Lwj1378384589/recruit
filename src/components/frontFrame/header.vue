@@ -176,7 +176,7 @@
 
                 </div>
                     <ul class="pull-left css-navbar">
-                        <li><router-link to="/frontPage" class="li_a">平台首页</router-link></li>
+                        <li><router-link to="/" class="li_a">平台首页</router-link></li>
                         <li><a href="StudentLogin.html">学生用户</a></li>
                     </ul>
                 </div>
