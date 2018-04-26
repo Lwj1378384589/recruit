@@ -455,7 +455,8 @@ export default{
                     }
 				).then((response) => {
 					if(response.data.errcode===1){
-						alert(response.data.errmsg);
+                        alert(response.data.errmsg);
+                        _this.$router.push({path:'/'})
 					}else{
 					}
 				}),function(error){
