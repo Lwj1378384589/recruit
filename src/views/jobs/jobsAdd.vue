@@ -50,6 +50,7 @@
     
 </template>
 <script>
+import axiosApi from "@/api/public"
 export default{
     data() {
         return {
@@ -67,7 +68,7 @@ export default{
   methods:{
     getProvinceList: function(){
       var _this = this;
-			_this.$http.get(
+			axiosApi.axiosGet(
 				"/apis/api/getdata/naf/code/xzqh/list?parent=000000&level=1"
 			).then((response) => {
 				if(response.data.errcode===1){
@@ -87,7 +88,7 @@ export default{
 				return false;
 			}
       $("#cityBlock").attr("style","display:block");
-      _this.$http.get(
+      axiosApi.axiosGet(
         '/apis/api/getdata/naf/code/xzqh/list?parent='+this.provinceSelect+'&level=2'
       ).then((response)=>{
         _this.cityList=response.data.data;
@@ -102,7 +103,7 @@ export default{
         }else{
           cityid =this.citySelect
         }
-        this.$http.post('/apis/api/post/jobs/jobinfo/create?corp.id=session.userId&corp.name=session.username',
+        axiosApi.axiosPost('/apis/api/post/jobs/jobinfo/create?corp.id=session.userId&corp.name=session.username',
         {
             "title":this.title,
             "content":this.content,

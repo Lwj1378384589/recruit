@@ -49,6 +49,7 @@ export default {
 
 <script>
 import store from '@/store/store.js'
+import axiosApi from "@/api/public"
 export default{
     data(){
         return{
@@ -76,7 +77,7 @@ export default{
           },
         getData(){
             var _this = this;
-            this.$http.get('/apis/api/getdata/jobs/campus/simple?skip='+(this.currentPage-1)+'&limit='+this.pageSize
+            axiosApi.axiosGet('/apis/api/getdata/jobs/campus/simple?skip='+(this.currentPage-1)+'&limit='+this.pageSize
             ).then(function(response){
                 _this.tableData = response.data.data;
                 _this.allSize = response.data
@@ -90,7 +91,7 @@ export default{
         handleSizeChange(val) {
             var _this = this;
             _this.test=val;
-                _this.$http.get(
+            axiosApi.axiosGet(
                 "/apis/api/getdata/jobs/jobfair/simple?corp.id=5a9e2ed7a44cd66c81cfcf61&skip="+(this.currentPage-1)+"&limit="+_this.test
             ).then((response) => {
                 if(response.data.errcode===1){
@@ -106,7 +107,7 @@ export default{
         handleCurrentChange(val) {
             var _this = this;
                 _this.test=val;
-            _this.$http.get(
+                axiosApi.axiosGet(
                 "/apis/api/getdata/jobs/jobfair/simple?corp.id=5a9e2ed7a44cd66c81cfcf61&skip="+(val-1)+"&limit="+_this.pageSize
             ).then((response) => {
                 if(response.data.errcode===1){

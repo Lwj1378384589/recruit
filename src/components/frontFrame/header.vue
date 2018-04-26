@@ -177,7 +177,7 @@
                 </div>
                     <ul class="pull-left css-navbar">
                         <li><router-link to="/" class="li_a">平台首页</router-link></li>
-                        <li><router-link href="StudentLogin.html">学生用户</router-link>></li>
+                        <li><router-link to="/StudentLogin">学生用户</router-link></li>
                     </ul>
                 </div>
             </div>
@@ -186,6 +186,7 @@
     </div>
 </template>
 <script>
+import axiosApi from "@/api/public"
 import store from '@/store/store.js'
 export default{
     data() {
@@ -204,8 +205,8 @@ export default{
         getPositionIndustry: function(){
 				//按行业查看职位
 				var _this = this;
-				_this.$http.get(
-					"/apis/naf/code/items/35/list"
+				axiosApi.axiosGet(
+					"/apis/api/getdata/naf/code/items/35/list"
 				).then((response) => {
 					if(response.data.errcode===1){
 						alert(response.data.errmsg);
@@ -219,8 +220,8 @@ export default{
         getPositionType: function(){
 				//按类别查看职位
 				var _this = this;
-				_this.$http.get(
-					"/apis/naf/code/items/36/list"
+				axiosApi.axiosGet(
+					"/apis/api/getdata/naf/code/items/36/list"
 				).then((response) => {
 					if(response.data.errcode===1){
 						alert(response.data.errmsg);

@@ -80,19 +80,4 @@ margin-right:10px;
 float: left;
     position: static;
 }
-
-
-
 </style>
-
-
-
-
-<!-- 
-<style>
-#backIndex{
-float: left;
-height:800px;
-}
-</style>
- -->

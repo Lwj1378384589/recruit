@@ -145,6 +145,7 @@
     </template>
     
     <script>
+	import axiosApi from "@/api/public"
     export default{
         data() {
             return {
@@ -174,8 +175,8 @@
         getPositionIndustry: function(){
 				//按行业查看职位
 				var _this = this;
-				_this.$http.get(
-					"/apis/naf/code/items/35/list"
+				axiosApi.axiosGet(
+					"/apis/api/getdata/naf/code/items/35/list"
 				).then((response) => {
 					if(response.data.errcode===1){
 						alert(response.data.errmsg);
@@ -189,8 +190,8 @@
 			getSalary: function(){
 				//获取热招职位列表
 				var _this = this;
-				_this.$http.get(
-					"/apis/naf/code/items/37/list"
+				axiosApi.axiosGet(
+					"/apis/api/getdata/naf/code/items/37/list"
 				).then((response) => {
 					if(response.data.errcode===1){
 						alert(response.data.errmsg);
@@ -204,7 +205,7 @@
 			getPositionType: function(){
 				//按类别查看职位
 				var _this = this;
-				_this.$http.get(
+				axiosApi.axiosGet(
 					"static/frontPage/json/positionType.json"
 				).then((response) => {
 					if(response.data.errcode===1){
@@ -219,8 +220,8 @@
         getDwxz: function(){
 			//获取热招职位列表
 			var _this = this;
-			_this.$http.get(
-				"/apis/naf/code/items/36/list"
+			axiosApi.axiosGet(
+				"/apis/api/getdata/naf/code/items/36/list"
 			).then((response) => {
 				if(response.data.errcode===1){
 					alert(response.data.errmsg);
@@ -234,8 +235,8 @@
         getDwgm: function(){
 			//获取热招职位列表
 			var _this = this;
-			_this.$http.get(
-				"/apis/naf/code/items/37/list"
+			axiosApi.axiosGet(
+				"/apis/api/getdata/naf/code/items/37/list"
 			).then((response) => {
 				if(response.data.errcode===1){
 					alert(response.data.errmsg);
@@ -250,8 +251,8 @@
 				//岗位信息列表
 				var _this = this;
 				var page = _this.currentPage-1;
-				var url ="/apis/jobs/jobinfo/simple?skip="+page+"&limit="+_this.pageSize
-					_this.$http.get(
+				var url ="/apis/api/getdata/jobs/jobinfo/simple?skip="+page+"&limit="+_this.pageSize
+					axiosApi.axiosGet(
 					url
 				).then((response) => {
 					if(response.data.errcode===1){
@@ -268,8 +269,8 @@
 				var _this = this;
 				 test=val;
 				var page = _this.currentPage-1;
-				var url ="/apis/jobs/jobinfo/simple?skip="+page+"&limit="+test
-					_this.$http.get(
+				var url ="/apis/api/getdata/jobs/jobinfo/simple?skip="+page+"&limit="+test
+					axiosApi.axiosGet(
 					url
 					).then((response) => {
 						if(response.data.errcode===1){
@@ -286,8 +287,8 @@
 		    	  var _this = this;
 					 test=val;
 					 var page = val-1;
-					var url ="/apis/jobs/jobinfo/simple?skip="+page+"&limit="+this.pageSize
-						_this.$http.get(
+					var url ="/apis/api/getdata/jobs/jobinfo/simple?skip="+page+"&limit="+this.pageSize
+						axiosApi.axiosGet(
 						url
 					).then((response) => {
 						if(response.data.errcode===1){

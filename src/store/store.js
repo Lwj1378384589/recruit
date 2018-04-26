@@ -21,10 +21,12 @@ const mutations = {
     },
     jobfairListSearch(state,data){
         state.jobfairList=data;
-        
     },
     jobfairListSearchInJobfair(state,data){
         state.jobfairList=data;
+    },
+    jobfairListInit(state){
+        state.jobfairList.splice(0,state.jobfairList.length);
     },
     loginBooleanChange(state,data){
         if(data=="logout"){

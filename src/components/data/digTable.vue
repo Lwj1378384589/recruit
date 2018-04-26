@@ -56,6 +56,7 @@
             
             <el-table-column
             v-for="(data,key) in tableTitle"
+            :key="key"
             :label="data.title"
             :prop="data.display">
             </el-table-column>

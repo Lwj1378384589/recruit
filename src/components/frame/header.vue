@@ -28,6 +28,7 @@
 
 </template>
 <script>
+import axiosApi from "@/api/public"
 import store from '@/store/store.js'
 import { routes } from '@/utils/menus';
 export default{
@@ -38,25 +39,26 @@ export default{
         }
     },
     mounted(){
-      this.registLogin();
+    //   this.registLogin();
     },
     methods:{
-        registLogin(){
-            var _this=this;
-            _this.$http.get('/apis/api/registLogin'
-        ).then(function(res){
-            if(res.data.errmsg=="请登录"){
-                alert("请登录")
-            _this.$router.push({path:'/frontPage/disLogin'})
-            }else{
-                _this.$store.commit("loginBooleanChange",res.data);
-            }
-        })
+        // registLogin(){
+        //     var _this=this;
+        //     axiosApi.axiosGet('/apis/api/registLogin'
+        // ).then(function(res){
+        //     if(res.data.errmsg=="请登录"){
+        //         alert("请登录")
+        //         _this.$store.commit("loginBooleanChange","logout");
+        //     _this.$router.push({path:'/frontPage/disLogin'})
+        //     }else{
+        //         _this.$store.commit("loginBooleanChange",res.data);
+        //     }
+        // })
         
-        },
+        // },
         logout(){
             var _this=this;
-            _this.$http.get("/apis/api/logout"
+            axiosApi.axiosGet("/apis/api/logout"
             ).then(function(res){
                 if(res.data.errmsg==="已注销"){
                 alert(res.data.errmsg);

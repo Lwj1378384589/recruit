@@ -38,27 +38,26 @@
 
 </template>
 <script>
+import axiosApi from "@/api/public"
 import store from '@/store/store.js'
 export default{
     store,
-    mounted(){
-        this.registLogin();
-    },
+   
 methods:{
-    registLogin(){
-            var _this=this;
-            _this.$http.get('/apis/api/registLogin'
-        ).then(function(res){
-            if(res.data.errmsg=="请登录"){
-           
-            }else{
-                _this.$store.commit("loginBooleanChange",res.data);
-            }
-        })
-        },
+    // registLogin(){
+    //         var _this=this;
+    //         axiosApi.axiosGet('/apis/api/registLogin'
+    //     ).then(function(res){
+    //         if(res.data.errmsg=="请登录"){
+    //             _this.$store.commit("loginBooleanChange","logout");
+    //         }else{
+    //             _this.$store.commit("loginBooleanChange",res.data);
+    //         }
+    //     })
+    //     },
     logout(){
         var _this=this;
-        _this.$http.get("/apis/api/logout"
+        axiosApi.axiosGet("/apis/api/logout"
         ).then(function(res){
             if(res.data.errmsg==="已注销"){
             alert(res.data.errmsg);

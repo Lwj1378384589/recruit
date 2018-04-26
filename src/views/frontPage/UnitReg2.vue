@@ -102,7 +102,7 @@
                                 
                                 <div class="wanS">
                                         <div class="wanTit">电话</div>
-                                        <el-input v-model="phone"  style="width:260px; float:left;" type="text" name="phone" id="phone" placeholder="请输入(区号-电话号码)格式"></el-input>
+                                        <el-input v-model="phone"  style="width:260px; float:left;" type="text" name="phone" id="phone" placeholder="请输入(区号-电话号码)或手机号码"></el-input>
                                        <!--  <div class="jingGao">请输入真实的电话号</div> -->
                                 </div>
                                 
@@ -189,6 +189,7 @@
 
 </template>
 <script>
+import axiosApi from "@/api/public"
 export default{
     data() {
         return {
@@ -216,7 +217,7 @@ export default{
 			industryList:[],
 			dialogImageUrl: '',
             dialogVisible:false,
-            id:''
+            id:this.$route.query._id,
         }
     },
     mounted(){
@@ -230,8 +231,8 @@ export default{
     methods: {
         getAllProvinceList: function(){
 				var _this = this;
-				_this.$http.get(
-					"/apis/naf/code/xzqh/list?parent=000000&level=1"
+				axiosApi.axiosGet(
+					"/apis/api/getdata/naf/code/xzqh/list?parent=000000&level=1"
 				).then((response) => {
 					if(response.data.errcode===1){
 						alert(response.data.errmsg);
@@ -252,8 +253,8 @@ export default{
 			},
 			getScaleList: function(){
 				var _this = this;
-				_this.$http.get(
-					"/apis/naf/code/items/37/list"
+				axiosApi.axiosGet(
+					"/apis/api/getdata/naf/code/items/37/list"
 				).then((response) => {
 					if(response.data.errcode===1){
 						alert(response.data.errmsg);
@@ -267,8 +268,8 @@ export default{
 				
 			getNatureList: function(){
 				var _this = this;
-				_this.$http.get(
-					"/apis/naf/code/items/36/list"
+				axiosApi.axiosGet(
+					"/apis/api/getdata/naf/code/items/36/list"
 				).then((response) => {
 					if(response.data.errcode===1){
 						alert(response.data.errmsg);
@@ -282,8 +283,8 @@ export default{
 				
 			getIndustryList: function(){
 				var _this = this;
-				_this.$http.get(
-					"/apis/naf/code/items/35/list"
+				axiosApi.axiosGet(
+					"/apis/api/getdata/naf/code/items/35/list"
 				).then((response) => {
 					if(response.data.errcode===1){
 						alert(response.data.errmsg);
@@ -302,7 +303,7 @@ export default{
                     return false;
                 }
                 $("#cityBlock").attr("style","display:block");
-                this.$http.get('/apis/naf/code/xzqh/list?parent='+code+'&level=2'
+               axiosApi.axiosGet('/apis/api/getdata/naf/code/xzqh/list?parent='+code+'&level=2'
                 ).then(function(response){
                     _this.cityList=response.data.data;
                 })
@@ -414,8 +415,8 @@ export default{
                     return false;
                 }
                 var _this=this;
-                _this.$http.get(
-					"/apis/platform/corp/register/complete?_id="+this.id,
+                axiosApi.axiosPost(
+					"/apis/api/regist/platform/corp/register/complete?_id="+this.id,
                     {
                         "description":this.description,
                         "info": {

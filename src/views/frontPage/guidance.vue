@@ -80,10 +80,11 @@
 </template>
     
     <script>
+        import axiosApi from "@/api/public"
     export default{
         data() {
             return {
-                guidancePolicy:[],
+            guidancePolicy:[],
 			guidanceExperience:[],
 			guidanceCoach:[],
 			guidanceVocational:[]  
@@ -99,7 +100,7 @@
         getGuidancePolicy: function(){
 				//政策法规
 				var _this = this;
-				_this.$http.get(
+				axiosApi.axiosGet(
 					"/static/frontPage/json/guidancePolicy.json"
 				).then((response) => {
 					if(response.data.errcode===1){
@@ -114,7 +115,7 @@
 			getGuidanceExperience: function(){
 				//就业心得
 				var _this = this;
-				_this.$http.get(
+				axiosApi.axiosGet(
 					"/static/frontPage/json/guidanceExperience.json"
 				).then((response) => {
 					if(response.data.errcode===1){
@@ -129,7 +130,7 @@
 			getGuidanceCoach: function(){
 				//辅导活动
 				var _this = this;
-				_this.$http.get(
+				axiosApi.axiosGet(
 					"/static/frontPage/json/guidanceCoach.json"
 				).then((response) => {
 					if(response.data.errcode===1){
@@ -144,7 +145,7 @@
 			getGuidanceVocational: function(){
 				//职业课程
 				var _this = this;
-				_this.$http.get(
+				axiosApi.axiosGet(
 					"/static/frontPage/json/guidanceVocational.json"
 				).then((response) => {
 					if(response.data.errcode===1){
