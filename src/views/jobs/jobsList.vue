@@ -1,7 +1,13 @@
 <template>
+    <div id="backIndex" style="float:left; min-height:750px;">   
+       
+         <div style="width:988px; height:640px; border: 1px solid #ccc; background:#fff; float:left;">
+             <div style="width:968px; padding-left:20px; font-size:16px; border-bottom:1px solid #ccc; height:56px; line-height:56px;">
+                查看招聘信息
+             </div>
         <div id="tab">
-            <div style="border:1px solid #ccc; margin-top:30px; margin-bottom:50px; background:#fff;width:800px;">
-                <el-table :data="tableData"  style="width: 600xp">
+            <div style=" margin-bottom:50px; background:#fff;width:988px; ">
+                <el-table :data="tableData" style="width:988px; ">
                         <el-table-column  prop="title"  label="title" min-width="180"> </el-table-column>
                         <el-table-column  prop="meta.createdAt"   label="开始时间"     min-width="180"> </el-table-column>
                         <el-table-column  prop="corp.name"   label="发布公司" min-width="180"> </el-table-column>
@@ -11,20 +17,37 @@
                   </el-table>
             </div>
             <div class="block">
-                    <el-pagination
-                      v-on:size-change="handleSizeChange"
-                      v-on:current-change="handleCurrentChange"
-                      :current-page="currentPage"
-                      :page-sizes="[1, 2, 3, 4,5,6,7,8,9,10]"
-                      :page-size="pageSize"
-                      layout="total, sizes, prev, pager, next, jumper"
-                      :total="total">
-                    </el-pagination>
+                <el-pagination
+                style="text-align:center;"
+                v-on:size-change="handleSizeChange"
+                v-on:current-change="handleCurrentChange"
+                :current-page="currentPage"
+                :page-sizes="[1, 2, 3, 4,5,6,7,8,9,10]"
+                :page-size="pageSize"
+                layout="total, sizes, prev, pager, next, jumper"
+                :total="total">
+              </el-pagination>
             </div>
         </div>
+         </div>
+    </div>
 </template>
 <script>
+import { menus } from '@/utils/menus';
+export default {
+  data () {
+    return {
+      menus,
+      openeds: ['1','2','3','4'],
+      uniqueOpened: false
+    }
+  }
+}
+
+</script>
+<script>
     var test;
+    import axiosApi from "@/api/public"
         export default{
             data() {
                 return {
@@ -49,11 +72,10 @@
 		      },
             getData(){
 				var _this = this;
-				_this.$http.get(
+				axiosApi.axiosGet(
 					"/apis/jobs/jobinfo/simple?corp.id=5a9e2ed7a44cd66c81cfcf61&skip="+(this.currentPage-1)+"&limit="+this.pageSize
 				).then((response) => {
 					if(response.data.errcode===1){
-						alert(response.data.errmsg);
 					}else{
 						_this.tableData = response.data.data;
 						_this.allSize = response.data
@@ -65,12 +87,11 @@
             },
             handleSizeChange(val) {
 				var _this = this;
-				 test=val;
-				 	_this.$http.get(
+                 test=val;
+                 axiosApi.axiosGet(
 						"/apis/jobs/jobinfo/simple?corp.id=5a9e2ed7a44cd66c81cfcf61&skip="+(this.currentPage-1)+"&limit="+test
 					).then((response) => {
 						if(response.data.errcode===1){
-							alert(response.data.errmsg);
 						}else{
 							 _this.tableData = response.data.data;
                             _this.pageSize=test;
@@ -82,11 +103,10 @@
 		      handleCurrentChange(val) {
 		    	  var _this = this;
 					 test=val;
-                    _this.$http.get(
+                     axiosApi.axiosGet(
                         "/apis/jobs/jobinfo/simple?corp.id=5a9e2ed7a44cd66c81cfcf61&skip="+(val-1)+"&limit="+_this.pageSize
                     ).then((response) => {
                         if(response.data.errcode===1){
-                            alert(response.data.errmsg);
                         }else{
                              _this.tableData = response.data.data;
                             _this.currentPage=test
@@ -98,3 +118,16 @@
           }
         }
 </script>
+<style>
+.el-table td, .el-table th.is-leaf {
+    padding-left:50px;
+}
+#aside{
+    width: 200px;
+height: auto;
+margin: 0;
+margin-right:10px;
+float: left;
+    position: static;
+}
+</style>

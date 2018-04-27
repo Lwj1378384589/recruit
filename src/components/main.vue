@@ -1,8 +1,8 @@
 <template>
-    <div id="backIndex" style='background:url("/static/img/bg2.jpg") no-repeat !important'>
+    <div id="backIndex">
       <my-header></my-header>
-      <router-view class="view"> </router-view>
-      <my-aside></my-aside>
+      <router-view class="view" style=" width:1200px; margin:0 auto;  margin-top:65px; min-height:750px; clear:both; "> </router-view>
+      <!-- <my-aside></my-aside> -->
       <my-footer></my-footer>
     </div>
 </template>

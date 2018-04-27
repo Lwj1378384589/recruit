@@ -1,8 +1,11 @@
 <template>
-    <el-main  style="width:1150px;height:800px; background:none;overflow-y:auto ">
-            <form class="formcss"  style="margin:10px auto;text-align:center; ">
-                <p class="pcss">申请宣讲会</p>
-                <div class="renZheng mb50">
+     <div id="backIndex" style="float:left; min-height:750px;">
+         <div style="width:988px; height:640px; border: 1px solid #ccc; background:#fff; float:left;">
+             <div style="width:968px; padding-left:20px; font-size:16px; border-bottom:1px solid #ccc; height:56px; line-height:56px;">
+                申请宣讲会
+             </div>
+            <form   style="margin:10px auto;text-align:center; ">
+                <div class="renZheng">
                     <div class="renDetail">
                         <div class="xiaoM">宣讲会标题：</div>
                         <div class="xiaoT">
@@ -69,23 +72,34 @@
                           <el-input name="email" placeholder="请输入内容" v-model="email"></el-input>
                         </div>
                       </div>
+                
                   
-                  <DataForm></DataForm>
-                  <dataTable></dataTable>
-                  
-                  <div class="renDetail">
-                      <el-button type="primary" class="btncss" id="sub" @click="submit">提交</el-button>
+                  <div class="renDetail" style="width:300px;margin-left:350px;">
+                      <el-button type="primary" style="width:300px; " class="btncss" id="sub" @click="submit">提交</el-button>
                   </div>
             </div>
         </form>
-    </el-main>
+         </div>
+     </div>
 </template>       
+<script>
+import { menus } from '@/utils/menus';
+export default {
+  data () {
+    return {
+      menus,
+      openeds: ['1','2','3','4'],
+      uniqueOpened: false
+    }
+  }
+}
 
+</script>
 
 <script>
+
 import store from '@/store/store.js'
-import DataForm from "@/components/data/dataForm"
-import DataTable from "@/components/data/dataTable"
+import axiosApi from "@/api/public"
 export default{
     data() {
         return {
@@ -99,7 +113,10 @@ export default{
             cityList:[],
             citySelect:'',
             provinceSelect:'',
-            provinceList:[],
+            provinceList:[]
+            
+            
+    
         }
     },
     mounted(){
@@ -108,7 +125,7 @@ export default{
     methods: {
       getProvinceList: function(){
         var _this=this;
-        this.$http.get('/apis/naf/code/xzqh/list?parent=000000&level=1'
+        axiosApi.axiosGet('/apis/naf/code/xzqh/list?parent=000000&level=1'
         ).then(function(response){
             _this.provinceList=response.data.data;
         })
@@ -125,7 +142,7 @@ export default{
 						return false;
 					}
 					$("#cityBlock").attr("style","display:block");
-          this.$http.get('/apis/naf/code/xzqh/list?parent='+code+'&level=2'
+          axiosApi.axiosGet('/apis/naf/code/xzqh/list?parent='+code+'&level=2'
           ).then(function(response){
               _this.cityList=response.data.data;
           })
@@ -178,9 +195,7 @@ export default{
           }else{
             alert('请选择省份城市');
           }
-          var corpid='5a9e2ed7a44cd66c81cfcf61';
-          var corpname='福瑞科技';
-          this.$http.post("/apis/jobs/campus/create?corp.id="+corpid+"&corp.name="+corpname,
+          axiosApi.axiosPost("/apis/api/post/jobs/campus/create?corp.id=session.userId&corp.name=session.username",
           {
             "subject":_this.subject,
             "content":_this.content,
@@ -195,7 +210,7 @@ export default{
             "jobs":store.state.jobfairList
           }
           ).then(function(response){
-            _this.$router.push({path:'/'})
+            _this.$router.push({path:'/careertalk/careertalkList'})
           })
           .catch(function(res){
             alert(res.data.errmsg)
@@ -203,10 +218,34 @@ export default{
         }
       },
     store,
-    components:{
-      DataForm,DataTable
-    },
+    
 
 }
 
 </script>
+
+<style>
+body{
+ background: #f5f5f5;
+ font-size:16px;
+}
+.el-menu{
+    border: 1px solid #ccc;
+}
+.renDetail{
+  margin-left:250px;
+  margin-bottom:15px;
+}
+.xiaoM{
+  line-height: 40px;
+}
+#aside{
+    width: 200px;
+height: auto;
+margin: 0;
+margin-right:10px;
+float: left;
+    position: static;
+}
+
+</style>

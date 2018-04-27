@@ -16,7 +16,7 @@ module.exports = {
         target:'http://oa.chinahuian.cn',
         changeOrigin:true,
         pathRewrite:{
-          '^/apis':'/'
+          '^/apis':''
         }
       }
 
@@ -56,6 +56,7 @@ module.exports = {
   build: {
     // Template for index.html
     index: path.resolve(__dirname, '../dist/index.html'),
+    backPage: path.resolve(__dirname, '../dist/backPage.html'),
 
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
