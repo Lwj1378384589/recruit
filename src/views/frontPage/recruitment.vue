@@ -3,11 +3,11 @@
         <div id="cen">
             <div class="weui-tab" style="margin-top: 10px;">
 					<div class="weui-navbar" style="background: #FFFFFF;">
-						<a class="weui-navbar__item nav-font weui-bar__item--on"
-							href="recruitment.html"> 岗位信息 </a> <a
-							class="weui-navbar__item nav-font" href="campusTalkPage.html">
-							校园宣讲会 </a> <a class="weui-navbar__item nav-font"
-							href="campusRecruitmentPage.html"> 校园招聘公告 </a>
+						<router-link class="weui-navbar__item nav-font weui-bar__item--on"
+							to="/frontPage/recruitment"> 岗位信息 </router-link> <router-link
+							class="weui-navbar__item nav-font" to="/frontPage/campusTalkPage">
+							校园宣讲会 </router-link> <router-link class="weui-navbar__item nav-font"
+							to="/frontPage/campusRecruitmentPage"> 校园招聘公告 </router-link>
 					</div>
                     <div class="weui-tab__bd">
                         <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active">
@@ -104,7 +104,6 @@
                                 <p>
                                     
                                     <router-link :to="{path:'/frontPage/recruitmentDetailPage',query:{_id: joblist._id}}">{{joblist.title}}</router-link>
-                                    <!-- <a  v-on:click="find()" target="blank">{{joblist.title}}</a> -->
                                 </p>
                                 <ul>
                                     <li>时间：{{joblist.meta.createdAt}}</li>
@@ -114,31 +113,31 @@
                             <div class="gangwei-middle">
                                 <p>
                                     <a :href="['companyDetailPage.html?id='+joblist._id]">{{joblist.corp.name}}</a><img
-                                        src="/static/frontPage/imgs/vip.gif">
+                                        src="static/frontPage/imgs/vip.gif">
                                 </p>
                                 <!-- <p>行业：{{joblist.hy}}</p>
                                 <p>性质：{{joblist.dwxz}}</p> -->
                             </div>
                             <div class="gangwei-right">
                                 <div class="gangwei-sq">
-                                    <a href="disLogin.html">申请职位</a>
+                                    <router-link to="/frontPage/disLogin">申请职位</router-link>
                                 </div>
                                 <p>
-                                    <a href="disLogin.html">置顶</a><a href="disLogin.html">收藏</a>
+										<router-link to="/frontPage/disLogin">置顶</router-link><router-link to="/frontPage/disLogin">收藏</router-link>
                                 </p>
                             </div>
                         </div>
-                         <div class="block" style="margin:0 auto;">
-                            <el-pagination
-                              v-on:size-change="handleSizeChange"
-                              v-on:current-change="handleCurrentChange"
-                              :current-page="currentPage"
-                              :page-sizes="[1, 2, 3, 4,5,6,7,8,9,10]"
-                              :page-size="pageSize"
-                              layout="total, sizes, prev, pager, next, jumper"
-                              :total="total">
-                            </el-pagination>
-                          </div>
+						<div class="block">
+								<el-pagination
+								  v-on:size-change="handleSizeChange"
+								  v-on:current-change="handleCurrentChange"
+								  :current-page="currentPage"
+								  :page-sizes="[1, 2, 3, 4,5,6,7,8,9,10]"
+								  :page-size="pageSize"
+								  layout="total, sizes, prev, pager, next, jumper"
+								  :total="total">
+								</el-pagination>
+						</div>
                     </div>
         </div>
         </center>
@@ -157,8 +156,8 @@
 		    total:100,
             positionIndustry:[],
 			positionType:[],
-			salarylist:[],
-		dwgmlist:[]    
+			//salarylist:[],
+			dwgmlist:[]    
             };
       },
       mounted(){
@@ -167,12 +166,9 @@
 		this.getDwgm();
         this.getPositionIndustry();
         this.getPositionType();
-        this.getSalary();
+        //this.getSalary();
 	},
       methods: {
-          find: function(){
-        alert(11)
-          },
         getPositionIndustry: function(){
 				//按行业查看职位
 				var _this = this;
@@ -219,7 +215,7 @@
 				};
 			},
         getDwxz: function(){
-			//获取热招职位列表
+			//获取单位性质列表
 			var _this = this;
 			axiosApi.axiosGet(
 				"/apis/api/getdata/naf/code/items/36/list"
@@ -234,7 +230,7 @@
 			}
 		},
         getDwgm: function(){
-			//获取热招职位列表
+			//获取单位规模列表
 			var _this = this;
 			axiosApi.axiosGet(
 				"/apis/api/getdata/naf/code/items/37/list"
@@ -259,12 +255,12 @@
 					if(response.data.errcode===1){
 						alert(response.data.errmsg);
 					}else{
-						_this.postInformationList = response.data.data;
-						_this.total = response.data.total
+						 _this.postInformationList = response.data.data;
+						_this.pageSize=test;
 					}
 				}),function(error){
 					$.alert('对不起，你的请求处理失败了!');   //失败处理
-				};
+				} 
 			},
             handleSizeChange(val) {
 				var _this = this;

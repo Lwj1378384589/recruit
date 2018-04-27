@@ -4,8 +4,9 @@
 				<div  style="padding-top:40px;"><!-- class="css-out-content" -->
 					<div class="css-header"  style="font-size:16px;">
 						<div class="container" style="padding-bottom:0;">
-							<router-link to="/frontPage" title="惠安智慧就业平台"> 
-								<img src="/static/frontPage/imgs/a.jpg" class="css-logo pull-left" style="width:230px; height:40px;" >
+							<router-link to="/frontPage/frontIndex" title="惠安智慧就业平台"> 
+							<!-- <a href="index.html" title="惠安智慧就业平台"> -->
+								<img src="static/frontPage/imgs/a.jpg" class="css-logo pull-left" style="width:230px; height:40px;" >
 							<!-- </a> --></router-link>
 							<div class="css-subwebsite pull-left"  style="background: url('imgs/enterr.png') no-repeat left 5px;">
 								<router-link to="/frontPage/SchoolList"><b>进入子站</b><span class="text-primary">[切换分站]</span> </router-link>
@@ -35,15 +36,16 @@
 							</div>
 							<ul class="pull-left css-navbar">
 								<li><router-link to="/">平台首页</router-link></li>
-								<li><router-link  to="StudentLogin.html">学生用户</router-link></li>
+								<li><router-link to="/frontPage/StudentLogin">学生用户</router-link></li>
 							</ul>
-						</div>
+						</div>  
 				</div>
 					<div class="container clearfix">
 						<div class="css-channel pull-left">
 							<div class="css-menu" id="css-menu">
 								<div onmouseover="lul_list()" onmouseout="lul_out()" class="cr_li">
-									<router-link to="/frontPage" class="li_a">平台首页</router-link>
+									<router-link to="/" class="li_a">平台首页</router-link>
+									<!-- <a href="index.html" class="li_a">平台首页 </a> -->
 									<div class="box1" id="box1">
 										<div class="list-left">
 											<ul  class="lt-ul">
@@ -207,7 +209,7 @@
 						<div class="css-login-notice">
 							<div class="css-login">
 								<div class="css-welcome">
-									<img src="/static/frontPage/imgs/vv.jpg">
+									<img src="static/frontPage/imgs/vv.jpg">
 									<ul class="Wul">
 										<li>Hi,你好...</li>
 										<li>找工作，招人才...</li>
@@ -243,7 +245,7 @@
 							</ul>
 						</div>
 						<div class="css-imgline" style="background: red;">
-								<router-link to="/frontPage/noticePage"  target="_blank"><img src="/static/frontPage/imgs/bigI.jpg" alt="大图片"></router-link>
+								<router-link to="/frontPage/noticePage"  target="_blank"><img src="static/frontPage/imgs/bigI.jpg" alt="大图片"></router-link>
 						</div>
 						<div class="clearfix"></div>
 						<div class="css-imggroup">
@@ -264,7 +266,7 @@
 									<li v-for="(tab,index) in tabsName">
 										<a v-bind:href="tab.url" class="tab-link" @mouseover="tabsSwitch(index)" v-bind:class="{active:tab.isActive}">{{tab.name}}</a>
 									</li>
-									<div style="float: left; height: 48px; line-height: 48px; width:80px; margin-left: 150px;  "><a href="campusTalkPage.html"> MORE> </a></div>
+									<div style="float: left; height: 48px; line-height: 48px; width:80px; margin-left: 150px;  "><router-link to="/frontPage/campusTalkPage"> MORE>></router-link></div>
 								</ul>
 
 								<div class="cards">
@@ -312,7 +314,7 @@
 										</div>
 									</div>
 									<div class="job-box">
-										<p><a href="campusTalkPage.html">校园宣讲会：<span style="color:#00B8EC ">1场</span></a></p>
+											<p><router-link to="/frontPage/campusTalkPage">校园宣讲会：<span style="color:#00B8EC ">1场</span></router-link></p>
 
 									</div>
 								</div>
@@ -321,12 +323,12 @@
 						<div class="clearfix"></div>
 						<!-- 拒绝诈骗-->
 						<div class="css-imgline" style="margin-top: 0;">
-							<img src="/static/frontPage/imgs/refuse.jpg" alt="拒绝诈骗图片" style="margin-top: 0;">
+							<img src="static/frontPage/imgs/refuse.jpg" alt="拒绝诈骗图片" style="margin-top: 0;">
 						</div>
 						<div class="clearfix"></div>
 						<div class="css-hotjob">
 							<div class="css-caption">
-								<div><img src="/static/frontPage/imgs/jobList.png">最新职位</div>
+								<div><img src="static/frontPage/imgs/jobList.png">最新职位</div>
 								<span><a href="recruitment.html" target="_blank" class="css-more">MORE&nbsp;&gt;&gt;</a></span>
 							</div>
 							<div class="css-content">
@@ -336,7 +338,7 @@
 										<ul>
 											<li>
 												{{jobs.company}}
-												<img src="/static/frontPage/imgs/vip.gif" title="VIP">
+												<img src="static/frontPage/imgs/vip.gif" title="VIP">
 											</li>
 											<li>
 												<a href="recruitmentDetailPage.html"  target="_blank" class="text-blue">{{jobs.position}}</a>
@@ -368,7 +370,7 @@
 						<div class="clearfix"></div>
 						<div class="css-corphire">
 							<div class="css-caption">
-								<div><img src="/static/frontPage/imgs/vvip.png">高级会员</div>
+								<div><img src="static/frontPage/imgs/vvip.png">高级会员</div>
 								<span><a href="seniorMemberPage.html" class="css-more">MORE&nbsp;&gt;&gt;</a></span>
 							</div>
 							<div id="marquee5">
@@ -390,7 +392,7 @@
 						<div class="css-talentmarket">
 							<div class="css-caption">
 								<div>
-									<img src="/static/frontPage/imgs/jz.png">
+									<img src="static/frontPage/imgs/jz.png">
 									招聘简章
 								</div>
 								<span>
@@ -415,7 +417,7 @@
 						<div class="css-friendlink" style="margin-top: 20px;">
 							<div class="css-caption">
 								<div>
-									<img src="/static/frontPage/imgs/link.png"> 
+									<img src="static/frontPage/imgs/link.png"> 
 									友情链接
 								</div>
 							</div>
@@ -438,11 +440,11 @@ export default{
         return {
             tabsName: [{
 				name: "校园宣讲会",
-				url:"campusTalkPage.html",
+				url:"/frontPage/campusTalkPage",
 				isActive: true
 			}, {
 				name: "校园招聘公告",
-				url:"campusRecruitmentPage.html",
+				url:"/frontPage/campusRecruitmentPage",
 				isActive: false
 			}],
             active: false,
@@ -660,19 +662,48 @@ export default{
 		},
 		find: function(pitem){
 			//按行业查看职业
-			location.href="recruitment.html?id="+pitem.id;
+			var _this =this;
+                _this.$router.push({
+                    path:'/frontPage/recruitment',
+                    query: {
+                     "_id": pitem._id
+                        }
+                })
+			//location.href="recruitment.html?id="+pitem.id;
 		},
 		find: function(ptyim){
 			//按行业查看职业
-			location.href="recruitment.html?id="+ptyim.id;
+			var _this =this;
+                _this.$router.push({
+                    path:'/frontPage/recruitment',
+                    query: {
+                     "_id": ptyim._id
+                        }
+                })
+			//location.href="recruitment.html?id="+ptyim.id;
 		},
 		findly: function(ctim){
-			//跳转宣讲会
-			location.href="companyDetailPage.html?id="+ctim._id;
+			//跳转宣讲会详情
+			var _this =this;
+                _this.$router.push({
+                    path:'/frontPage/companyDetailPage',
+                    query: {
+                     "_id": ctim._id
+                        }
+                })
+			
+			//location.href="companyDetailPage?id="+ctim._id;
 		},
 		find: function(dtim){
-			//跳转校园招聘公告
-			location.href="companyPage.html?id="+dtim._id;
+			//跳转校园招聘公告详情
+			var _this =this;
+                _this.$router.push({
+                    path:'/frontPage/companyPage',
+                    query: {
+                     "_id": dtim._id
+                        }
+                })
+			//location.href="companyPage.html?id="+dtim._id;
 		}
   }
 }

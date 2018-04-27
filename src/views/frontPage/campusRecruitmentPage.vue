@@ -3,13 +3,13 @@
         <div id="cen" style="min-height:500px;">            
             <div class="weui-tab" style="margin-top:10px;">
                 <div class="weui-navbar" style="background: #FFFFFF;">
-                    <router-link class="weui-navbar__item nav-font" to="/recruitment">
+                    <router-link class="weui-navbar__item nav-font" to="/frontPage/recruitment">
                         岗位信息
                     </router-link>
-                    <router-link class="weui-navbar__item nav-font" to="/campusTalkPage">
+                    <router-link class="weui-navbar__item nav-font" to="/frontPage/campusTalkPage">
                         校园宣讲会
                     </router-link>
-                    <router-link class="weui-navbar__item nav-font weui-bar__item--on" to="/campusRecruitmentPage">
+                    <router-link class="weui-navbar__item nav-font weui-bar__item--on" to="/frontPage/campusRecruitmentPage">
                         校园招聘会
                     </router-link>
                 </div>
