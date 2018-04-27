@@ -90,6 +90,8 @@ body {
 .notes-list a{
     display: inline-block;
     padding:20px;
+    float: left;
+    
 }
 .notes-list li{
     height:60px;

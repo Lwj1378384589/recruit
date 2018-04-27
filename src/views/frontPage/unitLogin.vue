@@ -1,9 +1,9 @@
 <template>
-        <div class="reg" style="padding: 40px 0 180px 0">
+        <div class="reg" style="padding-top: 40px;">
 				<div class="css-main-u">
 					<div class="css-log-banner">
 						<div class="css-container">
-                <div > <!-- class="css-text" -->
+                <div class="css-text"> <!-- class="css-text" -->
 								<p class="css-p1">
 									慧安&nbsp;&nbsp;(HuiAn)
 								</p>
@@ -20,18 +20,18 @@
 									职场精英
 								</p>
 							</div>
-							<div class="css-conbox">
-								<div class="css-title">企业登录</div>
-								<form action="" id="loginForm"  class="css-form">
-									<div class="css-input">
-										<div class="css-tit">单位全称</div>
-										<input v-model="entName" placeholder="单位全称" class="css-group" type="text">
+							<div class="logConbox">
+								<div class="logTitle">企业登录</div>
+								<form action="" id="loginForm"  class="logForm">
+									<div class="logInput">
+										<div class="logTit">单位全称</div>
+										<el-input v-model="entName" placeholder="单位全称" class="logGroup" type="text"></el-input>
 									</div>
-									<div class="css-input">
-										<div class="css-tit">登录密码</div>
-										<input v-model="entPassword" placeholder="登录密码" class="css-group" type="password" @keyup.enter="login">
+									<div class="logInput">
+										<div class="logTit">登录密码</div>
+										<el-input v-model="entPassword" placeholder="登录密码" class="logGroup" type="password" @keyup.enter="login"></el-input>
 									</div>
-									<a class="css-btn" href="javascript:" id="showTooltips" @click.keyup.enter="login">登录</a>
+									<a class="logBtn" href="javascript:" id="showTooltips" @click.keyup.enter="login">登录</a>
 								</form>
 							</div>
 						</div>
@@ -78,7 +78,7 @@ export default{
                 alert("您的账号未通过审核");
                 /* window.location.href="/ent/login"; */
               }else if(response.data.data.status=="0"){
-                _this.$router.push({path:'/'})
+                _this.$router.push({path:'/backpage'})
               }else{
                 alert("您还没有注册,请注册");
                 location.href="UnitReg.html"

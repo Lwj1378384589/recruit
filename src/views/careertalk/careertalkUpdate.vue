@@ -1,8 +1,12 @@
 <template>
-    <el-main  style="width:1150px;height:800px; background:none;overflow-y:auto ">
-            <form class="formcss"  style="margin:10px auto;text-align:center; ">
-                <p class="pcss">申请宣讲会</p>
-                <div class="renZheng mb50">
+    <div id="backIndex" style="float:left; min-height:750px;">
+      <div style="width:988px;  border: 1px solid #ccc; background:#fff; float:left;">
+             <div style="width:968px; padding-left:20px; font-size:16px; border-bottom:1px solid #ccc; height:56px; line-height:56px;">
+                申请宣讲会
+             </div>
+            <form  style="margin:10px auto;text-align:center; ">
+                
+                <div class="renZheng" >
                     <div class="renDetail">
                         <div class="xiaoM">宣讲会标题：</div>
                         <div class="xiaoT">
@@ -52,7 +56,10 @@
                       <div class="renDetail">
                         <div class="xiaoM">宣讲时间：</div>
                         <div class="xiaoT">
-                            <el-date-picker class="w500" name="time" v-model="time" type="datetime" placeholder="选择日期时间"></el-date-picker>
+                            <el-date-picker
+                            format="yyyy 年 MM 月 dd 日"
+                            value-format="yyyy-MM-dd"
+                            class="w500" name="time" v-model="time" type="datetime" placeholder="选择日期时间"></el-date-picker>
                         </div>
                       </div>
                       
@@ -73,12 +80,13 @@
                   <DataForm></DataForm>
                   <dataTable></dataTable>
                   
-                  <div class="renDetail">
+                  <div class="renDetail" style="margin-bottom:30px; margin-top:30px; margin-left:135px;">
                       <el-button type="primary" class="btncss" id="sub" @click="submit">提交</el-button>
                   </div>
             </div>
         </form>
-    </el-main>
+      </div>
+    </div>
 </template>       
 
 
@@ -101,6 +109,7 @@ export default{
             provinceSelect:'',
             provinceList:[],
             jobfairList:[],
+            id:this.$route.query._id
         }
     },
     mounted(){
@@ -110,7 +119,7 @@ export default{
     methods: {
       getData:function(){
         var _this=this;
-          this.$http.get('/apis/jobs/campus/fetch?_id=5aacc3632708584ca51f3fd3'
+          this.$http.get('/apis/api/getdata/jobs/campus/fetch?_id=5aacc3632708584ca51f3fd3'
 
           ).then(function(response){
               _this.subject=response.data.data.subject;
@@ -131,7 +140,7 @@ export default{
      
       getProvinceList: function(){
         var _this=this;
-        this.$http.get('/apis/naf/code/xzqh/list?parent=000000&level=1'
+        this.$http.get('/apis/api/getdata/naf/code/xzqh/list?parent=000000&level=1'
         ).then(function(response){
             _this.provinceList=response.data.data;
         })
@@ -148,7 +157,7 @@ export default{
 						return false;
 					}
 					$("#cityBlock").attr("style","display:block");
-          this.$http.get('/apis/naf/code/xzqh/list?parent='+code+'&level=2'
+          this.$http.get('/apis/api/getdata/naf/code/xzqh/list?parent='+code+'&level=2'
           ).then(function(response){
               _this.cityList=response.data.data;
           })
@@ -201,8 +210,8 @@ export default{
           }else{
             alert('请选择省份城市');
           }
-          var corpid='5a9e2ed7a44cd66c81cfcf61';
-          this.$http.post("/apis/jobs/campus/update?corp.id="+corpid+"&_id=5aacc3632708584ca51f3fd3",
+         this.id='5aacc3632708584ca51f3fd3';
+          this.$http.post("/apis/api/post/jobs/campus/update?corp.id=session.userId&_id="+this.id,
           {
             "subject":_this.subject,
             "content":_this.content,
@@ -217,8 +226,11 @@ export default{
             "jobs":store.state.jobfairList
           }
           ).then(function(response){
-            alert(response.data.errmsg);
-            _this.$router.push({path:'/'})
+            if(response.data.errcode==0){
+            _this.$router.push({path:'/careertalk/careertalkList'})
+            }else{
+              alert(response.data.errmsg)
+            }
           })
           .catch(function(res){
             alert(res.data.errmsg)
@@ -233,3 +245,28 @@ export default{
 }
 
 </script>
+<style>
+body{
+ background: #f5f5f5;
+ font-size:16px;
+}
+.el-menu{
+    border: 1px solid #ccc;
+}
+.renDetail{
+  margin-left:250px;
+  margin-bottom:15px;
+}
+.xiaoM{
+  line-height: 40px;
+}
+#aside{
+    width: 200px;
+height: auto;
+margin: 0;
+margin-right:10px;
+float: left;
+    position: static;
+}
+
+</style>

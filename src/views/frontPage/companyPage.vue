@@ -1,6 +1,8 @@
 <template>
-        <div>
-                <div class="css-content" style="padding-bottom:180px;">
+
+        
+        <div id="cen">
+                <div class="css-content" style="padding-bottom:0px;" >
                         <!-- <div class="weizhi">
                             <p><a href="index.html">首页</a>&nbsp;>&nbsp;<a href="#">单位信息</a>&nbsp;>&nbsp;<a href="#">详情</a></a></p>
                         </div> -->
@@ -17,7 +19,7 @@
                                             <div class="dian"></div>
                                             <div class="dian1">单位信息</div>
                                         </div>
-                                        <ul class="css-text">
+                                        <ul class="css-text" style="padding-top:0px;">
                                             <li>发布单位：<span>{{enterpriseDetails.corps.name}}</span></li>
                                               <li>单位地址：<span>{{enterpriseDetails.address}}</span></li>
                                                <li>time：<span>{{enterpriseDetails.time}}</span></li>
@@ -66,6 +68,7 @@
                         </div>
                     </div>
         </div>
+       
 </template>
 <script>
         export default{
@@ -105,3 +108,9 @@
         
         }
         </script>
+        <style>
+        body {
+            font-size:16px;
+        }
+        </style>
+        

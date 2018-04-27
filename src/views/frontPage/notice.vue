@@ -1,5 +1,7 @@
 <template>
-        <div>
+
+        <div id="cen">
+            <div class="notify">
                 <div class="sele"><!--公告、动态-->
                     <div class="sele1" id="tz">通知公告</div>
                     <div class="sele2" id="gg">工作动态</div>   
@@ -20,10 +22,10 @@
                     <div id="title1">
                     <div class="notes-list" >
                         <ul id="lists">
-                            <!-- <li v-for="item in items">{{item.message}}</li>                         -->
+                            <!-- <li v-for="item in items">{{item.message}}</li>-->
                             <li v-for="notice in noticeList" >
-                                <a  :href="['noticePage.html?id='+notice.id]">{{notice.title}}</a >
-                                <span>{{notice.time}}</span>
+                                <a  :href="['noticePage.html?id='+notice.id]" style=" width:1000px; overflow:hidden;">{{notice.title}}</a >
+                                <span style="padding:0;">{{notice.time}}</span>
                             </li>
                         </ul>
                     </div>            
@@ -43,8 +45,8 @@
                             <ul id="lists">
                                 <!-- <li v-for="item in items">{{item.message}}</li>                         -->
                                 <li v-for="workList in dynamicWork" >
-                                    <a  :href="['noticePage.html?id='+workList.id]">{{workList.title}}</a >
-                                    <span>{{workList.time}}</span>
+                                    <a  :href="['noticePage.html?id='+workList.id]"  style=" width:1000px; overflow:hidden;">{{workList.title}}</a >
+                                    <span style="padding:0;">{{workList.time}}</span>
                                 </li>
                                 
                             </ul>
@@ -60,7 +62,9 @@
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
+
 </template>
     
     <script>
@@ -110,4 +114,26 @@
       }
     
     }
+
+     window.onload=function(){
+        var tz=document.getElementById("tz");
+        var gg=document.getElementById("gg");
+        var title1=document.getElementById("title1");
+        var title2=document.getElementById("title2");
+        tz.onclick=function(){
+            title1.style.display="block";
+            title2.style.display="none";
+            tz.style.backgroundColor="#95d8ea";
+            gg.style.backgroundColor="#f5f5f5";
+        }
+        gg.onclick=function(){
+            title2.style.display="block";
+            title1.style.display="none";
+            gg.style.backgroundColor="#95d8ea";
+            tz.style.backgroundColor="#f5f5f5";
+        }
+    }
     </script>   
+    <style>
+    body {font-size:16px;}
+    </style>

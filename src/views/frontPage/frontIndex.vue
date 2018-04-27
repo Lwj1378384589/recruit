@@ -3,10 +3,10 @@
         <div class="css-main-index">
 				<div  style="padding-top:40px;"><!-- class="css-out-content" -->
 					<div class="css-header"  style="font-size:16px;">
-						<div class="container">
-							<router-link to="/frontPage" title="惠安智慧就业平台"> 
+						<div class="container" style="padding-bottom:0;">
+							<router-link to="/frontPage/frontIndex" title="惠安智慧就业平台"> 
 							<!-- <a href="index.html" title="惠安智慧就业平台"> -->
-								<img src="/static/frontPage/imgs/a.jpg" class="css-logo pull-left" style="width:230px; height:40px;" >
+								<img src="static/frontPage/imgs/a.jpg" class="css-logo pull-left" style="width:230px; height:40px;" >
 							<!-- </a> --></router-link>
 							<div class="css-subwebsite pull-left"  style="background: url('imgs/enterr.png') no-repeat left 5px;">
 								<router-link to="/frontPage/SchoolList"><b>进入子站</b><span class="text-primary">[切换分站]</span> </router-link>
@@ -36,16 +36,16 @@
 								<span onmouseover="seen()" onmouseout="disn()">用户功能频道</span>
 							</div>
 							<ul class="pull-left css-navbar">
-								<li><a href="/index.html">平台首页</a></li>
-								<li><a href="StudentLogin.html">学生用户</a></li>
+								<li><router-link to="/">平台首页</router-link></li>
+								<li><router-link to="/frontPage/StudentLogin">学生用户</router-link></li>
 							</ul>
-						</div>
+						</div>  
 				</div>
 					<div class="container clearfix">
 						<div class="css-channel pull-left">
 							<div class="css-menu" id="css-menu">
 								<div onmouseover="lul_list()" onmouseout="lul_out()" class="cr_li">
-									<router-link to="/frontPage" class="li_a">平台首页</router-link>
+									<router-link to="/" class="li_a">平台首页</router-link>
 									<!-- <a href="index.html" class="li_a">平台首页 </a> -->
 									<div class="box1" id="box1">
 										<div class="list-left">
@@ -212,13 +212,13 @@
 						<div class="css-login-notice">
 							<div class="css-login">
 								<div class="css-welcome">
-									<img src="/static/frontPage/imgs/vv.jpg">
+									<img src="static/frontPage/imgs/vv.jpg">
 									<ul class="Wul">
 										<li>Hi,你好...</li>
 										<li>找工作，招人才...</li>
 									</ul>
 								</div>
-								<ul class="css-btn">
+								<ul>
 									<li class="css-btnlogin"><router-link to="/frontPage/disLogin">用户登录</router-link></li>
 									<li class="css-btnregister"><router-link to="/frontPage/distRegist">免费注册</router-link></li>
 								</ul>
@@ -248,7 +248,7 @@
 							</ul>
 						</div>
 						<div class="css-imgline" style="background: red;">
-								<router-link to="/frontPage/noticePage"  target="_blank"><img src="/static/frontPage/imgs/bigI.jpg" alt="大图片"></router-link>
+								<router-link to="/frontPage/noticePage"  target="_blank"><img src="static/frontPage/imgs/bigI.jpg" alt="大图片"></router-link>
 						</div>
 						<div class="clearfix"></div>
 						<div class="css-imggroup">
@@ -269,7 +269,7 @@
 									<li v-for="(tab,index) in tabsName">
 										<a v-bind:href="tab.url" class="tab-link" @mouseover="tabsSwitch(index)" v-bind:class="{active:tab.isActive}">{{tab.name}}</a>
 									</li>
-									<div style="float: left; height: 48px; line-height: 48px; width:80px; margin-left: 150px;  "><a href="campusTalkPage.html"> MORE>> </a></div>
+									<div style="float: left; height: 48px; line-height: 48px; width:80px; margin-left: 150px;  "><router-link to="/frontPage/campusTalkPage"> MORE>></router-link></div>
 								</ul>
 
 								<div class="cards">
@@ -317,7 +317,7 @@
 										</div>
 									</div>
 									<div class="job-box">
-										<p><a href="campusTalkPage.html">校园宣讲会：<span style="color:#00B8EC ">1场</span></a></p>
+											<p><router-link to="/frontPage/campusTalkPage">校园宣讲会：<span style="color:#00B8EC ">1场</span></router-link></p>
 
 									</div>
 								</div>
@@ -326,12 +326,12 @@
 						<div class="clearfix"></div>
 						<!-- 拒绝诈骗-->
 						<div class="css-imgline" style="margin-top: 0;">
-							<img src="/static/frontPage/imgs/refuse.jpg" alt="拒绝诈骗图片" style="margin-top: 0;">
+							<img src="static/frontPage/imgs/refuse.jpg" alt="拒绝诈骗图片" style="margin-top: 0;">
 						</div>
 						<div class="clearfix"></div>
 						<div class="css-hotjob">
 							<div class="css-caption">
-								<div><img src="/static/frontPage/imgs/jobList.png">最新职位</div>
+								<div><img src="static/frontPage/imgs/jobList.png">最新职位</div>
 								<span><a href="recruitment.html" target="_blank" class="css-more">MORE&nbsp;&gt;&gt;</a></span>
 							</div>
 							<div class="css-content">
@@ -341,7 +341,7 @@
 										<ul>
 											<li>
 												{{jobs.company}}
-												<img src="/static/frontPage/imgs/vip.gif" title="VIP">
+												<img src="static/frontPage/imgs/vip.gif" title="VIP">
 											</li>
 											<li>
 												<a href="recruitmentDetailPage.html"  target="_blank" class="text-blue">{{jobs.position}}</a>
@@ -373,7 +373,7 @@
 						<div class="clearfix"></div>
 						<div class="css-corphire">
 							<div class="css-caption">
-								<div><img src="/static/frontPage/imgs/vvip.png">高级会员</div>
+								<div><img src="static/frontPage/imgs/vvip.png">高级会员</div>
 								<span><a href="seniorMemberPage.html" class="css-more">MORE&nbsp;&gt;&gt;</a></span>
 							</div>
 							<div id="marquee5">
@@ -395,7 +395,7 @@
 						<div class="css-talentmarket">
 							<div class="css-caption">
 								<div>
-									<img src="/static/frontPage/imgs/jz.png">
+									<img src="static/frontPage/imgs/jz.png">
 									招聘简章
 								</div>
 								<span>
@@ -420,7 +420,7 @@
 						<div class="css-friendlink" style="margin-top: 20px;">
 							<div class="css-caption">
 								<div>
-									<img src="/static/frontPage/imgs/link.png"> 
+									<img src="static/frontPage/imgs/link.png"> 
 									友情链接
 								</div>
 							</div>
@@ -442,11 +442,11 @@ export default{
         return {
             tabsName: [{
 				name: "校园宣讲会",
-				url:"campusTalkPage.html",
+				url:"/frontPage/campusTalkPage",
 				isActive: true
 			}, {
 				name: "校园招聘公告",
-				url:"campusRecruitmentPage.html",
+				url:"/frontPage/campusRecruitmentPage",
 				isActive: false
 			}],
             active: false,
@@ -664,61 +664,149 @@ export default{
 		},
 		find: function(pitem){
 			//按行业查看职业
-			location.href="recruitment.html?id="+pitem.id;
+			var _this =this;
+                _this.$router.push({
+                    path:'/frontPage/recruitment',
+                    query: {
+                     "_id": pitem._id
+                        }
+                })
+			//location.href="recruitment.html?id="+pitem.id;
 		},
 		find: function(ptyim){
 			//按行业查看职业
-			location.href="recruitment.html?id="+ptyim.id;
+			var _this =this;
+                _this.$router.push({
+                    path:'/frontPage/recruitment',
+                    query: {
+                     "_id": ptyim._id
+                        }
+                })
+			//location.href="recruitment.html?id="+ptyim.id;
 		},
 		findly: function(ctim){
-			//跳转宣讲会
-			location.href="companyDetailPage.html?id="+ctim._id;
+			//跳转宣讲会详情
+			var _this =this;
+                _this.$router.push({
+                    path:'/frontPage/companyDetailPage',
+                    query: {
+                     "_id": ctim._id
+                        }
+                })
+			
+			//location.href="companyDetailPage?id="+ctim._id;
 		},
 		find: function(dtim){
-			//跳转校园招聘公告
-			location.href="companyPage.html?id="+dtim._id;
+			//跳转校园招聘公告详情
+			var _this =this;
+                _this.$router.push({
+                    path:'/frontPage/companyPage',
+                    query: {
+                     "_id": dtim._id
+                        }
+                })
+			//location.href="companyPage.html?id="+dtim._id;
 		}
   }
 }
-// var mySchedule = new Schedule({
-// 		el: '#schedule-box',
-// 		//date: '2018-9-20',
-// 		clickCb: function (y,m,d) {
+//   var mySchedule = new Schedule({
+  		// el: '#schedule-box',
+//  		//date: '2018-9-20',
+//  		clickCb: function (y,m,d) {
 // 			document.querySelector('#h3Ele').innerHTML =y+'-'+m+'-'+d
 // 		},
 // 		nextMonthCb: function (y,m,d) {
-// 			document.querySelector('#h3Ele').innerHTML =y+'-'+m+'-'+d
-// 		},
-// 		nextYeayCb: function (y,m,d) {
-// 			document.querySelector('#h3Ele').innerHTML =y+'-'+m+'-'+d
-// 		},
-// 		prevMonthCb: function (y,m,d) {
-// 			document.querySelector('#h3Ele').innerHTML =y+'-'+m+'-'+d
-// 		},
-// 		prevYearCb: function (y,m,d) {
-// 			document.querySelector('#h3Ele').innerHTML =y+'-'+m+'-'+d
-// 		}
-// 	});
+//  			document.querySelector('#h3Ele').innerHTML =y+'-'+m+'-'+d
+//  		},
+//  		nextYeayCb: function (y,m,d) {
+//  			document.querySelector('#h3Ele').innerHTML =y+'-'+m+'-'+d
+//  		},
+//  		prevMonthCb: function (y,m,d) {
+//  			document.querySelector('#h3Ele').innerHTML =y+'-'+m+'-'+d
+//  		},
+//  		prevYearCb: function (y,m,d) {
+//  			document.querySelector('#h3Ele').innerHTML =y+'-'+m+'-'+d
+//  		}
+  	// });
 
-// 	function job(day){
-// 		/*var str = this.formatDate(this.currentYear , this.currentMonth, this.currentDay);*/
-// 		var cssjob=document.getElementById("css-job");
-// 		cssjob.style.display="block";
-// 	}
-// 	function jobclose(){
-// 		var cssjob=document.getElementById("css-job");
-// 		cssjob.style.display="none";
-// 	}
+ 	function job(day){
+ 		/*var str = this.formatDate(this.currentYear , this.currentMonth, this.currentDay);*/
+ 		var cssjob=document.getElementById("css-job");
+ 		cssjob.style.display="block";
+ 	}
+ 	function jobclose(){
+ 		var cssjob=document.getElementById("css-job");
+ 		cssjob.style.display="none";
+ 	}
 	
 
 </script>
 
 
 <style>
+	body {font-size: 16px;}
+
 #frontIndex{
     background:blueviolet;
     width:800px;
     height:800px;
 }
 
-</style>
+
+			/*校园宣讲会*/
+
+			.box {
+				/* width: 800px;*/
+				height: 403px;
+				background: #ffffff;
+				/* margin: 0 auto;*/
+				/*border: 1px solid #000;*/
+			}
+
+			.tabs li {
+				float: left;
+				margin-right: 8px;
+				list-style: none;
+			}
+
+			.tabs .tab-link {
+				display: block;
+				width: 250px;
+				height: 49px;
+				text-align: center;
+				line-height: 49px;
+				background-color: #00B8EC;
+				color: #fff;
+				text-decoration: none;
+			}
+
+			.tabs .tab-link.active {
+				height: 47px;
+				border-bottom: 2px solid #E35885;
+				transition: .3s;
+			}
+
+			.cards {
+				float: left;
+			}
+
+			.cards .tab-card {
+				display: none;
+			}
+
+			.clearfix:after {
+				content: "";
+				display: block;
+				height: 0;
+				clear: both;
+			}
+
+			.clearfix {
+				zoom: 1;
+			}
+			.css-nav{
+				width:100%;
+			}
+		</style>
+
+	
