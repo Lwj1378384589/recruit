@@ -47,6 +47,7 @@ axios.interceptors.request.use(
             ).then(res=>{
                 if(res.data.errmsg=="请登录"){
                     store.commit("loginBooleanChange","logout");
+                    alert("请登录")
                     next({ path: '/frontPage/disLogin'})
                 }else{
                     store.commit("loginBooleanChange",res.data);
@@ -55,23 +56,6 @@ axios.interceptors.request.use(
             })
           }
       }
-
-      console.log(config.url)
-    // if(blackList.indexOf('sim')!=-1){
-    //     alert("test:"+blackList.includes('sim'))
-    //     alert(config.url+"需要拦截")
-    //   if (store.state.loginBoolean) {  // 判断是否存在token，如果存在的话，则每个http header都加上token
-    //         alert("已登录,http拦截")
-    //     }else{
-    //         alert("未登录,已拦截")
-    //     }
-        
-      
-    //     //  alert(store.state.loginBoolean) // config.headers.Authorization = `token ${store.state.token}`;
-    //   }else{
-    //     alert("test:"+blackList.includes('sim'))
-    //       alert(config.url+"无需拦截")
-    //   }
       return config;
   },
   err => {
