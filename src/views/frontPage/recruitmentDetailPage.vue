@@ -93,6 +93,7 @@
 </template>
     
     <script>
+    import axiosApi from "@/api/public"
     export default{
         data() {
             return {
@@ -106,8 +107,8 @@
         getJobDetails: function(){
 				//岗位信息详情
 				var _this = this;
-				var url ="/apis/jobs/jobinfo/fetch?_id="+_this.$route.query._id;
-				_this.$http.get(
+				var url ="/apis/api/getdata/jobs/jobinfo/fetch?_id="+_this.$route.query._id;
+				axiosApi.axiosGet(
 					url
 				).then((response) => {
 					if(response.data.errcode===1){

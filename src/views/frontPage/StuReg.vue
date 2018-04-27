@@ -60,6 +60,7 @@
 </template>
 
 <script>
+import axiosApi from "@/api/public"
 export default{
     data() {
         return {
@@ -146,7 +147,7 @@ export default{
 				alert("地址不能为空，请输入")
 				return false;
             }
-            this.$http.post('/apis/platform/user/member/create',
+            axiosApi.axiosPost('/apis/platform/user/member/create',
             {
                 "xm": this.xm,
                 "xb":this.xb,

@@ -29,9 +29,9 @@
 									</div>
 									<div class="logInput">
 										<div class="logTit">登录密码</div>
-										<el-input v-model="entPassword" placeholder="登录密码" class="logGroup" type="password" @keyup.enter="login"></el-input>
+										<el-input v-model="entPassword" placeholder="登录密码" class="logGroup" type="password" @keyup.enter.native="login"></el-input>
 									</div>
-									<a class="logBtn" href="javascript:" id="showTooltips" @click.keyup.enter="login">登录</a>
+									<a class="logBtn" href="javascript:" id="showTooltips" @click.keyup.13="login">登录</a>
 								</form>
 							</div>
 						</div>
@@ -40,6 +40,7 @@
 			</div>
 </template>
 <script>
+import axiosApi from "@/api/public"
 export default{
     data() {
         return {
@@ -55,20 +56,18 @@ export default{
         }else if(_this.entPassword===''){
             alert("请输入企业密码！");
         }else{
-          _this.$http.post(
-            "/apis/api/login/platform/corp/login", 
-            {
+          axiosApi.axiosPost('/apis/api/login/platform/corp/login',
+          {
                 username: _this.entName,
                 password: _this.entPassword
-            },
-            {
-              emulateJSON: true
-            }
-          ).then((response) => {
-            if(response.data.errcode!=0){
-            }else{
-            //   $.hideLoading();
-               if(response.data.data.status=="1"){
+          
+          // unitLogin(
+          //   {
+          //       username: _this.entName,
+          //       password: _this.entPassword
+            }).then((response) => {
+               //   $.hideLoading();
+               if(response.data.status=="1"){
                 alert("请完善您的信息");
                 _this.$router.push({path:'/frontPage/UnitReg2',query: {id: response.data.data._id}})
               }else if(response.data.data.status=="2"){
@@ -79,19 +78,20 @@ export default{
                 /* window.location.href="/ent/login"; */
               }else if(response.data.data.status=="0"){
                 _this.$router.push({path:'/backpage'})
-              }else{
-                alert("您还没有注册,请注册");
-                location.href="UnitReg.html"
-              } 
-            }
+               } 
+              // else{
+              //   alert("您还没有注册,请注册");
+              //   _this.$router.push({path:'/frontPage/distRegist'})
+              // }
+           
           }),function(error){
             // $.hideLoading();
             alert('对不起，你的请求处理失败了!');   //失败处理
           };
-          // setTimeout(function() {
-          //   // $.hideLoading();
-          //  alert('您和服务器的链接不稳定，请重新进入登录!');   //设置30000毫秒超时认为请求失败。
-          // }, 30000);
+            // setTimeout(function() {
+            //   // $.hideLoading();
+            //  alert('您和服务器的链接不稳定，请重新进入登录!');   //设置30000毫秒超时认为请求失败。
+            // }, 30000);
         }
       }
     }
