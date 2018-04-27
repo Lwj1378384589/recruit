@@ -20,10 +20,8 @@ export default {
       return new Promise((resolve, reject) => {
         axios.post(url, params).then(res => {
           if(res.data.errcode===0){
-            alert("postOk:"+res.data.errmsg)
             resolve(res)
           }else{
-            alert("postFalse:"+res.data.errmsg)
             resolve(res)
           }
         }).catch(error => {
