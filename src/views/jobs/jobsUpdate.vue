@@ -71,7 +71,6 @@
 				"/apis/api/getdata/naf/code/xzqh/list?parent=000000&level=1"
 			).then((response) => {
 				if(response.data.errcode===1){
-					alert(response.data.errmsg);
 				}else{
           _this.provinceList = response.data.data;
 				}
@@ -99,7 +98,6 @@
             "/apis/api/getdata/jobs/jobinfo/fetch?_id="+_this.id
           ).then((response) => {
             if(response.data.errcode===1){
-              alert(response.data.errmsg);
             }else{
               _this.id=response.data.data._id
               _this.title=response.data.data.title
@@ -143,7 +141,6 @@
                  } 
             }
             ).then(function(res){
-                alert(res.data.errmsg)
                 _this.$router.push({path:'/jobs/jobsList'})
             })
             .catch(function(res){

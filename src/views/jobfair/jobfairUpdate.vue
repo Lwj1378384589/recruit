@@ -92,7 +92,6 @@ export default{
                 "jobs":store.state.jobfairList
             })
             .then(function(response){
-                alert(response.data.errmsg)
             _this.$router.push({path:'/jobfair/jobfairList'})
             })
             .catch(function(res){

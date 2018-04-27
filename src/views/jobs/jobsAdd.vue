@@ -72,7 +72,6 @@ export default{
 				"/apis/api/getdata/naf/code/xzqh/list?parent=000000&level=1"
 			).then((response) => {
 				if(response.data.errcode===1){
-					alert(response.data.errmsg);
 				}else{
 					_this.provinceList = response.data.data;
 				}
@@ -112,7 +111,6 @@ export default{
              } 
         }
         ).then(function(res){
-            alert(res.data.errmsg)
             _this.$router.push({path:'/jobs/jobsList'})
         })
         .catch(function(res){

@@ -9,6 +9,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 import store from './store/store.js'
 import {routes} from './utils/menus'
 import axiosApi from "@/api/public"
+import {blackList} from "@/api/list"
 Vue.use(ElementUI);
 Vue.config.productionTip = false
 // Vue.prototype.$http = axios
@@ -19,14 +20,12 @@ router.beforeEach((to, from, next) => {
         if(res.data.errmsg=="请登录"){
             for(var i=0;i<routes.length-1;i++){ // 判断该路由是否需要登录权限
                 if(routes[i].path===to.path||to.path==="/backpage"){
-                    alert("使用此路由请先登录")
                     store.commit("loginBooleanChange","logout");
                     next({ path: '/frontPage/disLogin'})
                     break;
                 }
             }
             if(i==9){
-                alert("此路由无需登录")
                 next();
             }
         }else{//登录情况
@@ -38,11 +37,26 @@ router.beforeEach((to, from, next) => {
 
 })
 
-//请求-登录验证     需要设置什么样的请求拦截,什么不需要拦截(想想)
-const blackList=[];
+//请求-登录验证     需要设置什么样的请求拦截,什么不需要拦截
 axios.interceptors.request.use(
   config => {
-    
+    var i=0
+      for(i;i<blackList.length;i++){
+          if(config.url.indexOf(blackList[i])>0){
+            axiosApi.axiosGet('/apis/api/registLogin'
+            ).then(res=>{
+                if(res.data.errmsg=="请登录"){
+                    store.commit("loginBooleanChange","logout");
+                    next({ path: '/frontPage/disLogin'})
+                }else{
+                    store.commit("loginBooleanChange",res.data);
+                    next();
+                }
+            })
+          }
+      }
+
+      console.log(config.url)
     // if(blackList.indexOf('sim')!=-1){
     //     alert("test:"+blackList.includes('sim'))
     //     alert(config.url+"需要拦截")

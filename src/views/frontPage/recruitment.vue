@@ -146,6 +146,7 @@
     
     <script>
 	import axiosApi from "@/api/public"
+	var test;
     export default{
         data() {
             return {
