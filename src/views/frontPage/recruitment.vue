@@ -104,7 +104,6 @@
                                 <p>
                                     
                                     <router-link :to="{path:'/frontPage/recruitmentDetailPage',query:{_id: joblist._id}}">{{joblist.title}}</router-link>
-                                    <!-- <a  v-on:click="find()" target="blank">{{joblist.title}}</a> -->
                                 </p>
                                 <ul>
                                     <li>时间：{{joblist.meta.createdAt}}</li>
@@ -128,17 +127,17 @@
                                 </p>
                             </div>
                         </div>
-                         <div class="block" style="margin:0 auto;">
-                            <el-pagination
-                              v-on:size-change="handleSizeChange"
-                              v-on:current-change="handleCurrentChange"
-                              :current-page="currentPage"
-                              :page-sizes="[1, 2, 3, 4,5,6,7,8,9,10]"
-                              :page-size="pageSize"
-                              layout="total, sizes, prev, pager, next, jumper"
-                              :total="total">
-                            </el-pagination>
-                          </div>
+						<div class="block">
+								<el-pagination
+								  v-on:size-change="handleSizeChange"
+								  v-on:current-change="handleCurrentChange"
+								  :current-page="currentPage"
+								  :page-sizes="[1, 2, 3, 4,5,6,7,8,9,10]"
+								  :page-size="pageSize"
+								  layout="total, sizes, prev, pager, next, jumper"
+								  :total="total">
+								</el-pagination>
+						</div>
                     </div>
         </div>
         </center>
@@ -168,9 +167,6 @@
         this.getSalary();
 	},
       methods: {
-          find: function(){
-        alert(11)
-          },
         getPositionIndustry: function(){
 				//按行业查看职位
 				var _this = this;
@@ -265,10 +261,9 @@
 			};
 		},
 		handleSizeChange(val) {
-			alert(11)
 			var _this = this;
-				test=val;
-			var page = _this.currentPage-1;
+			var	test=val;
+			var page = this.currentPage-1;
 			var url ="/apis/jobs/jobinfo/simple?skip="+page+"&limit="+test
 				_this.$http.get(
 				url
@@ -284,13 +279,10 @@
 				} 
 			},
 		handleCurrentChange(val) {
-			alert(22)
 			var _this = this;
-				test=val;
-				var page = val-1;
-				alert(page)
-			alert(test)
-			var url ="/apis/jobs/jobinfo/simple?skip="+page+"&limit="+this.pageSize
+			var test =val;
+			var page = val-1;
+			var url ="/apis/jobs/jobinfo/simple?skip="+page+"&limit="+_this.pageSize
 				_this.$http.get(
 				url
 			).then((response) => {
