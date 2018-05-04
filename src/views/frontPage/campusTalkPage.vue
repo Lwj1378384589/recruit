@@ -4,15 +4,15 @@
     <div class="weui-tab" style="margin-top:10px; width:1200px; margin:0 auto;">
         <div class="weui-navbar" style="background: #FFFFFF;">
             
-            <a class="weui-navbar__item nav-font" href="recruitment.html">
+            <router-link class="weui-navbar__item nav-font" to="/frontPage/recruitment">
                 岗位信息
-            </a>
-            <a class="weui-navbar__item nav-font weui-bar__item--on" href="campusTalkPage.html">
+            </router-link>
+            <router-link class="weui-navbar__item nav-font weui-bar__item--on" to="/frontPage/campusTalkPage">
                 校园宣讲会
-            </a>
-            <a class="weui-navbar__item nav-font" href="campusRecruitmentPage.html">
+            </router-link>
+            <router-link class="weui-navbar__item nav-font" to="/frontPage/campusRecruitmentPage">
                 校园招聘会
-            </a>
+            </router-link>
         </div>
         <div class="weui-tab__bd">
             <div id="tab2" class="weui-tab__bd-item weui-tab__bd-item--active">
@@ -78,7 +78,9 @@
 			            $includeObj.after(html).remove();   
 			        })
 			    }
-			});
+            });
+import axiosApi from "@/api/public"
+var test;
 export default{
     data() {
         return {
@@ -97,7 +99,7 @@ export default{
     getAreaSelection: function(){
         //地区列表
         var _this = this;
-        _this.$http.get(
+        axiosApi.axiosGet(
             "static/frontPage/json/areaSelection.json"
         ).then((response) => {
             if(response.data.errcode===1){
@@ -113,8 +115,8 @@ export default{
         //举办单位
         var _this = this;
         var page = _this.currentPage-1;
-        _this.$http.get(
-            "/jobs/campus/simple?skip="+page+"&limit="+_this.pageSize
+        axiosApi.axiosGet(
+            "/apis/api/getdata/jobs/campus/simple?skip="+page+"&limit="+_this.pageSize
         ).then((response) => {
             if(response.data.errcode===1){
                 alert(response.data.errmsg);
@@ -140,8 +142,8 @@ export default{
         var _this = this;
             test=val;
         var page = _this.currentPage-1;
-        var url ="/jobs/campus/simple?skip="+page+"&limit="+test
-            _this.$http.get(
+        var url ="/apis/api/getdata/jobs/campus/simple?skip="+page+"&limit="+test
+        axiosApi.axiosGet(
             url
             ).then((response) => {
                 if(response.data.errcode===1){
@@ -159,8 +161,8 @@ export default{
             var _this = this;
                 test=val;
                 var page = val-1;
-            var url ="/jobs/campus/simple?skip="+page+"&limit="+this.pageSize
-                _this.$http.get(
+            var url ="/apis/api/getdata/jobs/campus/simple?skip="+page+"&limit="+this.pageSize
+            axiosApi.axiosGet(
                 url
             ).then((response) => {
                 if(response.data.errcode===1){

@@ -68,6 +68,7 @@
 </template>
     
     <script>
+    import axiosApi from "@/api/public"
     export default{
         data() {
             return {
@@ -84,7 +85,7 @@
         getNoticeList: function(){
 				//通知信息列表
 				var _this = this;
-				_this.$http.get(
+				axiosApi.axiosGet(
 					"/static/frontPage/json/noticeList.json"
 				).then((response) => {
 					if(response.data.errcode===1){
@@ -99,7 +100,7 @@
 			getDynamicWork: function(){
 				//岗位信息列表
 				var _this = this;
-				_this.$http.get(
+				axiosApi.axiosGet(
 					"/static/frontPage/json/dynamicWork.json"
 				).then((response) => {
 					if(response.data.errcode===1){

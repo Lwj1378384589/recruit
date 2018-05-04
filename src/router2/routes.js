@@ -12,46 +12,22 @@ import distRegist from '@/views/frontPage/distRegist.vue'
 
 const _routes=[
     {
-        path:'/backpage',
+        path:'/',
         component:main,
         children:[
             {
-                path:'/backpage/',
+                path:'/',
                 component:mainSecond,
                 name:'mainSecond',
                 children:[
                     {
-                        path:"/backpage/",
+                        path:"/",
                         component:backIndex,
                     },
                     ...routes,
                     
                 ],
             },
-
-        ]
-
-    },
-    {
-        path:'/',
-        component:frontPageMain,
-        children:[
-            {
-                path:'',
-                component:frontIndex,
-                name:'frontIndex'
-            },
-            {
-                path:'/frontPage/',
-                component:frontPageSecond,
-                name:'frontPageSecond',
-                children:[
-                    ...frontRoutes,
-                    
-                ],
-            },
-           ...disRoutes,
-            
 
         ]
 

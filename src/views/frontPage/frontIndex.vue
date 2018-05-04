@@ -4,13 +4,12 @@
 				<div  style="padding-top:40px;"><!-- class="css-out-content" -->
 					<div class="css-header"  style="font-size:16px;">
 						<div class="container" style="padding-bottom:0;">
-							<router-link to="/frontPage" title="惠安智慧就业平台"> 
+							<router-link to="/frontPage/frontIndex" title="惠安智慧就业平台"> 
 							<!-- <a href="index.html" title="惠安智慧就业平台"> -->
 								<img src="static/frontPage/imgs/a.jpg" class="css-logo pull-left" style="width:230px; height:40px;" >
 							<!-- </a> --></router-link>
 							<div class="css-subwebsite pull-left"  style="background: url('imgs/enterr.png') no-repeat left 5px;">
 								<router-link to="/frontPage/SchoolList"><b>进入子站</b><span class="text-primary">[切换分站]</span> </router-link>
-								<!-- <a href="SchoolList.html"><b>进入子站</b><span class="text-primary">[切换分站]</span></a> -->
 							</div>
 							<div class="css-right pull-right">
 								<div class="css-search pull-right">
@@ -36,16 +35,16 @@
 								<span onmouseover="seen()" onmouseout="disn()">用户功能频道</span>
 							</div>
 							<ul class="pull-left css-navbar">
-								<li><a href="/index.html">平台首页</a></li>
-								<li><a href="StudentLogin.html">学生用户</a></li>
+								<li><router-link to="/">平台首页</router-link></li>
+								<li><router-link to="/frontPage/StudentLogin">学生用户</router-link></li>
 							</ul>
-						</div>
+						</div>  
 				</div>
 					<div class="container clearfix">
 						<div class="css-channel pull-left">
 							<div class="css-menu" id="css-menu">
 								<div onmouseover="lul_list()" onmouseout="lul_out()" class="cr_li">
-									<router-link to="/frontPage" class="li_a">平台首页</router-link>
+									<router-link to="/" class="li_a">平台首页</router-link>
 									<!-- <a href="index.html" class="li_a">平台首页 </a> -->
 									<div class="box1" id="box1">
 										<div class="list-left">
@@ -59,7 +58,7 @@
 											<ul class="cn-ul">
 												<p class="txt">按行业查看职位</p>
 												 <div v-for="pitem in positionIndustry">
-												 <li><a href="#this" @click="find(pitem)">{{pitem.name}}</a></li>
+												 <li><router-link to="#this" @click="find(pitem)">{{pitem.name}}</router-link></li>
 												 </div>
 											</ul>
 										</div>
@@ -68,14 +67,14 @@
 											<ul class="cn-ul">
 												<p class="txt">按类别查看职位</p>
 												<div v-for="ptyim in positionType">
-												<li><a href="#this" @click="find(ptyim)">{{ptyim.name}}</a></li>
+												<li><router-link to="#this" @click="find(ptyim)">{{ptyim.name}}</router-link></li>
 												</div>
 											</ul>
 										</div> 
 									</div>
 								</div>
 								<div onmouseover="lul_list1()" onmouseout="lul_out1()" class="cr_li stubg">
-									<a href="index.html" class="li_a">学生服务</a>
+									<router-link to="/" class="li_a">学生服务</router-link>
 									<div class="box1" id="box2">
 										<div class="css-subMenu">
 											<div class="top-M">就业信息</div>
@@ -120,8 +119,7 @@
 									</div>
 								</div>
 								<div onmouseover="lul_list2()" onmouseout="lul_out2()" class="cr_li danwbg">
-									<!-- <a class="li_a" href="index.html">单位服务</a> -->
-									<router-link class="li_a" to="/frontPage/index">单位服务</router-link>
+									<router-link class="li_a" to="/">单位服务</router-link>
 									<div class="box1" id="box3">
 										<div class="css-subMenu">
 											<div class="top-M">基础服务</div>
@@ -155,8 +153,7 @@
 									</div>
 								</div>
 								<div  onmouseover="lul_list3()" onmouseout="lul_out3()" class="cr_li schoolbg">
-									<!-- <a class="li_a" href="index.html">学校服务</a> -->
-									<router-link class="li_a" to="/frontPage/index">学校服务</router-link>
+									<router-link class="li_a" to="/">学校服务</router-link>
 									<div class="box1" id="box4">
 										<div class="css-subMenu">
 											<div class="top-M">就业管理</div>
@@ -185,9 +182,9 @@
 								<div class="xmK mb50">
 									<div class="lB" id="lB">
 										<div v-for="carim in carouselFigure">
-											<a v-bind:href="carim.url"  class="aimg" onmouseover="ba_move()" onmouseout="ba_out()" style="display: block;">
+											<router-link :to="carim.url"  class="aimg" onmouseover="ba_move()" onmouseout="ba_out()" style="display: block;">
 												<img v-bind:src ="carim.name"/>
-											</a>
+											</router-link>
 										</div>
 										<div class="dian_ul1">
 											<div class="Txin" style="float: left;">
@@ -269,7 +266,7 @@
 									<li v-for="(tab,index) in tabsName">
 										<a v-bind:href="tab.url" class="tab-link" @mouseover="tabsSwitch(index)" v-bind:class="{active:tab.isActive}">{{tab.name}}</a>
 									</li>
-									<div style="float: left; height: 48px; line-height: 48px; width:80px; margin-left: 150px;  "><a href="campusTalkPage.html"> MORE>> </a></div>
+									<div style="float: left; height: 48px; line-height: 48px; width:80px; margin-left: 150px;  "><router-link to="/frontPage/campusTalkPage"> MORE>></router-link></div>
 								</ul>
 
 								<div class="cards">
@@ -317,7 +314,7 @@
 										</div>
 									</div>
 									<div class="job-box">
-										<p><a href="campusTalkPage.html">校园宣讲会：<span style="color:#00B8EC ">1场</span></a></p>
+											<p><router-link to="/frontPage/campusTalkPage">校园宣讲会：<span style="color:#00B8EC ">1场</span></router-link></p>
 
 									</div>
 								</div>
@@ -437,16 +434,17 @@
 
 </template>
 <script>
+import axiosApi from "@/api/public"
 export default{
     data() {
         return {
             tabsName: [{
 				name: "校园宣讲会",
-				url:"campusTalkPage.html",
+				url:"/frontPage/campusTalkPage",
 				isActive: true
 			}, {
 				name: "校园招聘公告",
-				url:"campusRecruitmentPage.html",
+				url:"/frontPage/campusRecruitmentPage",
 				isActive: false
 			}],
             active: false,
@@ -480,8 +478,8 @@ export default{
         getPositionIndustry: function(){
 				//按行业查看职位
 				var _this = this;
-				_this.$http.get(
-					"/apis/naf/code/items/35/list"
+				axiosApi.axiosGet(
+					"/apis/api/getdata/naf/code/items/35/list"
 				).then((response) => {
 					if(response.data.errcode===1){
 						alert(response.data.errmsg);
@@ -495,8 +493,8 @@ export default{
         getPositionType: function(){
 				//按类别查看职位
 				var _this = this;
-				_this.$http.get(
-					"/apis/naf/code/items/36/list"
+				axiosApi.axiosGet(
+					"/apis/api/getdata/naf/code/items/36/list"
 				).then((response) => {
 					if(response.data.errcode===1){
 						alert(response.data.errmsg);
@@ -510,8 +508,8 @@ export default{
         getCampusPreaching: function(){
 				//校园宣讲会
 				var _this = this;
-				_this.$http.get(
-					"/apis/jobs/campus/simple?skip=0&limit=10"
+				axiosApi.axiosGet(
+					"/apis/api/getdata/jobs/campus/simple?skip=0&limit=10"
 				).then((response) => {
 					if(response.data.errcode===1){
 						alert(response.data.errmsg);
@@ -525,8 +523,8 @@ export default{
         getCampusRecruitment: function(){
             //校园招聘公告
             var _this = this;
-            _this.$http.get(
-                "/apis/jobs/jobfair/simple?skip=0&limit=10"
+            axiosApi.axiosGet(
+                "/apis/api/getdata/jobs/jobfair/simple?skip=0&limit=10"
             ).then((response) => {
                 if(response.data.errcode===1){
                     alert(response.data.errmsg);
@@ -552,7 +550,7 @@ export default{
         getFiveNotice: function(){
 				//右上角五条公告
 				var _this = this;
-				_this.$http.get(
+				axiosApi.axiosGet(
 					"static/frontPage/json/fiveNotice.json"
 				).then((response) => {
 					if(response.data.errcode===1){
@@ -571,7 +569,7 @@ export default{
 		getCarouselFigure: function(){
 				//轮播图
 				var _this = this;
-				_this.$http.get(
+				axiosApi.axiosGet(
 					"static/frontPage/json/homeCarouselFigure.json"
 				).then((response) => {
 					if(response.data.errcode===1){
@@ -586,7 +584,7 @@ export default{
 		getPhotoAnnotate: function(){
 				//轮播图注释
 				var _this = this;
-				_this.$http.get(
+				axiosApi.axiosGet(
 					"static/frontPage/json/photoAnnotate.json"
 				).then((response) => {
 					if(response.data.errcode===1){
@@ -601,7 +599,7 @@ export default{
 		getAdvertisingPosition: function(){
 				//广告
 				var _this = this;
-				_this.$http.get(
+				axiosApi.axiosGet(
 					"static/frontPage/json/advertisingPosition.json"
 				).then((response) => {
 					if(response.data.errcode===1){
@@ -620,7 +618,7 @@ export default{
 		getMenber: function(){
 			//高级会员
 			var _this = this;
-			_this.$http.get(
+			axiosApi.axiosGet(
 				"static/frontPage/json/menber.json"
 			).then((response) => {
 				if(response.data.errcode===1){
@@ -635,7 +633,7 @@ export default{
 		getRecruitmentBrochure: function(){
 				//招聘简章
 				var _this = this;
-				_this.$http.get(
+				axiosApi.axiosGet(
 					"static/frontPage/json/recruitmentBrochure.json"
 				).then((response) => {
 					if(response.data.errcode===1){
@@ -650,7 +648,7 @@ export default{
 		getNewJobs: function(){
 			//最新职位
 			var _this = this;
-			_this.$http.get(
+			axiosApi.axiosGet(
 				"static/frontPage/json/newJobs.json"
 			).then((response) => {
 				if(response.data.errcode===1){
@@ -664,19 +662,48 @@ export default{
 		},
 		find: function(pitem){
 			//按行业查看职业
-			location.href="recruitment.html?id="+pitem.id;
+			var _this =this;
+                _this.$router.push({
+                    path:'/frontPage/recruitment',
+                    query: {
+                     "_id": pitem._id
+                        }
+                })
+			//location.href="recruitment.html?id="+pitem.id;
 		},
 		find: function(ptyim){
 			//按行业查看职业
-			location.href="recruitment.html?id="+ptyim.id;
+			var _this =this;
+                _this.$router.push({
+                    path:'/frontPage/recruitment',
+                    query: {
+                     "_id": ptyim._id
+                        }
+                })
+			//location.href="recruitment.html?id="+ptyim.id;
 		},
 		findly: function(ctim){
-			//跳转宣讲会
-			location.href="companyDetailPage.html?id="+ctim._id;
+			//跳转宣讲会详情
+			var _this =this;
+                _this.$router.push({
+                    path:'/frontPage/companyDetailPage',
+                    query: {
+                     "_id": ctim._id
+                        }
+                })
+			
+			//location.href="companyDetailPage?id="+ctim._id;
 		},
 		find: function(dtim){
-			//跳转校园招聘公告
-			location.href="companyPage.html?id="+dtim._id;
+			//跳转校园招聘公告详情
+			var _this =this;
+                _this.$router.push({
+                    path:'/frontPage/companyPage',
+                    query: {
+                     "_id": dtim._id
+                        }
+                })
+			//location.href="companyPage.html?id="+dtim._id;
 		}
   }
 }
@@ -774,6 +801,9 @@ export default{
 
 			.clearfix {
 				zoom: 1;
+			}
+			.css-nav{
+				width:100%;
 			}
 		</style>
 

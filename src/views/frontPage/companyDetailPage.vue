@@ -69,6 +69,7 @@
 </template>
 
 <script>
+import axiosApi from "@/api/public"
 export default{
 data() {
     return {
@@ -85,8 +86,8 @@ getEnterpriseDetails: function(){
         //获取企业详细信息
         var _this = this;
         
-        var url ="/apis/jobs/campus/fetch?_id="+_this.$route.query._id;
-        _this.$http.get(
+        var url ="/apis/api/getdata/jobs/campus/fetch?_id="+_this.$route.query._id;
+        axiosApi.axiosGet(
                 url
             //"json/enterpriseDetails.json"
         ).then((response) => {

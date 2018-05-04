@@ -37,6 +37,7 @@
 </template>
     
     <script>
+    import axiosApi from "@/api/public"
     export default{
         data() {
             return {
@@ -50,7 +51,7 @@
         getGuidanceCoachDetail: function(){
 				//招聘简章
 				var _this = this;
-				_this.$http.get(
+				axiosApi.axiosGet(
 					"/static/frontPage/json/guidanceCoachDetail.json"
 				).then((response) => {
 					if(response.data.errcode===1){

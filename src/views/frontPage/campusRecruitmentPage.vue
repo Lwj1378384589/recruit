@@ -3,15 +3,15 @@
         <div id="cen" style="min-height:500px;">            
             <div class="weui-tab" style="margin-top:10px;">
                 <div class="weui-navbar" style="background: #FFFFFF;">
-                    <a class="weui-navbar__item nav-font" href="recruitment.html">
+                    <router-link class="weui-navbar__item nav-font" to="/frontPage/recruitment">
                         岗位信息
-                    </a>
-                    <a class="weui-navbar__item nav-font" href="campusTalkPage.html">
+                    </router-link>
+                    <router-link class="weui-navbar__item nav-font" to="/frontPage/campusTalkPage">
                         校园宣讲会
-                    </a>
-                    <a class="weui-navbar__item nav-font weui-bar__item--on" href="campusRecruitmentPage.html">
+                    </router-link>
+                    <router-link class="weui-navbar__item nav-font weui-bar__item--on" to="/frontPage/campusRecruitmentPage">
                         校园招聘会
-                    </a>
+                    </router-link>
                 </div>
                    <div class="weui-tab__bd">
                     <div id="tab4" class="weui-tab__bd-item weui-tab__bd-item--active "><!--weui-tab__bd-item--active显示-->
@@ -67,7 +67,8 @@
 			            $includeObj.after(html).remove();   
 			        })
 			    }
-			});
+            });
+   import axiosApi from "@/api/public"
     export default{
         data() {
             return {
@@ -86,8 +87,8 @@
 				//校园招聘公告列表
 				var _this = this;
 				var page = _this.currentPage-1;
-				var url ="/apis/jobs/jobfair/simple?skip="+page+"&limit="+_this.pageSize
-					_this.$http.get(
+				var url ="/apis/api/getdata/jobs/jobfair/simple?skip="+page+"&limit="+_this.pageSize
+					axiosApi.axiosGet(
 					url
 				).then((response) => {
 					if(response.data.errcode===1){
@@ -104,8 +105,8 @@
 				var _this = this;
 				 test=val;
 				var page = _this.currentPage-1;
-				var url ="/apis/jobs/jobfair/simple?skip="+page+"&limit="+test
-					_this.$http.get(
+				var url ="/apis/api/getdata/jobs/jobfair/simple?skip="+page+"&limit="+test
+					axiosApi.axiosGet(
 					url
 					).then((response) => {
 						if(response.data.errcode===1){
@@ -122,8 +123,8 @@
 		    	  var _this = this;
 					 test=val;
 					 var page = val-1;
-						var url ="/apis/jobs/jobfair/simple?skip="+page+"&limit="+this.pageSize
-							_this.$http.get(
+						var url ="/apis/api/getdata/jobs/jobfair/simple?skip="+page+"&limit="+this.pageSize
+							axiosApi.axiosGet(
 							url
 						).then((response) => {
 							if(response.data.errcode===1){

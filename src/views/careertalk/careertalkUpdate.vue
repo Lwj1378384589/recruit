@@ -1,8 +1,12 @@
 <template>
-    <el-main  style="width:1150px;height:800px; background:none;overflow-y:auto ">
-            <form class="formcss"  style="margin:10px auto;text-align:center; ">
-                <p class="pcss">申请宣讲会</p>
-                <div class="renZheng mb50">
+    <div id="backIndex" style="float:left; min-height:750px;">
+      <div style="width:988px;  border: 1px solid #ccc; background:#fff; float:left;">
+             <div style="width:968px; padding-left:20px; font-size:16px; border-bottom:1px solid #ccc; height:56px; line-height:56px;">
+                申请宣讲会
+             </div>
+            <form  style="margin:10px auto;text-align:center; ">
+                
+                <div class="renZheng" >
                     <div class="renDetail">
                         <div class="xiaoM">宣讲会标题：</div>
                         <div class="xiaoT">
@@ -76,12 +80,13 @@
                   <DataForm></DataForm>
                   <dataTable></dataTable>
                   
-                  <div class="renDetail">
+                  <div class="renDetail" style="margin-bottom:30px; margin-top:30px; margin-left:135px;">
                       <el-button type="primary" class="btncss" id="sub" @click="submit">提交</el-button>
                   </div>
             </div>
         </form>
-    </el-main>
+      </div>
+    </div>
 </template>       
 
 
@@ -89,6 +94,7 @@
 import store from '@/store/store.js'
 import DataForm from "@/components/data/dataForm"
 import DataTable from "@/components/data/dataTable"
+import axiosApi from "@/api/public"
 export default{
     data() {
         return {
@@ -114,7 +120,7 @@ export default{
     methods: {
       getData:function(){
         var _this=this;
-          this.$http.get('/apis/api/getdata/jobs/campus/fetch?_id=5aacc3632708584ca51f3fd3'
+        axiosApi.axiosGet('/apis/api/getdata/jobs/campus/fetch?_id='+_this.id
 
           ).then(function(response){
               _this.subject=response.data.data.subject;
@@ -124,8 +130,20 @@ export default{
               _this.time=response.data.data.time;
               _this.contact=response.data.data.contact;
               _this.email=response.data.data.email;
-              _this.provinceSelect=response.data.data.city.name;
-              _this.citySelect=response.data.data.city.name;
+              var provinceCode=response.data.data.city.code.substring(0,2);
+              _this.provinceSelect=provinceCode+"0000";
+              var code=_this.provinceSelect;
+              if(code=="110000"||code=="120000"||code=="310000"||code=="500000"||code=="710000"||code=="810000"||code=="820000"){
+                $("#cityBlock").attr("style","display:none");
+              }else{
+                $("#cityBlock").attr("style","display:block");
+                axiosApi.axiosGet(
+                '/apis/api/getdata/naf/code/xzqh/list?parent='+_this.provinceSelect+'&level=2'
+                ).then((response)=>{
+                  _this.cityList=response.data.data;
+                })
+                _this.citySelect=response.data.data.city.code;
+              }
               _this.$store.commit('jobfairListSearch',response.data.data.jobs);
             })
           .catch(function(res){
@@ -135,7 +153,7 @@ export default{
      
       getProvinceList: function(){
         var _this=this;
-        this.$http.get('/apis/api/getdata/naf/code/xzqh/list?parent=000000&level=1'
+        axiosApi.axiosGet('/apis/api/getdata/naf/code/xzqh/list?parent=000000&level=1'
         ).then(function(response){
             _this.provinceList=response.data.data;
         })
@@ -152,7 +170,7 @@ export default{
 						return false;
 					}
 					$("#cityBlock").attr("style","display:block");
-          this.$http.get('/apis/api/getdata/naf/code/xzqh/list?parent='+code+'&level=2'
+          axiosApi.axiosGet('/apis/api/getdata/naf/code/xzqh/list?parent='+code+'&level=2'
           ).then(function(response){
               _this.cityList=response.data.data;
           })
@@ -206,7 +224,7 @@ export default{
             alert('请选择省份城市');
           }
          this.id='5aacc3632708584ca51f3fd3';
-          this.$http.post("/apis/api/post/jobs/campus/update?corp.id=session.userId&_id="+this.id,
+         axiosApi.axiosPost("/apis/api/post/jobs/campus/update?corp.id=session.userId&_id="+this.id,
           {
             "subject":_this.subject,
             "content":_this.content,
@@ -223,8 +241,6 @@ export default{
           ).then(function(response){
             if(response.data.errcode==0){
             _this.$router.push({path:'/careertalk/careertalkList'})
-            }else{
-              alert(response.data.errmsg)
             }
           })
           .catch(function(res){
@@ -240,3 +256,28 @@ export default{
 }
 
 </script>
+<style>
+body{
+ background: #f5f5f5;
+ font-size:16px;
+}
+.el-menu{
+    border: 1px solid #ccc;
+}
+.renDetail{
+  margin-left:250px;
+  margin-bottom:15px;
+}
+.xiaoM{
+  line-height: 40px;
+}
+#aside{
+    width: 200px;
+height: auto;
+margin: 0;
+margin-right:10px;
+float: left;
+    position: static;
+}
+
+</style>

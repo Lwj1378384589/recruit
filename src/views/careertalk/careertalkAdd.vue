@@ -1,65 +1,11 @@
 <template>
-     <div id="backIndex" style="width:1200px; margin:0 auto; margin-top:65px; min-height:750px;  clear:both;">
-       <!-- 固定导航栏 -->
-        <div style=" margin-right:10px; background:#fff; float:left;">
-            <div id="aside" style="width:200px; position:static;">
-                <el-menu default-active="2" class="el-menu-vertical-demo" theme="dark" :default-openeds="openeds">
-                    <el-submenu index="1" class="libg" style="border-bottom:2px solid #ffffff;"> 
-                    <template slot="title">
-                        <i class="el-icon-location"></i>
-                        <span class="css-a">企业信息</span>
-                    </template>
-                    <el-menu-item-group>
-                        <router-link to="/ent/intoupdatepassword"><el-menu-item style="text-align:center;" index="1-1" >修改密码</el-menu-item></router-link>
-                        <!-- <a href="/ent/intoupdatepassword"><el-menu-item style="text-align:center;" index="1-1" >修改密码</el-menu-item></a> -->
-                    </el-menu-item-group>
-                    </el-submenu>
-                    
-                    <el-submenu index="2" class="libg" style="border-bottom:2px solid #ffffff;"> 
-                    <template slot="title">
-                        <i class="el-icon-location"></i>
-                        <span class="css-a">宣讲会</span>
-                    </template>
-                    <el-menu-item-group>
-                        <router-link to="/careertalk/into"><el-menu-item style="text-align:center;" index="2-1" >申请宣讲会</el-menu-item></router-link>
-                        <!-- <a href="/careertalk/into"><el-menu-item style="text-align:center;" index="2-1" >申请宣讲会</el-menu-item></a> -->
-                        <router-link to="/careertalk/careertalkList"><el-menu-item style="text-align:center;" index="2-2">查看宣讲会</el-menu-item></router-link>
-                        <!-- <a href="/careertalk/allcareertalk"><el-menu-item style="text-align:center;" index="2-2">查看宣讲会</el-menu-item></a> -->
-                    </el-menu-item-group>
-                    </el-submenu>
-                    
-                    <el-submenu index="3" class="libg" style="border-bottom:2px solid #ffffff;"> 
-                    <template slot="title">
-                        <i class="el-icon-location"></i>
-                        <span class="css-a">招聘信息</span>
-                    </template>
-                    <el-menu-item-group >
-                        <router-link to="/jobs/jobsAdd"><el-menu-item style="text-align:center;" index="3-1">发布招聘信息</el-menu-item></router-link>
-                        <router-link to="/jobs/jobsList"><el-menu-item  style="text-align:center;" index="3-2">查看招聘信息</el-menu-item></router-link>
-                    </el-menu-item-group>
-                    </el-submenu>
-                    
-                    <el-submenu index="4" class="libg" style="border-bottom:2px solid #ffffff;"> 
-                    <template slot="title">
-                        <i class="el-icon-location"></i>
-                        <span class="css-a">招聘会</span>
-                    </template>
-                    <el-menu-item-group>
-                        <router-link to="/jobfair/into"><el-menu-item style="text-align:center;" index="4-1">申请招聘会</el-menu-item></router-link>
-                        <!-- <a href="/jobfair/into"><el-menu-item style="text-align:center;" index="4-1">申请招聘会</el-menu-item></a> -->
-                        <router-link to="/jobfair/jobfairList"><el-menu-item style="text-align:center;" index="4-2">查看招聘会</el-menu-item></router-link>
-                    </el-menu-item-group>
-                    </el-submenu>
-                </el-menu>
-            </div>
-        </div>
-         <!-- // 固定导航栏 -->
+     <div id="backIndex" style="float:left; min-height:750px;">
          <div style="width:988px; height:640px; border: 1px solid #ccc; background:#fff; float:left;">
              <div style="width:968px; padding-left:20px; font-size:16px; border-bottom:1px solid #ccc; height:56px; line-height:56px;">
                 申请宣讲会
              </div>
             <form   style="margin:10px auto;text-align:center; ">
-                <div class="renZheng" style="margin-left:200px;">
+                <div class="renZheng">
                     <div class="renDetail">
                         <div class="xiaoM">宣讲会标题：</div>
                         <div class="xiaoT">
@@ -126,25 +72,34 @@
                           <el-input name="email" placeholder="请输入内容" v-model="email"></el-input>
                         </div>
                       </div>
+                
                   
-                  <DataForm></DataForm>
-                  <dataTable></dataTable>
-                  
-                  <div class="renDetail" style="width:400px;margin-left:50px;">
-                      <el-button type="primary" style="width:400px; " class="btncss" id="sub" @click="submit">提交</el-button>
+                  <div class="renDetail" style="width:300px;margin-left:350px;">
+                      <el-button type="primary" style="width:300px; " class="btncss" id="sub" @click="submit">提交</el-button>
                   </div>
             </div>
         </form>
          </div>
      </div>
 </template>       
-
-
 <script>
 import { menus } from '@/utils/menus';
+export default {
+  data () {
+    return {
+      menus,
+      openeds: ['1','2','3','4'],
+      uniqueOpened: false
+    }
+  }
+}
+
+</script>
+
+<script>
+
 import store from '@/store/store.js'
-import DataForm from "@/components/data/dataForm"
-import DataTable from "@/components/data/dataTable"
+import axiosApi from "@/api/public"
 export default{
     data() {
         return {
@@ -158,10 +113,8 @@ export default{
             cityList:[],
             citySelect:'',
             provinceSelect:'',
-            provinceList:[],
-            menus,
-      openeds: ['1','2','3','4'],
-      uniqueOpened: false,
+            provinceList:[]
+            
             
     
         }
@@ -172,7 +125,7 @@ export default{
     methods: {
       getProvinceList: function(){
         var _this=this;
-        this.$http.get('/apis/api/getdata/naf/code/xzqh/list?parent=000000&level=1'
+        axiosApi.axiosGet('/apis/api/getdata/naf/code/xzqh/list?parent=000000&level=1'
         ).then(function(response){
             _this.provinceList=response.data.data;
         })
@@ -189,7 +142,7 @@ export default{
 						return false;
 					}
 					$("#cityBlock").attr("style","display:block");
-          this.$http.get('/apis/api/getdata/naf/code/xzqh/list?parent='+code+'&level=2'
+          axiosApi.axiosGet('/apis/api/getdata/naf/code/xzqh/list?parent='+code+'&level=2'
           ).then(function(response){
               _this.cityList=response.data.data;
           })
@@ -242,7 +195,7 @@ export default{
           }else{
             alert('请选择省份城市');
           }
-          this.$http.post("/apis/api/post/jobs/campus/create?corp.id=session.userId&corp.name=session.username",
+          axiosApi.axiosPost("/apis/api/post/jobs/campus/create?corp.id=session.userId&corp.name=session.username",
           {
             "subject":_this.subject,
             "content":_this.content,
@@ -265,26 +218,12 @@ export default{
         }
       },
     store,
-    components:{
-      DataForm,DataTable
-    },
+    
 
 }
 
 </script>
-<script>
-import { menus } from '@/utils/menus';
-export default {
-  data () {
-    return {
-      menus,
-      openeds: ['1','2','3','4'],
-      uniqueOpened: false
-    }
-  }
-}
 
-</script>
 <style>
 body{
  background: #f5f5f5;
@@ -294,10 +233,19 @@ body{
     border: 1px solid #ccc;
 }
 .renDetail{
+  margin-left:250px;
   margin-bottom:15px;
 }
 .xiaoM{
   line-height: 40px;
+}
+#aside{
+    width: 200px;
+height: auto;
+margin: 0;
+margin-right:10px;
+float: left;
+    position: static;
 }
 
 </style>
